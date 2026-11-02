@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from "react";
-import { RefreshCw } from "lucide-react";
+import { ArrowUpRight, RefreshCw } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface PricingCheckoutButtonProps {
@@ -52,30 +52,32 @@ export function PricingCheckoutButton({
   };
 
   return (
-    <div className="space-y-1.5 w-full">
+    <div className="checkout-control">
       <button
+        type="button"
         onClick={handleCheckout}
         disabled={loading}
+        aria-busy={loading}
         className={
           className || (
             featured
-              ? "w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-center block transition-all shadow-xs bg-blue-600 hover:bg-blue-700 text-white shadow-md cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1.5"
-              : "w-full py-2.5 px-4 rounded-xl font-semibold text-xs text-center block transition-all shadow-xs border border-gray-300 text-gray-800 hover:bg-gray-50 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1.5"
+              ? "design-button checkout-button"
+              : "quiet-button checkout-button"
           )
         }
       >
         {loading ? (
           <>
-            <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+            <RefreshCw size={16} className="animate-spin" aria-hidden="true" />
             <span>Connecting to Creem...</span>
           </>
         ) : (
-          <span>{label}</span>
+          <><span>{label}</span>{featured && <ArrowUpRight size={17} aria-hidden="true" />}</>
         )}
       </button>
 
       {error && (
-        <div role="alert" className="text-sm text-red-700 text-center">
+        <div role="alert" className="checkout-message">
           {error}
         </div>
       )}

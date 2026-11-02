@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Upload, Copy, Check, LoaderCircle, ArrowRight } from "lucide-react";
 import { SAMPLE_IMAGES, type SampleImage } from "@/data/samples";
-import { LANGUAGES, OUTPUT_MODES, type OutputMode, type ImageOutputs } from "@/lib/image-input";
+import { OUTPUT_MODES, type OutputMode, type ImageOutputs } from "@/lib/image-input";
+import { LanguageSelect } from "@/components/LanguageSelect";
 import { fileData, generateDescription, remoteImage } from "@/lib/image-client";
 
 const labels: Record<OutputMode, string> = { detailed: "Detailed", short: "Caption", alt: "Alt text", social: "Social" };
@@ -105,7 +106,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
         </button>)}</div></div>
       </div>
       <div className="desk-output">
-        <div className="desk-language"><label htmlFor="output-language">Write in</label><select id="output-language" value={language} disabled={busy} onChange={event=>{setLanguage(event.target.value);setCopied(false);}}>{LANGUAGES.map(item=><option key={item}>{item}</option>)}</select></div>
+        <div className="desk-language"><label htmlFor="output-language">Write in</label><LanguageSelect id="output-language" value={language} disabled={busy} onChange={value=>{setLanguage(value);setCopied(false);}} /></div>
         {!fixedMode&&<div className="desk-formats" aria-label="Description format">{OUTPUT_MODES.map(key=><button key={key} aria-pressed={mode===key} disabled={busy} onClick={()=>{resultVersion.current+=1;setMode(key);setCopied(false);}}>{labels[key]}</button>)}</div>}
         <div data-ui className="desk-sheet" aria-busy={busy}>
           <p className="desk-sheet-label">{source.sample?"Sample reading":"Your description"} · {outputs?outputLanguage:language}</p>

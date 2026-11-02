@@ -1,0 +1,2413 @@
+{
+ "url": "http://localhost:3001/pricing",
+ "at": "2026-11-02T10:00:14.531Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.51,
+    0.82,
+    0.47,
+    0.77,
+    0.78
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3790,
+     "screens": 4.2,
+     "words": 476,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "portrait.jpg",
+      "landscape.jpg",
+      "product.jpg",
+      "infographic.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "$49.90 / year",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 86.4,
+     "vw": 6,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.06,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.41,
+     "top": 442,
+     "tag": "p",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Simple pricing. More words.",
+     "words": 4,
+     "lines": 2,
+     "size": 79.2,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Simple pricing. More words.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 79.2,
+      "vw": 5.5,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 148,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "2,000 descriptions each month. Make them yours.",
+      "words": 7,
+      "chars": 47,
+      "lines": 3,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.33,
+      "top": 398,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Pro Annual",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 398,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49.90 / year",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 86.4,
+      "vw": 6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.06,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 442,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "Other ways to begin.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 47.5,
+      "vw": 3.3,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 848,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "A little extra room.",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1803,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "One credit. Four readings.",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 47.5,
+      "vw": 3.3,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 2031,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The details, side by side.",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 47.5,
+      "vw": 3.3,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 2371,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 59,
+      "vw": 4.1,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 3319,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 3449,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      20,
+      24,
+      27,
+      28,
+      36,
+      48,
+      59,
+      79,
+      86,
+      110
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 82,
+     "max": {
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "text": "Describe this image."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 358,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.73
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.13
+      },
+      {
+       "color": "#c1baab",
+       "share": 0.06
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.05
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 1,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Get Pro Annual"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3790,
+    "margins": {
+     "left": 48,
+     "right": 68
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro",
+      "tag": "header",
+      "top": 148,
+      "height": 162,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A description for one image. A plan for the next t",
+       "size": 27,
+       "tag": "p"
+      },
+      "left": 760,
+      "right": 191,
+      "textLeft": 760,
+      "textRight": 191,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.annual-offer",
+      "tag": "section",
+      "top": 358,
+      "height": 390,
+      "words": 59,
+      "media": 0,
+      "middle": 325,
+      "heading": {
+       "text": "$49.90",
+       "size": 86,
+       "tag": "p"
+      },
+      "left": 96,
+      "right": 108,
+      "textLeft": 96,
+      "textRight": 108,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section",
+      "tag": "section",
+      "top": 848,
+      "height": 1083,
+      "words": 131,
+      "media": 0,
+      "middle": 89,
+      "heading": {
+       "text": "to begin.",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 48,
+      "right": 80,
+      "textLeft": 48,
+      "textRight": 129,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section.plan-image-examples",
+      "tag": "section",
+      "top": 2031,
+      "height": 240,
+      "words": 23,
+      "media": 4,
+      "middle": 191,
+      "heading": {
+       "text": "Four readings.",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 48,
+      "right": 48,
+      "textLeft": 48,
+      "textRight": 976,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section",
+      "tag": "section",
+      "top": 2371,
+      "height": 784,
+      "words": 197,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "side by side.",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 48,
+      "right": 68,
+      "textLeft": 48,
+      "textRight": 68,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 3255,
+      "height": 535,
+      "words": 38,
+      "media": 0,
+      "middle": 249,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 110,
+       "tag": "div"
+      },
+      "left": 48,
+      "right": 48,
+      "textLeft": 48,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Simple pricing. More words.",
+      "size": 79,
+      "top": 148,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 48,
+      "n": 11
+     },
+     {
+      "x": 80,
+      "n": 5
+     },
+     {
+      "x": 757,
+      "n": 4
+     },
+     {
+      "x": 232,
+      "n": 2
+     },
+     {
+      "x": 307,
+      "n": 2
+     },
+     {
+      "x": 736,
+      "n": 2
+     },
+     {
+      "x": 96,
+      "n": 1
+     },
+     {
+      "x": 150,
+      "n": 1
+     },
+     {
+      "x": 190,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 29,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.16,
+    "voidBox": {
+     "x": 300,
+     "y": 720,
+     "w": 1140,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.67,
+    0.78,
+    0.71,
+    0.81
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 3912,
+     "screens": 3.8,
+     "words": 474,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "landscape.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "$49.90 / year",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 64,
+     "vw": 8.3,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.06,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.4,
+     "top": 366,
+     "tag": "p",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Simple pricing. More words.",
+     "words": 4,
+     "lines": 2,
+     "size": 46,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Simple pricing. More words.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 46,
+      "vw": 6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 148,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Pro Annual",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 322,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49.90 / year",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 64,
+      "vw": 8.3,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.06,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 366,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "Other ways to begin.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 771,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "A little extra room.",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1661,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "One credit. Four readings.",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 1914,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The details, side by side.",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 2250,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 3513,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 58.8,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 3588,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      20,
+      24,
+      25,
+      28,
+      34,
+      46,
+      59,
+      64
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 43,
+     "max": {
+      "size": 64,
+      "vw": 8.3,
+      "font": "Libre Franklin",
+      "text": "$49.90"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 290,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.73
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.13
+      },
+      {
+       "color": "#c1baab",
+       "share": 0.06
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.05
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Get Pro Annual",
+      "Try an image"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback",
+     "source serif 4",
+     "source serif 4 fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 3912,
+    "margins": {
+     "left": 25,
+     "right": 25
+    },
+    "sections": [
+     {
+      "sel": "section.annual-offer",
+      "tag": "section",
+      "top": 290,
+      "height": 380,
+      "words": 59,
+      "media": 0,
+      "middle": 39,
+      "heading": {
+       "text": "$49.90",
+       "size": 64,
+       "tag": "p"
+      },
+      "left": 57,
+      "right": 61,
+      "textLeft": 57,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section",
+      "tag": "section",
+      "top": 770,
+      "height": 1044,
+      "words": 131,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "to begin.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 25,
+      "right": 36,
+      "textLeft": 25,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section.plan-image-examples",
+      "tag": "section",
+      "top": 1914,
+      "height": 236,
+      "words": 23,
+      "media": 3,
+      "middle": 45,
+      "heading": {
+       "text": "Four readings.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 25,
+      "right": 25,
+      "textLeft": 25,
+      "textRight": 464,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section",
+      "tag": "section",
+      "top": 2250,
+      "height": 1100,
+      "words": 197,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "side by side.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 25,
+      "right": 34,
+      "textLeft": 25,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 3449,
+      "height": 463,
+      "words": 38,
+      "media": 0,
+      "middle": 22,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 59,
+       "tag": "div"
+      },
+      "left": 25,
+      "right": 25,
+      "textLeft": 25,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Simple pricing. More words.",
+      "size": 46,
+      "top": 148,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 25,
+      "n": 11
+     },
+     {
+      "x": 400,
+      "n": 6
+     },
+     {
+      "x": 51,
+      "n": 4
+     },
+     {
+      "x": 65,
+      "n": 2
+     },
+     {
+      "x": 204,
+      "n": 2
+     },
+     {
+      "x": 279,
+      "n": 2
+     },
+     {
+      "x": 122,
+      "n": 1
+     },
+     {
+      "x": 162,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 29,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.77,
+    0.81,
+    0.86,
+    0.6,
+    0.73,
+    0.92,
+    0.79,
+    0.84
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6075,
+     "screens": 7.2,
+     "words": 471,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "portrait.jpg",
+      "landscape.jpg",
+      "product.jpg",
+      "infographic.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "$49.90 / year",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 64,
+     "vw": 16.4,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.06,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.77,
+     "top": 401,
+     "tag": "p",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Simple pricing. More words.",
+     "words": 4,
+     "lines": 2,
+     "size": 41.7,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 20,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Simple pricing. More words.",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 41.7,
+      "vw": 10.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 116,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Pro Annual",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 363,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49.90 / year",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.06,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 401,
+      "tag": "p",
+      "kind": "heading"
+     },
+     {
+      "text": "2,000 descriptions each month. Make them yours.",
+      "words": 7,
+      "chars": 47,
+      "lines": 3,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 606,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Other ways to begin.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1002,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Free",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1222,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "$0 to begin",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.13,
+      "top": 1222,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Starter Pack",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 1576,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "$9.99 one payment",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 1576,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Pro Monthly",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 1908,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "$9.90 per month",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.17,
+      "top": 1908,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "A little extra room.",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 27,
+      "vw": 6.9,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 2284,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "One credit. Four readings.",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2565,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The details, side by side.",
+      "words": 5,
+      "chars": 26,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3273,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Free",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 3571,
+      "tag": "th",
+      "kind": "heading"
+     },
+     {
+      "text": "Starter Pack",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 3895,
+      "tag": "th",
+      "kind": "heading"
+     },
+     {
+      "text": "Pro Monthly",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 4228,
+      "tag": "th",
+      "kind": "heading"
+     },
+     {
+      "text": "Pro Annual",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 4527,
+      "tag": "th",
+      "kind": "heading"
+     },
+     {
+      "text": "Add-on Credits",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 4826,
+      "tag": "th",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.58,
+      "top": 5577,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 29.8,
+      "vw": 7.6,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5736,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 22,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      21,
+      22,
+      24,
+      26,
+      27,
+      30,
+      34,
+      42,
+      64
+     ],
+     "sizeCount": 15,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Libre Franklin",
+      "text": "$49.90"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 337,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#eeece7",
+       "top": 1196,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#dcd5c5",
+       "top": 4503,
+       "hsl": {
+        "h": 42,
+        "s": 0.25,
+        "l": 0.82
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.72
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.14
+      },
+      {
+       "color": "#c1baab",
+       "share": 0.06
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.05
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 2,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Describe this image.",
+      "Get Pro Annual"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1196
+      },
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3547
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6075,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro",
+      "tag": "header",
+      "top": 116,
+      "height": 193,
+      "words": 19,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "More words.",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 68,
+      "textLeft": 20,
+      "textRight": 68,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.annual-offer",
+      "tag": "section",
+      "top": 337,
+      "height": 601,
+      "words": 59,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "$49.90",
+       "size": 64,
+       "tag": "p"
+      },
+      "left": 44,
+      "right": 44,
+      "textLeft": 44,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.page-section-heading",
+      "tag": "div",
+      "top": 1002,
+      "height": 168,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "to begin.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.plan-options",
+      "tag": "div",
+      "top": 1196,
+      "height": 1030,
+      "words": 81,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Free",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 44,
+      "right": 44,
+      "textLeft": 44,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.credit-addon",
+      "tag": "section",
+      "top": 2258,
+      "height": 244,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A little extra room.",
+       "size": 27,
+       "tag": "h2"
+      },
+      "left": 44,
+      "right": 44,
+      "textLeft": 44,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-section.plan-image-examples",
+      "tag": "section",
+      "top": 2565,
+      "height": 644,
+      "words": 23,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Four readings.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.page-section-heading",
+      "tag": "div",
+      "top": 3273,
+      "height": 168,
+      "words": 24,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "side by side.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 33,
+      "textLeft": 20,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "table.comparison-table",
+      "tag": "table",
+      "top": 3467,
+      "height": 1657,
+      "words": 95,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Free",
+       "size": 22,
+       "tag": "th"
+      },
+      "left": 20,
+      "right": 23,
+      "textLeft": 20,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.billing-notes",
+      "tag": "div",
+      "top": 5156,
+      "height": 312,
+      "words": 68,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Billing, with clarity.",
+       "size": 20,
+       "tag": "h3"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 5532,
+      "height": 543,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "There’s more to",
+       "size": 34,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 43,
+      "textLeft": 20,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Simple pricing. More words.",
+      "size": 42,
+      "top": 116,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 16
+     },
+     {
+      "x": 44,
+      "n": 7
+     },
+     {
+      "x": 267,
+      "n": 1
+     },
+     {
+      "x": 281,
+      "n": 1
+     },
+     {
+      "x": 297,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 26,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "14 different font sizes (13, 14, 15, 16, 20, 24, 27, 28, 36, 48, 59, 79, 86, 110).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 48px on the left, 68px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 8 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 390,
+   "message": "2 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid."
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 390,
+   "message": "Yellow-cream background (section #eeece7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/desktop-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/desktop-page-01.jpg",
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/tablet-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/mobile-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/pricing/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

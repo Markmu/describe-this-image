@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Libre_Franklin, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import "./reading-pages.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/components/AuthProvider";

@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Upload, Download, Trash2, LoaderCircle } from "lucide-react";
-import { LANGUAGES, csvCell, validateImageFile, type ImageOutputs } from "@/lib/image-input";
+import { Upload, Download, Trash2, LoaderCircle, ArrowUpRight } from "lucide-react";
+import { csvCell, validateImageFile, type ImageOutputs } from "@/lib/image-input";
+import { LanguageSelect } from "@/components/LanguageSelect";
+import { PageIntro } from "@/components/PageIntro";
 import { fileData, generateDescription } from "@/lib/image-client";
 
 type Item = { id: string; file: File; preview: string; status: "pending" | "processing" | "completed" | "error"; error?: string; outputs?: ImageOutputs; language?: string };
@@ -11,6 +13,7 @@ export default function BatchGeneratorPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [language, setLanguage] = useState("English");
   const [busy, setBusy] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const [error, setError] = useState("");
   const [access, setAccess] = useState<{ canBatch: boolean; generationAvailable: boolean } | null>(null);
   const busyRef = useRef(false);
@@ -77,41 +80,47 @@ export default function BatchGeneratorPage() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const completed = items.filter(item => item.status === "completed").length;
-  return (
-    <main id="main-content" className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-7">
-      <Link href="/" className="text-sm text-blue-700 hover:underline">← Back to image describer</Link>
-      <div className="flex flex-wrap items-end justify-between gap-5">
-        <div><h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Batch image descriptions</h1><p className="text-zinc-600 mt-3 max-w-xl">Queue images, generate four description formats, and export completed results to CSV. Pro subscription required. Each image uses 1 credit.</p></div>
-        <Link href="/pricing" className="text-blue-700 underline text-sm">View Pro plans</Link>
-      </div>
-      {access && (!access.canBatch || !access.generationAvailable) && <div role="status" className="p-4 rounded-xl border border-amber-200 bg-amber-50 text-sm text-amber-950">{!access.generationAvailable ? "Generation is unavailable. You can prepare a queue; processing requires an available image service." : "Sign in with an active Pro plan to process your queue."}</div>}
-      <section aria-label="Batch controls" className="rounded-2xl border border-zinc-200 bg-white p-5 sm:p-7 space-y-5">
-        <label onDragOver={event => event.preventDefault()} onDrop={event => { event.preventDefault(); addFiles(event.dataTransfer.files); }} className="relative flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-zinc-400 hover:border-blue-600 p-8 cursor-pointer focus-within:ring-2 focus-within:ring-blue-500">
-          <Upload className="w-7 h-7 text-blue-600" /><span className="font-semibold">Drop images or browse files</span><span className="text-sm text-zinc-500 text-center">Up to 50 images · JPG, PNG, WebP, GIF · 10 MB per image</span>
-          <input aria-label="Upload batch images" className="absolute inset-0 opacity-0 w-full cursor-pointer" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple disabled={busy} onChange={event => { if (event.target.files) addFiles(event.target.files); event.target.value = ""; }} />
+  return <main id="main-content" className="reading-page batch-page">
+    <PageIntro title={<>A batch of images.<br />A set of words.</>} compact>
+      <p>Queue up to 50 images, choose your language and export four description formats. Pro required. One credit per image.</p>
+      <Link href="/pricing" className="design-text-link">Explore Pro plans<ArrowUpRight size={18} aria-hidden="true" /></Link>
+    </PageIntro>
+    {access && (!access.canBatch || !access.generationAvailable) && <div role="status" className="page-notice">{!access.generationAvailable ? "Generation is unavailable. You can prepare a queue; processing requires an available image service." : <>Sign in with an active Pro plan to process your queue. <Link href="/pricing">View plans</Link></>}</div>}
+
+    <div className="batch-layout" data-ui>
+      <section className="batch-source" aria-label="Add images">
+        <label aria-disabled={busy} onDragOver={event => {event.preventDefault(); if (!busy) setDragging(true);}}
+          onDragLeave={() => setDragging(false)}
+          onDrop={event => { event.preventDefault(); setDragging(false); addFiles(event.dataTransfer.files); }}
+          className={"batch-upload" + (dragging ? " is-dragging" : "")}>
+          <Upload size={28} strokeWidth={1.5} aria-hidden="true" />
+          <strong>Bring your images.</strong><span>Drop files here or browse your device.</span>
+          <input aria-label="Upload batch images" aria-describedby="batch-file-limits" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple disabled={busy}
+            onChange={event => { if (event.target.files) addFiles(event.target.files); event.target.value = ""; }} />
         </label>
-        <div className="flex flex-wrap items-center gap-3">
-          <label htmlFor="batch-language" className="text-sm font-medium">Output language</label>
-          <select id="batch-language" value={language} disabled={busy} onChange={event => setLanguage(event.target.value)} className="border border-zinc-300 rounded-lg p-2.5">{LANGUAGES.map(item => <option key={item}>{item}</option>)}</select>
-          <button onClick={processQueue} disabled={busy || !items.some(item => item.status === "pending" || item.status === "error") || !access?.canBatch || !access?.generationAvailable} className="rounded-lg bg-blue-600 text-white px-5 py-3 font-semibold text-sm flex items-center gap-2 disabled:opacity-50 hover:bg-blue-700">{busy && <LoaderCircle className="w-4 h-4 animate-spin" />}{busy ? "Processing queue…" : "Generate descriptions"}</button>
-          <button onClick={exportCsv} disabled={!completed || busy} className="rounded-lg bg-zinc-900 text-white px-5 py-3 text-sm flex items-center gap-2 disabled:opacity-50"><Download className="w-4 h-4" />Export CSV ({completed})</button>
-        </div>
-        <p className="text-xs text-zinc-500">Images are sent to the AI service when you generate. GIF uses its first frame. <Link href="/privacy" className="underline">Privacy details</Link></p>
-        {error && <p role="alert" className="p-3 rounded-lg bg-red-50 text-red-800 text-sm break-words">{error}</p>}
+        <div><h2>A few things to know.</h2><p id="batch-file-limits" className="page-note">Up to 50 images. JPG, PNG, WebP or GIF. 10 MB per image. GIF uses its first frame.</p></div>
+        <p className="page-note">Images are sent to the AI service when you generate. <Link href="/privacy">Image privacy</Link></p>
       </section>
-      <section aria-label="Image queue" className="rounded-2xl border border-zinc-200 bg-white overflow-hidden">
-        <div className="p-5 border-b border-zinc-200 flex justify-between items-center gap-3"><h2 className="font-semibold" aria-live="polite">{completed} of {items.length} images completed</h2><button onClick={() => remove()} disabled={busy || !items.length} className="text-sm text-red-700 disabled:opacity-40 p-2">Clear queue</button></div>
-        {!items.length && <p className="p-12 text-center text-zinc-500">Your queue is empty. Add images to get started.</p>}
-        <ul className="divide-y divide-zinc-200">{items.map(item => <li key={item.id} className="p-5 flex flex-col md:flex-row gap-5">
-          <div className="flex items-start gap-3 md:w-72 shrink-0 min-w-0">
+
+      <section className="batch-queue" aria-labelledby="queue-title">
+        <div className="batch-queue-heading"><div><h2 id="queue-title">Image queue</h2><p aria-live="polite">{completed} of {items.length} images completed</p></div><button type="button" onClick={() => remove()} disabled={busy || !items.length} className="batch-clear">Clear queue</button></div>
+        <div className="batch-tools">
+          <div className="batch-language"><label htmlFor="batch-language">Output language</label><LanguageSelect id="batch-language" value={language} disabled={busy} onChange={setLanguage} align="start" /></div>
+          <button type="button" onClick={processQueue} disabled={busy || !items.some(item => item.status === "pending" || item.status === "error") || !access?.canBatch || !access?.generationAvailable} className="design-button">{busy && <LoaderCircle size={16} className="animate-spin" aria-hidden="true" />}{busy ? "Processing queue…" : "Generate descriptions"}</button>
+          <button type="button" onClick={exportCsv} disabled={!completed || busy} className="quiet-button"><Download size={16} aria-hidden="true" />Export CSV ({completed})</button>
+        </div>
+        {error && <p role="alert" className="batch-error">{error}</p>}
+        {!items.length && <div className="batch-empty"><h3>Your images, in order.</h3><p>Add your images to build a queue. Each result will include alt text, a caption, a detailed description and social copy.</p></div>}
+        <ul className="batch-items">{items.map(item => <li key={item.id} className="batch-item">
+          <div className="batch-item-source">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={item.preview} alt={item.file.name} className="w-16 h-16 object-contain rounded-lg bg-zinc-100" />
-            <div className="min-w-0 flex-1"><p className="font-semibold text-sm break-all">{item.file.name}</p><p className="text-xs text-zinc-500 mt-1">{(item.file.size / 1024 / 1024).toFixed(1)} MB</p><p className="text-sm mt-1" role="status">{item.status}{item.language ? " · " + item.language : ""}</p></div>
+            <img src={item.preview} alt={item.file.name} width={68} height={82} />
+            <div><p className="batch-item-name">{item.file.name}</p><p className="page-note">{(item.file.size / 1024 / 1024).toFixed(1)} MB</p><p className="batch-item-status" data-status={item.status} role="status">{item.status}{item.language ? " · " + item.language : ""}</p></div>
           </div>
-          <div className="flex-1 min-w-0 text-sm space-y-2">{item.error && <p className="text-red-700">{item.error}</p>}{item.outputs ? <><p className="break-words"><strong>Alt text: </strong>{item.outputs.alt}</p><p className="break-words"><strong>Caption: </strong>{item.outputs.short}</p></> : <p className="text-zinc-500">Description pending</p>}</div>
-          <button onClick={() => remove(item.id)} disabled={busy} aria-label={"Remove " + item.file.name} className="self-end md:self-start p-3 rounded-lg hover:bg-red-50 text-red-700 disabled:opacity-40"><Trash2 className="w-4 h-4" /></button>
+          <div className="batch-item-output">{item.error && <p>{item.error}</p>}{item.outputs ? <><p><strong>Alt text: </strong>{item.outputs.alt}</p><p><strong>Caption: </strong>{item.outputs.short}</p></> : <p className="page-note">Description pending</p>}</div>
+          <button type="button" onClick={() => remove(item.id)} disabled={busy} aria-label={"Remove " + item.file.name} className="batch-item-remove"><Trash2 size={17} aria-hidden="true" /></button>
         </li>)}</ul>
       </section>
-    </main>
-  );
+    </div>
+  </main>;
 }

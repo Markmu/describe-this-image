@@ -1,0 +1,2078 @@
+{
+ "url": "http://localhost:3001/how-to-use",
+ "at": "2026-11-02T09:50:20.842Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.62,
+    0.33,
+    0.46,
+    0.4,
+    0.47,
+    0.84
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4978,
+     "screens": 5.5,
+     "words": 640,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 15,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "landscape.jpg",
+      "landscape.jpg",
+      "portrait.jpg",
+      "product.jpg",
+      "infographic.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "chars": 22,
+     "lines": 2,
+     "size": 79.2,
+     "vw": 5.5,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.055,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.44,
+     "top": 176,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "lines": 2,
+     "size": 79.2,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Describe what you see.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 79.2,
+      "vw": 5.5,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 176,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "A river winds between trees and tall cliffs beneath a warm evening sky.",
+      "words": 13,
+      "chars": 71,
+      "lines": 3,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 497,
+      "tag": "blockquote",
+      "kind": "statement"
+     },
+     {
+      "text": "Start with the subject.",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 896,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Give it a setting.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1175,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notice light and detail.",
+      "words": 4,
+      "chars": 24,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1454,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Choose words that fit.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1766,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Write alt text in context.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 3196,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bring your image.",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 3574,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your image. Your next words.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 47.5,
+      "vw": 3.3,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 4172,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 59,
+      "vw": 4.1,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 4507,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 4636,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Serif 4",
+       "share": 0.75,
+       "mono": false
+      },
+      {
+       "family": "Libre Franklin",
+       "share": 0.25,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      27,
+      36,
+      40,
+      48,
+      59,
+      79,
+      110
+     ],
+     "sizeCount": 15,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Serif 4",
+      "size": 20,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 78,
+     "max": {
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "text": "Describe this image."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 386,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 4443,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.88
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.08
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.02
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#18bc42",
+      "hsl": {
+       "h": 135,
+       "s": 0.77,
+       "l": 0.42
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Try the image describer"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1957
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.26
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4978,
+    "margins": {
+     "left": 48,
+     "right": 50
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro",
+      "tag": "header",
+      "top": 148,
+      "height": 190,
+      "words": 21,
+      "media": 0,
+      "middle": 411,
+      "heading": {
+       "text": "Describe",
+       "size": 79,
+       "tag": "h1"
+      },
+      "left": 48,
+      "right": 180,
+      "textLeft": 48,
+      "textRight": 180,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "figure.guide-example",
+      "tag": "figure",
+      "top": 386,
+      "height": 430,
+      "words": 26,
+      "media": 1,
+      "middle": 40,
+      "heading": {
+       "text": "A river winds between trees and tall cliffs beneat",
+       "size": 36,
+       "tag": "blockquote"
+      },
+      "left": 48,
+      "right": 115,
+      "textLeft": 868,
+      "textRight": 115,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.guide-layout",
+      "tag": "div",
+      "top": 896,
+      "height": 3128,
+      "words": 538,
+      "media": 4,
+      "middle": 455,
+      "heading": {
+       "text": "Give it a setting.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 48,
+      "right": 48,
+      "textLeft": 48,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-callout",
+      "tag": "section",
+      "top": 4104,
+      "height": 239,
+      "words": 24,
+      "media": 0,
+      "middle": 322,
+      "heading": {
+       "text": "Your image.",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 96,
+      "right": 219,
+      "textLeft": 96,
+      "textRight": 219,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 4443,
+      "height": 535,
+      "words": 38,
+      "media": 0,
+      "middle": 249,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 110,
+       "tag": "div"
+      },
+      "left": 48,
+      "right": 48,
+      "textLeft": 48,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Describe what you see.",
+      "size": 79,
+      "top": 176,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 612,
+      "n": 19
+     },
+     {
+      "x": 48,
+      "n": 2
+     },
+     {
+      "x": 96,
+      "n": 2
+     },
+     {
+      "x": 757,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 20,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 960,
+     "y": 300,
+     "w": 480,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.54,
+    0.34,
+    0.49,
+    0.44,
+    0.54,
+    0.81
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5731,
+     "screens": 5.6,
+     "words": 638,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 15,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "landscape.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "chars": 22,
+     "lines": 2,
+     "size": 46,
+     "vw": 6,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.055,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.44,
+     "top": 216,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "lines": 2,
+     "size": 46,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Describe what you see.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 46,
+      "vw": 6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 216,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Start with the subject.",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 738,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Give it a setting.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1136,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notice light and detail.",
+      "words": 4,
+      "chars": 24,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1534,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Choose words that fit.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 1966,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Write alt text in context.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 3556,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bring your image.",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.54,
+      "top": 4086,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your image. Your next words.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 4983,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 5332,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 58.8,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 5407,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Serif 4",
+       "share": 0.75,
+       "mono": false
+      },
+      {
+       "family": "Libre Franklin",
+       "share": 0.25,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      24,
+      28,
+      32,
+      34,
+      46,
+      59
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Serif 4",
+      "size": 20,
+      "leading": 1.4,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 58.8,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "text": "Describe this image."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 5268,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.88
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.08
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.02
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#18bc42",
+      "hsl": {
+       "h": 135,
+       "s": 0.77,
+       "l": 0.42
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Try the image describer"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2209
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.16
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback",
+     "source serif 4",
+     "source serif 4 fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 5731,
+    "margins": {
+     "left": 25,
+     "right": 25
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro",
+      "tag": "header",
+      "top": 148,
+      "height": 162,
+      "words": 21,
+      "media": 0,
+      "middle": 205,
+      "heading": {
+       "text": "Describe",
+       "size": 46,
+       "tag": "h1"
+      },
+      "left": 25,
+      "right": 30,
+      "textLeft": 25,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "figure.guide-example",
+      "tag": "figure",
+      "top": 358,
+      "height": 300,
+      "words": 26,
+      "media": 1,
+      "middle": 28,
+      "heading": null,
+      "left": 25,
+      "right": 58,
+      "textLeft": 469,
+      "textRight": 58,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.guide-layout",
+      "tag": "div",
+      "top": 738,
+      "height": 4048,
+      "words": 542,
+      "media": 0,
+      "middle": 191,
+      "heading": {
+       "text": "Start with the subject.",
+       "size": 28,
+       "tag": "h2"
+      },
+      "left": 25,
+      "right": 26,
+      "textLeft": 25,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-callout",
+      "tag": "section",
+      "top": 4866,
+      "height": 302,
+      "words": 24,
+      "media": 0,
+      "middle": 101,
+      "heading": {
+       "text": "Your image.",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 73,
+      "right": 86,
+      "textLeft": 73,
+      "textRight": 86,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 5268,
+      "height": 463,
+      "words": 38,
+      "media": 0,
+      "middle": 22,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 59,
+       "tag": "div"
+      },
+      "left": 25,
+      "right": 25,
+      "textLeft": 25,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Describe what you see.",
+      "size": 46,
+      "top": 216,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 327,
+      "n": 19
+     },
+     {
+      "x": 25,
+      "n": 2
+     },
+     {
+      "x": 73,
+      "n": 2
+     },
+     {
+      "x": 403,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 20,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    0.69,
+    0.62,
+    0.63,
+    0.79,
+    0.92,
+    0.68,
+    0.65,
+    0.9,
+    0.91
+   ],
+   "motion": {
+    "elements": 8,
+    "css": 8,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6835,
+     "screens": 8.1,
+     "words": 632,
+     "img": 5,
+     "video": 0,
+     "canvas": 0,
+     "svg": 15,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "landscape.jpg",
+      "landscape.jpg",
+      "portrait.jpg",
+      "product.jpg",
+      "infographic.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "chars": 22,
+     "lines": 2,
+     "size": 41.7,
+     "vw": 10.7,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.055,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 116,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Describe what you see.",
+     "words": 4,
+     "lines": 2,
+     "size": 41.7,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 20,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Describe what you see.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 41.7,
+      "vw": 10.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 116,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "A river winds between trees and tall cliffs beneath a warm evening sky.",
+      "words": 13,
+      "chars": 71,
+      "lines": 3,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 731,
+      "tag": "blockquote",
+      "kind": "statement"
+     },
+     {
+      "text": "Start with the subject.",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1151,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Give it a setting.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1549,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Notice light and detail.",
+      "words": 4,
+      "chars": 24,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1946,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Choose words that fit.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2344,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Write alt text in context.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4539,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bring your image.",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 29,
+      "vw": 7.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5093,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your image. Your next words.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 5937,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.58,
+      "top": 6337,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 29.8,
+      "vw": 7.6,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 6495,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 12,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Serif 4",
+       "share": 0.76,
+       "mono": false
+      },
+      {
+       "family": "Libre Franklin",
+       "share": 0.24,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      18,
+      19,
+      20,
+      21,
+      24,
+      26,
+      29,
+      30,
+      32,
+      34,
+      42
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Serif 4",
+      "size": 19,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 37,
+     "max": {
+      "size": 41.7,
+      "vw": 10.7,
+      "font": "Libre Franklin",
+      "text": "Describewhat you see."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 445,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 5909,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.88
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.08
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.02
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#18bc42",
+      "hsl": {
+       "h": 135,
+       "s": 0.77,
+       "l": 0.42
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 2,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Describe this image.",
+      "Try the image describer"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2580
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.28
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6835,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro",
+      "tag": "header",
+      "top": 116,
+      "height": 301,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "what you see.",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 53,
+      "textLeft": 20,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "figure.guide-example",
+      "tag": "figure",
+      "top": 445,
+      "height": 467,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 46,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "aside.guide-index",
+      "tag": "aside",
+      "top": 952,
+      "height": 162,
+      "words": 17,
+      "media": 0,
+      "middle": 28,
+      "heading": null,
+      "left": 20,
+      "right": 149,
+      "textLeft": 20,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "article.guide-chapters",
+      "tag": "article",
+      "top": 1151,
+      "height": 4707,
+      "words": 525,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "Start with the subject.",
+       "size": 29,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.page-callout",
+      "tag": "section",
+      "top": 5909,
+      "height": 319,
+      "words": 24,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Your image.",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 44,
+      "right": 47,
+      "textLeft": 44,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 6292,
+      "height": 543,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "There’s more to",
+       "size": 34,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 43,
+      "textLeft": 20,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Describe what you see.",
+      "size": 42,
+      "top": 116,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 22
+     },
+     {
+      "x": 44,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #eeece7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "15 different font sizes (13, 14, 15, 16, 18, 19, 20, 21, 27, 36, 40, 48, 59, 79, 110).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 8 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/desktop-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/desktop-page-01.jpg",
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/tablet-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/mobile-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/mobile-page-01.jpg",
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/guide/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

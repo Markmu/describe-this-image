@@ -1,0 +1,1695 @@
+{
+ "url": "http://localhost:3001/image-description-generator",
+ "at": "2026-11-02T09:50:20.836Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.58,
+    0.8
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 2,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1479,
+     "screens": 1.6,
+     "words": 184,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 12,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 2,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 50,
+     "vw": 3.5,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 162,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "lines": 2,
+     "size": 50.4,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A batch of images. A set of words.",
+      "words": 8,
+      "chars": 34,
+      "lines": 2,
+      "size": 50.4,
+      "vw": 3.5,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 162,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Your images, in order.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.58,
+      "top": 625,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 59,
+      "vw": 4.1,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 1008,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 1138,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      18,
+      20,
+      50,
+      59,
+      110
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 56,
+     "max": {
+      "size": 110.2,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "text": "Describe this image."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.06,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 944,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.57
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.2
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.16
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.07
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "English",
+      "Generate descriptions",
+      "Export CSV (0)"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1479,
+    "margins": {
+     "left": 48,
+     "right": 74
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.reading-page.batch-page",
+      "tag": "main",
+      "top": 92,
+      "height": 852,
+      "words": 134,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A batch of images.",
+       "size": 50,
+       "tag": "h1"
+      },
+      "left": 48,
+      "right": 74,
+      "textLeft": 48,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 944,
+      "height": 535,
+      "words": 38,
+      "media": 0,
+      "middle": 249,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 110,
+       "tag": "div"
+      },
+      "left": 48,
+      "right": 48,
+      "textLeft": 48,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A batch of images. A set of words.",
+      "size": 50,
+      "top": 162,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 48,
+      "n": 2
+     },
+     {
+      "x": 760,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 3,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.1,
+    "voidBox": {
+     "x": 1020,
+     "y": 600,
+     "w": 420,
+     "h": 300
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 92
+    },
+    "canvas": {
+     "left": 48,
+     "right": 48
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 50,
+     "vw": 3.5,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 162,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 3,
+     "firstScreen": 3,
+     "ragged": [
+      {
+       "diff": 77,
+       "top": 379
+      }
+     ],
+     "voids": [
+      {
+       "gap": 44,
+       "at": 723,
+       "panel": "Image queue"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 5,
+     "radii": [
+      [
+       0,
+       5
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.02,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      25,
+      32,
+      50,
+      59,
+      110
+     ]
+    },
+    "title": {
+     "text": "A batch of images.\nA set of words.",
+     "size": 50,
+     "top": 162
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.65,
+    0.85
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 2,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1531,
+     "screens": 1.5,
+     "words": 182,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 12,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 2,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 38,
+     "vw": 4.9,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 245,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "lines": 2,
+     "size": 38,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "A batch of images. A set of words.",
+      "words": 8,
+      "chars": 34,
+      "lines": 2,
+      "size": 38,
+      "vw": 4.9,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 245,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Your images, in order.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.56,
+      "top": 743,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 1133,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 58.8,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 1207,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      18,
+      20,
+      34,
+      38,
+      59
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 37,
+     "max": {
+      "size": 58.8,
+      "vw": 7.7,
+      "font": "Libre Franklin",
+      "text": "Describe this image."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.06,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#1a1a1a",
+       "top": 1069,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.57
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.2
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.16
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.07
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "English",
+      "Generate descriptions",
+      "Export CSV (0)"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1531,
+    "margins": {
+     "left": 25,
+     "right": 25
+    },
+    "sections": [
+     {
+      "sel": "main#main-content.reading-page.batch-page",
+      "tag": "main",
+      "top": 92,
+      "height": 977,
+      "words": 134,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A batch of images.",
+       "size": 38,
+       "tag": "h1"
+      },
+      "left": 25,
+      "right": 51,
+      "textLeft": 25,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 1069,
+      "height": 463,
+      "words": 38,
+      "media": 0,
+      "middle": 22,
+      "heading": {
+       "text": "Describe this image.",
+       "size": 59,
+       "tag": "div"
+      },
+      "left": 25,
+      "right": 25,
+      "textLeft": 25,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A batch of images. A set of words.",
+      "size": 38,
+      "top": 245,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 25,
+      "n": 2
+     },
+     {
+      "x": 406,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 3,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 92
+    },
+    "canvas": {
+     "left": 25,
+     "right": 25
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 38,
+     "vw": 4.9,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 245,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 3,
+     "firstScreen": 3,
+     "ragged": [
+      {
+       "diff": 84,
+       "top": 437
+      }
+     ],
+     "voids": [
+      {
+       "gap": 44,
+       "at": 841,
+       "panel": "Image queue"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 5,
+     "radii": [
+      [
+       0,
+       5
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.02,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      25,
+      32,
+      34,
+      38,
+      59
+     ]
+    },
+    "title": {
+     "text": "A batch of images.\nA set of words.",
+     "size": 38,
+     "top": 245
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.61,
+    0.88,
+    0.91
+   ],
+   "motion": {
+    "elements": 2,
+    "css": 2,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2003,
+     "screens": 2.4,
+     "words": 176,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 12,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 2,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 38,
+     "vw": 9.7,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 116,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "lines": 2,
+     "size": 38,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 20,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "A batch of images. A set of words.",
+      "words": 8,
+      "chars": 34,
+      "lines": 2,
+      "size": 38,
+      "vw": 9.7,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.055,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 116,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Bring your images.",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.52,
+      "top": 609,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Image queue",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 948,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your images, in order.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Source Serif 4",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 1238,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "There’s more to every image.",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 8.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.58,
+      "top": 1505,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Describe this image.",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 29.8,
+      "vw": 7.6,
+      "font": "Libre Franklin",
+      "weight": 700,
+      "tracking": -0.07,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1664,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "Source Serif 4",
+       "share": 0.02,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      18,
+      26,
+      30,
+      34,
+      38
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 13.2
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 38,
+      "vw": 9.7,
+      "font": "Libre Franklin",
+      "text": "A batch of images.A set of words."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 500,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 1460,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.55
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.21
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.17
+      },
+      {
+       "color": "#b7b3a9",
+       "share": 0.08
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 1,
+     "radius": 0,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Describe this image."
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback",
+     "source serif 4"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2003,
+    "margins": {
+     "left": 20,
+     "right": 40
+    },
+    "sections": [
+     {
+      "sel": "header.page-intro.page-intro-compact",
+      "tag": "header",
+      "top": 116,
+      "height": 233,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "A set of words.",
+       "size": 38,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 46,
+      "textLeft": 20,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.batch-layout",
+      "tag": "div",
+      "top": 500,
+      "height": 896,
+      "words": 86,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Bring your images.",
+       "size": 25,
+       "tag": "strong"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer",
+      "tag": "footer",
+      "top": 1460,
+      "height": 543,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "There’s more to",
+       "size": 34,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 43,
+      "textLeft": 20,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A batch of images. A set of words.",
+      "size": 38,
+      "top": 116,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 3,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 78
+    },
+    "canvas": {
+     "left": 20,
+     "right": 40
+    },
+    "hero": {
+     "text": "A batch of images. A set of words.",
+     "words": 8,
+     "chars": 34,
+     "lines": 2,
+     "size": 38,
+     "vw": 9.7,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.05,
+     "leading": 1.02,
+     "top": 116,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 4,
+     "firstScreen": 3,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 6,
+     "radii": [
+      [
+       0,
+       6
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.02,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24,
+      25,
+      27,
+      28,
+      30,
+      34,
+      38
+     ]
+    },
+    "title": {
+     "text": "A batch of images.\nA set of words.",
+     "size": 38,
+     "top": 116
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "ragged-row",
+   "width": 1440,
+   "message": "1 pair(s) of cards in one row end at different heights (by 77px).",
+   "fix": "Cards that share a row share a bottom edge: balance them by their content (the same number of rows, a block of similar height beside it), or stack them. In testing, ragged rows were marked down every time.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "panel-void",
+   "width": 1440,
+   "message": "1 card(s) hold a blank band inside: 44px in \"Image queue\".",
+   "fix": "A card stretches to its neighbour only when it has content to fill. Keep a legend or a note directly under its chart (only an action or a total may sit at a stretched card's foot), let a short card keep its own height (align-items: start), and let a filtered block shrink to its rows."
+  },
+  {
+   "level": "WARN",
+   "id": "app-title-size",
+   "width": 1440,
+   "message": "The h1 is 50px (\"A batch of images.\nA set of words.\").",
+   "fix": "An app screen is not a landing page: the title is 18-32px (20-24px on a phone).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 390,
+   "message": "Yellow-cream background (section #eeece7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/desktop-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/tablet-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/mobile-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/pages-final/batch/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
