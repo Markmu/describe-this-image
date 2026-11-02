@@ -1,0 +1,12 @@
+import Link from "next/link";
+export const metadata = { title: "Privacy and image handling" };
+export default function PrivacyPage() {
+  return <main id="main-content" className="mx-auto w-full max-w-3xl px-5 py-16 space-y-8">
+    <div><p className="text-sm text-blue-700 mb-3">IMAGE HANDLING</p><h1 className="text-4xl font-semibold tracking-tight">Your images and account data</h1></div>
+    <section className="space-y-3"><h2 className="text-xl font-semibold">Preview and generation</h2><p className="text-zinc-600 leading-relaxed">File previews stay in your browser until you choose Generate. Generation sends the image to this service, which decodes it, removes embedded metadata, resizes it, and sends it to Google Gemini for a description. GIFs use the first frame. The application does not save image files or description text to its database. Provider processing and retention depend on the configured Google service terms.</p></section>
+    <section className="space-y-3"><h2 className="text-xl font-semibold">Links and sample images</h2><p className="text-zinc-600 leading-relaxed">Loading an image URL contacts its host from your browser. Sample photos are served by this website with a credit to Unsplash. External image hosts receive connection information such as your IP address when you load their URLs. Only use images you have permission to share; avoid confidential or sensitive images.</p></section>
+    <section className="space-y-3"><h2 className="text-xl font-semibold">Sign-in, cookies and billing</h2><p className="text-zinc-600 leading-relaxed">Google sign-in supplies your account identifier, name, email and profile picture. Session cookies keep you signed in. A signed guest cookie tracks the one-image guest allowance. Usage records, credit balances, order references and payment events are stored to enforce quotas and reconcile purchases. Creem handles checkout and payment details; this application does not collect card numbers.</p></section>
+    <section className="space-y-3"><h2 className="text-xl font-semibold">Your controls</h2><p className="text-zinc-600 leading-relaxed">Closing the page clears its image previews and generated text. Sign out through the account menu. Use Manage billing or the portal link in your Creem receipt to manage subscriptions and payment methods. Server usage and billing records remain for account operations and payment reconciliation.</p></section>
+    <Link href="/" className="inline-block rounded-xl bg-blue-600 text-white px-5 py-3 font-semibold">Return to image describer</Link>
+  </main>;
+}

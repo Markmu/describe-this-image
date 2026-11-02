@@ -15,55 +15,55 @@ export interface SampleImage {
 export const SAMPLE_IMAGES: SampleImage[] = [
   {
     id: "portrait",
-    title: "Professional Portrait",
+    title: "Portrait in Blue Light",
     category: "Portrait",
-    thumbUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    fullUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85",
+    thumbUrl: "/images/editorial/portrait.jpg",
+    fullUrl: "/images/editorial/portrait.jpg",
     outputs: {
-      detailed: "A high-resolution close-up portrait of a young woman with warm brown eyes and natural makeup. She wears a minimalist beige knitted sweater. Soft natural golden hour light illuminates her facial features from the right side, casting subtle shadows and highlighting her refined skin texture. The background consists of a creamy, soft-focus neutral studio bokeh.",
-      short: "Studio portrait of a young woman in warm natural lighting wearing a neutral knit sweater.",
-      alt: "Close-up portrait of a woman with soft lighting and neutral background",
-      social: "Effortless elegance in natural light ✨ Minimalist portrait goals. #portraitphotography #naturallight #minimalism"
-    }
+      "detailed": "A front-facing portrait of a woman wearing a dark crew-neck top. Blue light falls across one side of her face and hair, against a pale purple background. Her hair is pulled back, and she looks toward the camera.",
+      "short": "Portrait of a woman in a dark top, lit in blue against a purple background.",
+      "alt": "Woman with pulled-back hair wearing a dark top under blue and purple lighting.",
+      "social": "A study in blue light and quiet expression. #PortraitPhotography #StudioLight"
+}
   },
   {
     id: "landscape",
-    title: "Alpine Lake & Peaks",
+    title: "River Through a Mountain Valley",
     category: "Landscape",
-    thumbUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    fullUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85",
+    thumbUrl: "/images/editorial/landscape.jpg",
+    fullUrl: "/images/editorial/landscape.jpg",
     outputs: {
-      detailed: "A majestic panoramic vista of jagged alpine mountain peaks towering over a crystal-clear turquoise glacial lake. Verdant evergreen pine forests skirt the lower slopes under an azure sky with wispy cirrus clouds. The glassy water surface produces an almost mirror-like reflection of the rugged snow-capped peaks in the foreground.",
-      short: "Pristine turquoise glacial lake framed by steep snow-dusted mountains and lush pine forests.",
-      alt: "Panoramic alpine lake reflecting snow-capped mountain peaks and pine trees",
-      social: "Serenity found where mountains meet still waters 🏔️🌲 Breathe in the fresh alpine air. #wanderlust #landscape #naturelovers"
-    }
+      "detailed": "A river curves through a wooded valley beneath tall rock cliffs. Trees line the water, with rocks visible in the foreground. Warm light colors the sky and distant cliffs, contrasting with the darker valley below.",
+      "short": "A river winds between trees and tall cliffs beneath a warm evening sky.",
+      "alt": "River and trees framed by mountain cliffs under a pink sky.",
+      "social": "The river leads the way through a valley of trees and towering cliffs. #LandscapePhotography #Nature"
+}
   },
   {
     id: "product",
-    title: "Minimalist Smartwatch",
+    title: "Minimalist Watches",
     category: "E-Commerce",
-    thumbUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
-    fullUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=85",
+    thumbUrl: "/images/editorial/product.jpg",
+    fullUrl: "/images/editorial/product.jpg",
     outputs: {
-      detailed: "Commercial e-commerce studio product shot of a modern minimalist analog wristwatch with a matte black stainless steel casing and genuine tan leather strap. Displayed upright against an ultra-clean off-white background with subtle contact shadow beneath the buckle. Polished sapphire crystal glass clearly displays silver hour markers and delicate hands.",
-      short: "Contemporary minimalist wristwatch with tan leather strap on clean white background.",
-      alt: "Minimalist stainless steel wristwatch with tan leather strap on plain background",
-      social: "Timeless craftsmanship for modern daily wear. Discover the understated elegance of classic minimalism. ⌚ #productdesign #watchoftheday #minimaliststyle"
-    }
+      "detailed": "Two round wristwatches with pale straps lie diagonally on a light gray surface. One watch has a dark circular face and a metallic rim. The second shows its pale back, with its strap extending toward the bottom of the image.",
+      "short": "Two round watches with pale straps arranged on a light gray surface.",
+      "alt": "Two pale wristwatches placed diagonally, showing a dark face and the back of a watch.",
+      "social": "Two views of a simple watch design, set against soft gray. #WatchDesign #ProductPhotography"
+}
   },
   {
     id: "infographic",
-    title: "Dashboard Analytics",
+    title: "Analytics on Screen",
     category: "Chart & UI",
-    thumbUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
-    fullUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+    thumbUrl: "/images/editorial/infographic.jpg",
+    fullUrl: "/images/editorial/infographic.jpg",
     outputs: {
-      detailed: "A high-tech digital software dashboard displaying business analytics on a desktop screen. Prominently featured are multiple data visualization modules including a multi-colored gradient area chart showing quarterly revenue growth, a breakdown donut chart indicating user acquisition channels, and clean metric cards tracking conversion rates and active user counts in crisp typography.",
-      short: "Modern SaaS business dashboard showcasing revenue charts, user metrics, and analytics cards.",
-      alt: "Computer monitor displaying analytics dashboard with graphs, charts, and key performance indicators",
-      social: "Data-driven decisions turn metrics into growth 📊 Unlocking key product insights on modern analytics boards. #tech #analytics #businessintelligence"
-    }
+      "detailed": "A computer screen shows a dark analytics interface with cyan bar charts, line graphs and small panels of text. The charts vary in height and shape. A plant and bright background are visible above the screen; individual labels are too small to read in this view.",
+      "short": "A dark analytics screen with cyan charts and line graphs.",
+      "alt": "Computer screen displaying cyan bar charts and line graphs on a dark dashboard.",
+      "social": "Charts, patterns and a closer look at the data. #Analytics #DataVisualization"
+}
   }
 ];
 
