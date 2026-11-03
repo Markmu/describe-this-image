@@ -1,6 +1,7 @@
 import test, { after } from "node:test";
 import assert from "node:assert/strict";
 import { createHmac, randomUUID } from "node:crypto";
+import { readFile } from "node:fs/promises";
 import { CreemGateway, verifyCreemSignature, validateCheckoutUrl } from "../providers/creem";
 import { getOrderOffer, PLAN_OFFERS } from "../types";
 import { monthBoundary, processCreemEvent } from "../events";
@@ -61,10 +62,25 @@ test("only active offers can create checkouts; Starter costs $6.99 for 300 credi
   assert.deepEqual(Object.keys(PLAN_OFFERS).sort(),["pro-month","pro-year","starter"]);
   assert.equal(PLAN_OFFERS.starter.amountCents,699);
   assert.equal(PLAN_OFFERS.starter.credits,300);
+  assert.equal(PLAN_OFFERS['pro-month'].credits,2000);
+  assert.equal(PLAN_OFFERS['pro-year'].credits,3000);
+  assert.equal(PLAN_OFFERS['pro-year'].amountCents,7990);
   assert.equal(getOrderOffer("addon-1000")?.credits,1000);
   assert.equal(getOrderOffer("constructor"),undefined);
   assert.throws(()=>getProductBinding("addon-1000"),{code:"INVALID_OFFER"});
   await assert.rejects(createOrder("test-user","user@example.com","addon-1000"),{code:"INVALID_OFFER",status:400});
+});
+test("annual product validation requires the $79.90 yearly product",async()=>{
+  const original=globalThis.fetch;const gateway=new CreemGateway('test','key',secret);
+  const product={id:'prod_annual',mode:'test',status:'active',price:7990,currency:'USD',billing_type:'recurring',billing_period:'every-year'};
+  globalThis.fetch=async()=>Response.json(product);
+  try {
+    await gateway.validateProduct('prod_annual',PLAN_OFFERS['pro-year']);
+    product.price=4990;
+    await assert.rejects(gateway.validateProduct('prod_annual',PLAN_OFFERS['pro-year']),{code:'PRODUCT_MISMATCH'});
+    product.price=7990;product.billing_period='every-month';
+    await assert.rejects(gateway.validateProduct('prod_annual',PLAN_OFFERS['pro-year']),{code:'PRODUCT_MISMATCH'});
+  } finally {globalThis.fetch=original;}
 });
 const database=process.env.TEST_DATABASE_URL;
 if(database) {
@@ -82,7 +98,7 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     const reservation=successful[0].value;
     assert.equal((await getUsageStatus({guestId})).remaining,0);
     await refundUsage(reservation.reservationId);await refundUsage(reservation.reservationId);
-    assert.equal((await getUsageStatus({guestId})).remaining,1);
+    assert.equal((await getUsageStatus({guestId})).remaining,10);
     const next=await reserveUsage({guestId,requestId:randomUUID(),batch:false});
     await completeUsage(next.reservationId);
     await assert.rejects(refundUsage(next.reservationId),{code:"USAGE_ALREADY_SETTLED"});
@@ -90,20 +106,21 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
   await t.test("account welcome grants cover two images with no daily refill; batch requires Pro",async()=>{
     const userId="test:"+randomUUID();const requestId=randomUUID();
     const initial=await getUsageStatus({userId});
-    assert.equal(initial.remaining,2);
-    assert.equal(initial.freeAllowance,2);
+    assert.equal(initial.remaining,20);
+    assert.equal(initial.freeAllowance,20);
     assert.equal(initial.resetsAt,null);
     const first=await reserveUsage({userId,requestId,batch:false});
     await assert.rejects(reserveUsage({userId,requestId,batch:false}),{code:"REQUEST_ALREADY_USED"});
     await assert.rejects(reserveUsage({userId,requestId:randomUUID(),batch:true}),{code:"PRO_REQUIRED"});
-    assert.equal((await getUsageStatus({userId})).remaining,1);
+    assert.equal(first.remaining,10);
+    assert.equal((await getUsageStatus({userId})).remaining,10);
     const second=await reserveUsage({userId,requestId:randomUUID(),batch:false});
     await completeUsage(first.reservationId);await completeUsage(second.reservationId);
     await assert.rejects(reserveUsage({userId,requestId:randomUUID(),batch:false}),{code:"QUOTA_EXCEEDED"});
     await pool.query("UPDATE credit_grants SET starts_at=now()-interval '2 days' WHERE owner_id=$1",["user:"+userId]);
     assert.equal((await getUsageStatus({userId})).remaining,0);
     const {rows:[grant]}=await pool.query("SELECT count(*)::int AS n,sum(amount)::int AS amount FROM credit_grants WHERE owner_id=$1",["user:"+userId]);
-    assert.deepEqual(grant,{n:1,amount:2});
+    assert.deepEqual(grant,{n:1,amount:20});
   });
   await t.test("concurrent account requests cannot exceed the two welcome credits",async()=>{
     const userId="test:"+randomUUID();
@@ -113,7 +130,7 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     assert.equal((await getUsageStatus({userId})).freeRemaining,0);
     await refundUsage(successful[0].value.reservationId);
     await refundUsage(successful[0].value.reservationId);
-    assert.equal((await getUsageStatus({userId})).freeRemaining,1);
+    assert.equal((await getUsageStatus({userId})).freeRemaining,10);
   });
   await t.test("legacy daily grants cannot be spent; welcome credits precede paid credits",async()=>{
     const userId="test:"+randomUUID();const ownerId="user:"+userId;const dailyId="daily:"+randomUUID();
@@ -122,7 +139,7 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
       await grantCredits(db,{id:"paid:"+randomUUID(),ownerId,kind:"purchase",amount:5,startsAt:new Date(Date.now()-7200000)});
     });
     const initial=await getUsageStatus({userId});
-    assert.equal(initial.freeRemaining,2);assert.equal(initial.paidRemaining,5);
+    assert.equal(initial.freeRemaining,20);assert.equal(initial.paidRemaining,5);
     for(let n=0;n<2;n++){
       const reservation=await reserveUsage({userId,requestId:randomUUID(),batch:false});
       await completeUsage(reservation.reservationId);
@@ -136,9 +153,10 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     const suffix=randomUUID().replaceAll("-","");const orderId=randomUUID();const userId="test:"+suffix;
     const offer=getOrderOffer(offerId);assert.ok(offer);
     const amount=amountCents??offer.amountCents;
+    const credits=offerId==='pro-year' && amount===4990 ? 2000 : offer.credits;
     const productId="prod_"+suffix;const checkoutId="ch_"+suffix;const transactionId="txn_"+suffix;const customerId="cus_"+suffix;
     const subId=offer.billingType==="recurring" ? "sub_"+suffix : null;
-    await pool.query("INSERT INTO billing_orders(id,user_id,offer_id,product_id,environment,amount_cents,checkout_id) VALUES ($1,$2,$3,$4,'test',$5,$6)",[orderId,userId,offerId,productId,amount,checkoutId]);
+    await pool.query("INSERT INTO billing_orders(id,user_id,offer_id,product_id,environment,amount_cents,checkout_id,credit_amount) VALUES ($1,$2,$3,$4,'test',$5,$6,$7)",[orderId,userId,offerId,productId,amount,checkoutId,credits]);
     const start=new Date();start.setUTCDate(1);start.setUTCHours(0,0,0,0);
     const end=monthBoundary(start,offerId==="pro-year"?12:1);
     const checkout={id:checkoutId,mode:"test",status:"completed",units:1,request_id:orderId,product:productId,customer:customerId,subscription:subId,order:{id:"ord_"+suffix,transaction:transactionId}};
@@ -214,18 +232,67 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
       assert.equal((await getUsageStatus({userId:f.userId})).isPro,false);
       await f.send(f.event("subscription.paid",f.subscription));
       const usage=await getUsageStatus({userId:f.userId});
-      assert.equal(usage.paidRemaining,2000);assert.equal(usage.canBatch,true);
+      assert.equal(usage.paidRemaining,3000);assert.equal(usage.canBatch,true);
       const {rows:[grants]}=await pool.query("SELECT count(*)::int AS n,sum(amount)::int AS total FROM credit_grants WHERE payment_id=$1",[f.payment.id]);
-      assert.deepEqual(grants,{n:12,total:24000});
+      assert.deepEqual(grants,{n:12,total:36000});
       const reservation=await reserveUsage({userId:f.userId,requestId:randomUUID(),batch:true});
       await refundUsage(reservation.reservationId);
       f.subscription.status="canceled";
       await f.send(f.event("subscription.canceled",f.subscription,"evt_"+randomUUID(),Date.now()+100));
       assert.equal((await getUsageStatus({userId:f.userId})).isPro,true);
-      f.payment.status="refunded";f.payment.refunded_amount=4990;
+      f.payment.status="refunded";f.payment.refunded_amount=7990;
       await f.send(f.event("refund.created",{transaction:f.payment.id}));
       assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,0);
       assert.equal((await getUsageStatus({userId:f.userId})).isPro,false);
     } finally {f.restore();}
+  });
+  await t.test("legacy annual orders keep their stored 2,000-credit monthly entitlement",async()=>{
+    const f=await fixture('pro-year',4990);
+    try {
+      await f.send(f.event('subscription.paid',f.subscription));
+      assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,2000);
+      const {rows:[grants]}=await pool.query('SELECT count(*)::int AS n,sum(amount)::int AS total FROM credit_grants WHERE payment_id=$1',[f.payment.id]);
+      assert.deepEqual(grants,{n:12,total:24000});
+    } finally {f.restore();}
+  });
+  await t.test("monthly entitlements deduct ten credits per image and refund the exact charge",async()=>{
+    const f=await fixture('pro-month');
+    try {
+      await f.send(f.event('subscription.paid',f.subscription));
+      const first=await reserveUsage({userId:f.userId,requestId:randomUUID(),batch:true});
+      const second=await reserveUsage({userId:f.userId,requestId:randomUUID(),batch:true});
+      await completeUsage(first.reservationId);await completeUsage(second.reservationId);
+      const third=await reserveUsage({userId:f.userId,requestId:randomUUID(),batch:true,units:3});
+      assert.equal(third.remaining,1970);
+      const {rows:[allocation]}=await pool.query('SELECT sum(amount)::int AS amount FROM usage_allocations WHERE reservation_id=$1',[third.reservationId]);
+      assert.equal(allocation.amount,30);
+      await refundUsage(third.reservationId);await refundUsage(third.reservationId);
+      assert.equal((await getUsageStatus({userId:f.userId})).remaining,2000);
+      await pool.query('UPDATE credit_grants SET remaining=9 WHERE payment_id=$1',[f.payment.id]);
+      await assert.rejects(reserveUsage({userId:f.userId,requestId:randomUUID(),batch:false}),{code:'QUOTA_EXCEEDED'});
+    } finally {f.restore();}
+  });
+  await t.test("free-credit denomination migration is repeatable and refunds pre-migration reservations",async()=>{
+    const guestId=randomUUID();const ownerId='guest:'+guestId;const grantId='guest:'+ownerId;const reservationId=randomUUID();
+    await transaction(async db=>{
+      await grantCredits(db,{id:grantId,ownerId,kind:'guest',amount:1,startsAt:new Date(Date.now()-1000)});
+      await db.query("INSERT INTO usage_reservations(id,owner_id,request_id,units,batch,status,credits_per_image) VALUES ($1,$2,$3,1,false,'reserved',1)",[reservationId,ownerId,randomUUID()]);
+      await db.query('INSERT INTO usage_allocations VALUES ($1,$2,1)',[reservationId,grantId]);
+      await db.query('UPDATE credit_grants SET remaining=0 WHERE id=$1',[grantId]);
+      await db.query("INSERT INTO credit_ledger(grant_id,reference_id,kind,delta) VALUES ($1,$2,'reserve',-1)",[grantId,reservationId]);
+    });
+    const unspentGuest=randomUUID();const unspentGrant='guest:guest:'+unspentGuest;
+    await transaction(db=>grantCredits(db,{id:unspentGrant,ownerId:'guest:'+unspentGuest,kind:'guest',amount:1,startsAt:new Date(Date.now()-1000)}));
+    const migration=await readFile(new URL('../migrations/004_plan_terms.sql',import.meta.url),'utf8');
+    await pool.query(migration);await pool.query(migration);
+    assert.equal((await getUsageStatus({guestId:unspentGuest})).remaining,10);
+    const {rows:[ledger]}=await pool.query('SELECT sum(delta)::int AS balance FROM credit_ledger WHERE grant_id=$1',[unspentGrant]);
+    assert.equal(ledger.balance,10);
+    assert.equal((await getUsageStatus({guestId})).remaining,0);
+    await refundUsage(reservationId);await refundUsage(reservationId);
+    assert.equal((await getUsageStatus({guestId})).remaining,10);
+    const next=await reserveUsage({guestId,requestId:randomUUID(),batch:false});
+    await completeUsage(next.reservationId);
+    assert.equal((await getUsageStatus({guestId})).remaining,0);
   });
 });

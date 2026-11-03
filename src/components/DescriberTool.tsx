@@ -6,8 +6,8 @@ import { Upload, Copy, Check, LoaderCircle, ArrowRight } from "lucide-react";
 import { SAMPLE_IMAGES, type SampleImage } from "@/data/samples";
 import { OUTPUT_MODES, type OutputMode, type ImageOutputs } from "@/lib/image-input";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { ACCOUNT_WELCOME_CREDITS } from "@/lib/plans";
-import { fileData, generateDescription, remoteImage } from "@/lib/image-client";
+import { ACCOUNT_WELCOME_CREDITS, CREDITS_PER_IMAGE } from "@/lib/plans";
+import { fileData, generateDescription, ImageRequestError, remoteImage } from "@/lib/image-client";
 
 const labels: Record<OutputMode, string> = { detailed: "Detailed", short: "Caption", alt: "Alt text", social: "Social" };
 export function DescriberTool({ initialMode = "detailed", fixedMode = false }: { initialMode?: OutputMode; fixedMode?: boolean }) {
@@ -19,6 +19,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
   const [url, setUrl] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [blocked, setBlocked] = useState(false);
   const [copied, setCopied] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [usage, setUsage] = useState<{ remaining?: number; generationAvailable: boolean } | null>(null);
@@ -38,6 +39,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
     if (busyRef.current) return;
     resultVersion.current += 1;
     setSource({ image: sample.fullUrl, name: sample.title, sample: true });
+    setBlocked(false);
     setOutputs(sample.outputs); setOutputLanguage("English"); setError(""); setCopied(false);
   }
   async function loadFile(file: File) {
@@ -47,6 +49,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
       const image = await fileData(file);
       resultVersion.current += 1;
       setSource({ image, name: file.name, sample: false }); setOutputs(null); setCopied(false);
+      setBlocked(false);
     } catch (err) { setError(err instanceof Error ? err.message : "The image could not be loaded."); }
     finally { busyRef.current = false; setBusy(false); }
   }
@@ -59,11 +62,12 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
       const image = await fileData(file);
       resultVersion.current += 1;
       setSource({ image, name: "Linked image", sample: false }); setOutputs(null); setCopied(false); setUrl("");
+      setBlocked(false);
     } catch (err) { setError(err instanceof Error ? err.message : "The image could not be loaded."); }
     finally { busyRef.current = false; setBusy(false); }
   }
   async function generate() {
-    if (busyRef.current) return;
+    if (busyRef.current || blocked) return;
     busyRef.current = true; setBusy(true); setError(""); setCopied(false);
     controller.current = new AbortController();
     try {
@@ -73,7 +77,14 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
       setOutputs(result.outputs); setOutputLanguage(result.language);
       setSource(current => ({ ...current, image, sample: false }));
       setUsage({ remaining: result.remaining, generationAvailable: true });
-    } catch (err) { setError(err instanceof Error ? err.message : "Generation failed. Please try again."); }
+    } catch (err) {
+      if (err instanceof ImageRequestError && err.code === "CONTENT_BLOCKED") {
+        resultVersion.current += 1;
+        setOutputs(null);
+        setBlocked(true);
+      }
+      setError(err instanceof Error ? err.message : "Generation failed. Please try again.");
+    }
     finally { busyRef.current = false; setBusy(false); }
   }
   async function copy() {
@@ -88,7 +99,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
     } catch { setError("Clipboard access failed. Select and copy the description text."); }
   }
   return <section id="describer" aria-label="Image description workspace" className="reading-desk">
-    <div className="desk-status"><p>{typeof usage?.remaining==="number" ? usage.remaining+" credits available" : "One image to begin. No login needed."}</p><span>{ACCOUNT_WELCOME_CREDITS} welcome credits with Google · no daily refill</span></div>
+    <div className="desk-status"><p>{typeof usage?.remaining==="number" ? usage.remaining+" credits · "+Math.floor(usage.remaining/CREDITS_PER_IMAGE)+" image descriptions available" : "One image to begin. No login needed."}</p><span>{ACCOUNT_WELCOME_CREDITS} welcome credits for 2 images with Google · no daily refill</span></div>
     <div className="desk-grid">
       <div className="desk-source">
         <label className={"desk-upload"+(dragging?" is-dragging":"")} onDragOver={event=>{event.preventDefault();if(!busy)setDragging(true);}} onDragLeave={()=>setDragging(false)} onDrop={event=>{event.preventDefault();setDragging(false);const file=event.dataTransfer.files[0];if(file)void loadFile(file);}}>
@@ -115,11 +126,11 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
           <p key={source.name+mode} className="desk-result" aria-live="polite">{outputs?.[mode]||"An image is the beginning. Your words will appear here."}</p>
           <button onClick={copy} disabled={!outputs||busy} className="desk-copy" aria-label={copied?"Copied to clipboard":"Copy text"}>{copied?<Check size={17}/>:<Copy size={17}/>}<span role="status">{copied?"Copied to clipboard":"Copy text"}</span></button>
         </div>
-        <button type="button" onClick={generate} disabled={busy||!usage?.generationAvailable} className="design-button desk-generate">{busy?<LoaderCircle className="animate-spin" size={19}/>:<ArrowRight size={19}/>} {busy?"Finding the words…":"Generate description"}<span>1 credit</span></button>
+        <button type="button" onClick={generate} disabled={busy||blocked||!usage?.generationAvailable} className="design-button desk-generate">{busy?<LoaderCircle className="animate-spin" size={19}/>:<ArrowRight size={19}/>} {busy?"Finding the words…":"Generate description"}<span>{CREDITS_PER_IMAGE} credits</span></button>
         {!usage&&<p role="status" className="desk-note">Checking generation availability…</p>}
         {usage?.generationAvailable===false&&<p role="status" className="desk-note">Generation is unavailable. Explore the samples while the service is offline.</p>}
         {error&&<p role="alert" className="desk-error">{error} {/credit|quota|Pro/.test(error)&&<Link href="/pricing">View plans</Link>}</p>}
-        <p className="desk-note">JPG, PNG, WebP & GIF. Review every draft before use.<br/>Generating sends your image to our AI service. <Link href="/privacy">Image privacy</Link></p>
+        <p className="desk-note">JPG, PNG, WebP & GIF. Review every draft before use.<br/>Generation includes an image safety check. <Link href="/privacy">Image privacy</Link></p>
       </div>
     </div>
   </section>;

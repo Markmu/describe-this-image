@@ -5,7 +5,7 @@ import { ArrowLeft, Sparkles, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Describe This Image in Detail – Deep Scene & Object Breakdown",
-  description: "Draft descriptions of scenes, artwork, and portraits when image generation is available. Review visible details and check inferred claims before use.",
+  description: "Draft descriptions of scenes, artwork, and portraits when image description is available. Review visible details and check inferred claims before use.",
   alternates: {
     canonical: "https://describethisimage.com/describe-this-image-in-detail/",
   },
@@ -52,7 +52,7 @@ export default function DescribeInDetailPage() {
             Describe This Image in Detail
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-            Draft a longer description of the subject, setting, colors, and lighting when image generation is available. Review the result against your image.
+            Draft a longer description of the subject, setting, colors, and lighting when image description is available. Review the result against your image.
           </p>
         </div>
 

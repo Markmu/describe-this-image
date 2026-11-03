@@ -6,9 +6,10 @@ import { Upload, Download, Trash2, LoaderCircle, ArrowUpRight } from "lucide-rea
 import { csvCell, validateImageFile, type ImageOutputs } from "@/lib/image-input";
 import { LanguageSelect } from "@/components/LanguageSelect";
 import { PageIntro } from "@/components/PageIntro";
-import { fileData, generateDescription } from "@/lib/image-client";
+import { fileData, generateDescription, ImageRequestError } from "@/lib/image-client";
+import { CREDITS_PER_IMAGE } from "@/lib/plans";
 
-type Item = { id: string; file: File; preview: string; status: "pending" | "processing" | "completed" | "error"; error?: string; outputs?: ImageOutputs; language?: string };
+type Item = { id: string; file: File; preview: string; status: "pending" | "processing" | "completed" | "error" | "blocked"; error?: string; outputs?: ImageOutputs; language?: string };
 export default function BatchGeneratorPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [language, setLanguage] = useState("English");
@@ -62,7 +63,9 @@ export default function BatchGeneratorPage() {
           setItems(current => current.map(entry => entry.id === item.id ? { ...entry, status: "completed", outputs: result.outputs, language: result.language } : entry));
         } catch (err) {
           const message = err instanceof Error ? err.message : "Generation failed.";
-          setItems(current => current.map(entry => entry.id === item.id ? { ...entry, status: "error", error: message } : entry));
+          const blocked = err instanceof ImageRequestError && err.code === "CONTENT_BLOCKED";
+          setItems(current => current.map(entry => entry.id === item.id ? { ...entry, status: blocked ? "blocked" : "error", error: message } : entry));
+          if (blocked) continue;
           setError(message + " Processing stopped; other queued images have not been submitted.");
           break;
         }
@@ -82,7 +85,7 @@ export default function BatchGeneratorPage() {
   const completed = items.filter(item => item.status === "completed").length;
   return <main id="main-content" className="reading-page batch-page">
     <PageIntro title={<>A batch of images.<br />A set of words.</>} compact>
-      <p>Queue up to 50 images, choose your language and export four description formats. Pro required. One credit per image.</p>
+      <p>Queue up to 50 images, choose your language and export four description formats. Pro required. {CREDITS_PER_IMAGE} credits per image description.</p>
       <Link href="/pricing" className="design-text-link">Explore Pro plans<ArrowUpRight size={18} aria-hidden="true" /></Link>
     </PageIntro>
     {access && (!access.canBatch || !access.generationAvailable) && <div role="status" className="page-notice">{!access.generationAvailable ? "Generation is unavailable. You can prepare a queue; processing requires an available image service." : <>Sign in with an active Pro plan to process your queue. <Link href="/pricing">View plans</Link></>}</div>}
@@ -99,7 +102,7 @@ export default function BatchGeneratorPage() {
             onChange={event => { if (event.target.files) addFiles(event.target.files); event.target.value = ""; }} />
         </label>
         <div><h2>A few things to know.</h2><p id="batch-file-limits" className="page-note">Up to 50 images. JPG, PNG, WebP or GIF. 10 MB per image. GIF uses its first frame.</p></div>
-        <p className="page-note">Images are sent to the AI service when you generate. <Link href="/privacy">Image privacy</Link></p>
+        <p className="page-note">Generation includes an image safety check. Blocked images cost no credits. <Link href="/privacy">Image privacy</Link></p>
       </section>
 
       <section className="batch-queue" aria-labelledby="queue-title">
@@ -117,7 +120,7 @@ export default function BatchGeneratorPage() {
             <img src={item.preview} alt={item.file.name} width={68} height={82} />
             <div><p className="batch-item-name">{item.file.name}</p><p className="page-note">{(item.file.size / 1024 / 1024).toFixed(1)} MB</p><p className="batch-item-status" data-status={item.status} role="status">{item.status}{item.language ? " · " + item.language : ""}</p></div>
           </div>
-          <div className="batch-item-output">{item.error && <p>{item.error}</p>}{item.outputs ? <><p><strong>Alt text: </strong>{item.outputs.alt}</p><p><strong>Caption: </strong>{item.outputs.short}</p></> : <p className="page-note">Description pending</p>}</div>
+          <div className="batch-item-output">{item.error && <p>{item.error}</p>}{item.outputs ? <><p><strong>Alt text: </strong>{item.outputs.alt}</p><p><strong>Caption: </strong>{item.outputs.short}</p></> : <p className="page-note">{item.status === "blocked" ? "No description generated." : "Description pending"}</p>}</div>
           <button type="button" onClick={() => remove(item.id)} disabled={busy} aria-label={"Remove " + item.file.name} className="batch-item-remove"><Trash2 size={17} aria-hidden="true" /></button>
         </li>)}</ul>
       </section>

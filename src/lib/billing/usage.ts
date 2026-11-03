@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
-import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS } from "../plans";
+import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS, CREDITS_PER_IMAGE } from "../plans";
 
 export type UsageIdentity = { userId?: string; guestId?: string };
 export type UsageStatus = {
@@ -70,6 +70,7 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
   if (!/^[a-zA-Z0-9_-]{8,128}$/.test(input.requestId) || !Number.isSafeInteger(units) || units < 1 || units > 20 || (!input.batch && units !== 1)) {
     throw new BillingError("INVALID_USAGE", "Invalid usage request.", 400);
   }
+  const credits = units * CREDITS_PER_IMAGE;
   return transaction(async db => {
     await lockOwner(db,ownerId);
     const existing = await db.query("SELECT id FROM usage_reservations WHERE owner_id=$1 AND request_id=$2", [ownerId,input.requestId]);
@@ -77,17 +78,17 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
     if (existing.rowCount) throw new BillingError("REQUEST_ALREADY_USED", "This request has already been submitted. Use a new request ID.", 409);
     const status = await statusInTransaction(db,input,ownerId);
     if (input.batch && !status.canBatch) throw new BillingError("PRO_REQUIRED", "An active Pro subscription is required for batches.", 403);
-    if (status.remaining < units) throw new BillingError("QUOTA_EXCEEDED", "You have insufficient credits for this request.", 429);
+    if (status.remaining < credits) throw new BillingError("QUOTA_EXCEEDED", "You have insufficient credits for this request.", 429);
     const reservationId = randomUUID();
-    await db.query(`INSERT INTO usage_reservations (id,owner_id,request_id,units,batch,status)
-      VALUES ($1,$2,$3,$4,$5,'reserved')`, [reservationId,ownerId,input.requestId,units,input.batch]);
+    await db.query(`INSERT INTO usage_reservations (id,owner_id,request_id,units,batch,status,credits_per_image)
+      VALUES ($1,$2,$3,$4,$5,'reserved',$6)`, [reservationId,ownerId,input.requestId,units,input.batch,CREDITS_PER_IMAGE]);
     const { rows } = await db.query(`SELECT id,remaining FROM credit_grants
       WHERE owner_id=$1 AND NOT revoked AND starts_at <= now() AND remaining > 0
       AND kind IN ('welcome','guest','purchase','subscription')
       AND (expires_at IS NULL OR expires_at > now())
       ORDER BY CASE WHEN kind IN ('welcome','guest') THEN 0 ELSE 1 END,
       expires_at ASC NULLS LAST, starts_at, id FOR UPDATE`, [ownerId]);
-    let needed = units;
+    let needed = credits;
     for (const grant of rows) {
       const take = Math.min(needed,grant.remaining);
       await db.query("UPDATE credit_grants SET remaining=remaining-$2 WHERE id=$1", [grant.id,take]);
@@ -96,7 +97,7 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
       needed -= take;
       if (!needed) break;
     }
-    return { reservationId, remaining: status.remaining - units };
+    return { reservationId, remaining: status.remaining - credits };
   });
 }
 
@@ -106,15 +107,17 @@ async function settleUsage(reservationId: string, refund: boolean) {
     const { rows: [lookup] } = await db.query("SELECT owner_id FROM usage_reservations WHERE id=$1", [reservationId]);
     if (!lookup) throw new BillingError("RESERVATION_NOT_FOUND", "Usage reservation was not found.",404);
     await lockOwner(db,lookup.owner_id);
-    const { rows: [reservation] } = await db.query("SELECT status FROM usage_reservations WHERE id=$1 FOR UPDATE", [reservationId]);
+    const { rows: [reservation] } = await db.query("SELECT status,credits_per_image FROM usage_reservations WHERE id=$1 FOR UPDATE", [reservationId]);
     const target = refund ? "refunded" : "completed";
     if (reservation.status === target) return;
     if (reservation.status !== "reserved") throw new BillingError("USAGE_ALREADY_SETTLED", "Usage reservation was settled.",409);
     if (refund) {
       const { rows } = await db.query("SELECT grant_id,amount FROM usage_allocations WHERE reservation_id=$1 ORDER BY grant_id", [reservationId]);
       for (const row of rows) {
-        const restored = await db.query("UPDATE credit_grants SET remaining=remaining+$2 WHERE id=$1 AND NOT revoked RETURNING id", [row.grant_id,row.amount]);
-        if (restored.rowCount) await db.query("INSERT INTO credit_ledger(grant_id,reference_id,kind,delta) VALUES ($1,$2,'refund',$3)", [row.grant_id,reservationId,row.amount]);
+        const { rows: [grant] } = await db.query("SELECT kind FROM credit_grants WHERE id=$1",[row.grant_id]);
+        const amount = row.amount * (reservation.credits_per_image === 1 && ['guest','welcome'].includes(grant.kind) ? CREDITS_PER_IMAGE : 1);
+        const restored = await db.query("UPDATE credit_grants SET remaining=remaining+$2 WHERE id=$1 AND NOT revoked RETURNING id", [row.grant_id,amount]);
+        if (restored.rowCount) await db.query("INSERT INTO credit_ledger(grant_id,reference_id,kind,delta) VALUES ($1,$2,'refund',$3)", [row.grant_id,reservationId,amount]);
       }
     }
     await db.query("UPDATE usage_reservations SET status=$2 WHERE id=$1", [reservationId,target]);

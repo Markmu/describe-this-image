@@ -30,32 +30,26 @@
 .page-callout p{font-family:var(--reading-serif);font-size:21px;line-height:1.5;max-width:42ch;}
 .page-callout .design-button{margin-top:24px;}
 
-/* Pricing: one annual offer, followed by readable alternatives and comparison. */
-.annual-offer{display:grid;grid-template-columns:1fr 1fr;gap:6%;padding:40px 48px;background:var(--reading-ink);color:var(--paper);}
-.annual-offer h2{font-size:28px;}
-.annual-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px;margin:14px 0 20px!important;font-size:clamp(64px,6vw,88px);font-weight:600;letter-spacing:-.06em;line-height:1.05;font-variant-numeric:tabular-nums;}
-.annual-price span{font-size:16px;font-weight:400;letter-spacing:0;}
-.annual-action{max-width:320px;}
-.annual-billing{margin-top:12px!important;font-size:14px;color:#c1baab;}
-.annual-details{display:flex;flex-direction:column;justify-content:center;gap:20px;}
-.annual-details>p:first-child{font-family:var(--reading-serif);font-size:clamp(25px,2.6vw,36px);line-height:1.25;max-width:25ch;}
-.annual-details ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:16px;}
-.annual-details li{display:flex;gap:12px;align-items:baseline;}
-.annual-details li svg{flex-shrink:0;align-self:center;color:var(--reading-green);}
-.annual-details .page-note{color:#c1baab;}
-.plan-options{display:grid;gap:12px;}
-.plan-option{display:grid;grid-template-columns:minmax(0,1fr) 27%;background:var(--paper-soft);padding:32px;gap:22px 40px;align-items:start;}
-.option-heading{grid-column:1;}
-.option-heading h3{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 24px;}
-.option-heading .page-note{margin-top:12px;}
-.plan-option h3{font-size:24px;}
-.option-price{font-size:24px;font-weight:600;letter-spacing:-.04em;line-height:1.15;font-variant-numeric:tabular-nums;}
-.option-price span{display:inline-block;margin-left:10px;font-size:14px;font-weight:400;letter-spacing:0;}
-.option-description{grid-column:1;}
-.option-description ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:16px;}
-.plan-option .page-note{font-size:16px;}
-.option-action{align-self:center;grid-column:2;grid-row:1/span 2;}
-.option-action>a{width:100%;}
+/* Pricing plans share a column grid and a common reading order. */
+.plan-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch;}
+.plan-option{display:flex;flex-direction:column;min-width:0;padding:30px 26px;background:var(--paper-soft);}
+.plan-option h2{font-size:24px;}
+.plan-description{min-height:3.1em;margin-top:14px!important;font-size:15px;line-height:1.55;color:var(--reading-muted);}
+.plan-payment{margin-top:30px;}
+.plan-card-price{font-size:clamp(40px,3.5vw,56px);font-weight:600;letter-spacing:-.055em;line-height:1.08;font-variant-numeric:tabular-nums;}
+.plan-period{margin-top:7px!important;font-size:14px;color:var(--reading-muted);}
+.plan-allowance{margin:30px 0 26px;}
+.plan-allowance strong{display:block;font-family:var(--reading-serif);font-size:30px;font-weight:400;letter-spacing:-.025em;line-height:1.15;}
+.plan-allowance span{display:block;margin-top:6px;font-size:14px;}
+.plan-credits{margin-top:12px!important;font-size:14px;color:var(--reading-muted);}
+.plan-card-action :where(.quiet-button,.design-button){width:100%;min-height:52px;padding:13px 18px;font-size:14px;line-height:1.6;}
+.plan-features{display:grid;gap:12px;margin:26px 0 0;padding:0;list-style:none;font-size:14px;line-height:1.6;}
+.plan-option[data-featured=true]{background:var(--reading-ink);color:var(--paper);}
+.plan-option[data-featured=true] :where(.plan-description,.plan-period,.plan-credits){color:#c1baab;}
+.pricing-terms{margin-top:24px!important;font-size:14px;line-height:1.6;color:var(--reading-muted);}
+.pricing-billing .billing-notes{margin-top:0;}
+@media(max-width:1150px){.plan-options{grid-template-columns:repeat(2,minmax(0,1fr));}.plan-card-price{font-size:48px;}}
+@media(max-width:600px){.plan-options{grid-template-columns:1fr;}.plan-option{padding:28px 24px;}.plan-description{min-height:0;}.plan-payment{margin-top:24px;}.plan-allowance{margin:24px 0;}.plan-card-price{font-size:48px;}}
 .plan-image-examples{display:grid;grid-template-columns:1fr 1.4fr;gap:6%;align-items:center;}
 .plan-image-examples h2{font-size:clamp(34px,3.3vw,50px);}
 .plan-image-examples p{max-width:42ch;margin-top:24px;}
@@ -64,16 +58,6 @@
 .plan-image-strip figure{min-width:0;overflow:hidden;}
 .plan-image-strip img{width:100%;height:220px;object-fit:cover;transition:transform .5s var(--reading-ease);}
 .plan-image-strip figure:hover img{transform:scale(1.04);}
-.comparison-table{width:100%;border-collapse:collapse;font-size:16px;}
-.comparison-table caption{text-align:left;max-width:75ch;font-size:14px;color:var(--reading-muted);padding-bottom:24px;}
-.comparison-table :where(th,td){padding:22px 20px;text-align:left;vertical-align:top;}
-.comparison-table thead{background:var(--paper-deep);font-size:14px;}
-.comparison-table tbody tr{background:var(--paper-soft);border-top:8px solid var(--paper);}
-.comparison-table tbody tr[data-featured=true]{background:var(--paper-deep);}
-.comparison-table th{font-weight:600;}
-.comparison-table th[scope=row]{width:16%;min-width:130px;}
-.comparison-table td:nth-child(2){white-space:nowrap;}
-.comparison-table td:nth-child(4){font-variant-numeric:tabular-nums;white-space:nowrap;}
 .billing-notes{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px;}
 .billing-notes h3{font-size:20px;margin-bottom:10px;}
 .billing-notes p{max-width:62ch;font-size:16px;}
@@ -145,7 +129,7 @@
 .batch-item-source .page-note{font-size:12px;margin-top:5px;}
 .batch-item-status{display:inline-block;margin-top:8px;padding:3px 7px;background:var(--paper-deep);font-size:12px;}
 .batch-item-status[data-status=completed]{background:#cde3c9;}
-.batch-item-status[data-status=error]{background:#f1d9d1;}
+.batch-item-status[data-status=error],.batch-item-status[data-status=blocked]{background:#f1d9d1;}
 .batch-item-output{min-width:0;overflow-wrap:anywhere;}
 .batch-item-output p+p{margin-top:10px;}
 .batch-item-remove{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;align-self:start;}
@@ -154,12 +138,10 @@
 .batch-error{padding:18px 26px;background:#f1d9d1;font-size:14px;overflow-wrap:anywhere;}
 
 @media(prefers-reduced-motion:no-preference){
- .page-intro-grid>*,.annual-offer>*,.guide-example>*,.plan-option,.guide-formats>div{animation:reading-change .6s var(--reading-ease) both;}
- .page-intro-grid>:nth-child(2),.annual-offer>:nth-child(2),.guide-example>:nth-child(2){animation-delay:80ms;}
+ .page-intro-grid>*,.guide-example>*,.plan-option,.guide-formats>div{animation:reading-change .6s var(--reading-ease) both;}
+ .page-intro-grid>:nth-child(2),.guide-example>:nth-child(2){animation-delay:80ms;}
 }
 @media(max-width:1100px){
- .annual-offer{padding:32px;}
- .plan-option{padding:26px;}
  .guide-example figcaption{padding:28px;}
  .batch-layout{grid-template-columns:30% minmax(0,1fr);gap:18px;}
  .batch-source{padding:20px;}
@@ -180,32 +162,9 @@
  .page-section-heading{grid-template-columns:1fr;gap:20px;margin-bottom:26px;}
  .page-section-heading h2{font-size:34px;}
  .page-section-heading p{font-size:16px;}
- .annual-offer{grid-template-columns:1fr;gap:30px;padding:26px 24px;}
- .annual-offer h2{font-size:24px;}
- .annual-price{font-size:64px;gap:12px;margin:12px 0 20px!important;}
- .annual-action{max-width:none;}
- .annual-details>p:first-child{font-size:24px;}
- .annual-details ul{font-size:15px;}
- .annual-billing{font-size:13px;}
- .plan-option{grid-template-columns:1fr;gap:20px;padding:26px 24px;}
- .option-heading h3{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;}
- .option-price span{display:block;margin:5px 0 0;font-size:13px;}
- .option-action{grid-column:1;grid-row:auto;}
- .option-description{padding:0;}
- .option-description ul{font-size:16px;}
  .plan-image-examples{grid-template-columns:1fr;gap:28px;}
  .plan-image-strip{grid-template-columns:repeat(2,1fr);gap:20px 12px;}
  .plan-image-strip img{height:180px;}
- .comparison-table,.comparison-table tbody{display:block;}
- .comparison-table caption{display:block;font-size:14px;}
- .comparison-table thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
- .comparison-table tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;padding:24px;margin-top:12px;border:0;}
- .comparison-table tbody th{grid-column:1/-1;font-size:22px;}
- .comparison-table :where(th,td){display:block;padding:0;}
- .comparison-table td::before{content:attr(data-label);display:block;margin-bottom:5px;font-size:12px;color:var(--reading-muted);}
- .comparison-table td:nth-child(3),.comparison-table td:nth-child(5){grid-column:1/-1;}
- .comparison-table td:nth-child(4){grid-column:2;grid-row:2;}
- .comparison-table td:nth-child(2){grid-column:1;grid-row:2;}
  .billing-notes{grid-template-columns:1fr;gap:26px;margin-top:32px;}
  .guide-example{grid-template-columns:1fr;}
  .guide-example img{height:260px;min-height:0;}

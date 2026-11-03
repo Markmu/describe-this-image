@@ -24,7 +24,7 @@ export async function normalizeImage(input: unknown) {
 }
 
 export async function describeImage(image: { mimeType: string; data: string }, language: string, transport: typeof fetch = fetch): Promise<ImageOutputs> {
-  if (!visionReady()) throw new HttpError(503, "Image generation is unavailable. Sample previews remain available.");
+  if (!visionReady()) throw new HttpError(503, "Image description is unavailable. Sample previews remain available.");
   const model = process.env.VISION_MODEL!;
   const response = await transport(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
     method: "POST", redirect: "error", cache: "no-store", signal: AbortSignal.timeout(45_000),

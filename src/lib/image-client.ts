@@ -1,5 +1,9 @@
 import { MAX_IMAGE_BYTES, publicImageUrl, validateImageFile, type ImageOutputs } from "./image-input";
 
+export class ImageRequestError extends Error {
+  constructor(message: string, public code?: string) { super(message); }
+}
+
 export async function fileData(file: File): Promise<string> {
   const error = validateImageFile(file);
   if (error) throw new Error(error);
@@ -41,10 +45,10 @@ export async function generateDescription(image: string, language: string, batch
   const response = await fetch("/api/describe", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ image, language, batch, requestId: crypto.randomUUID() }),
-    signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(60000)]) : AbortSignal.timeout(60000),
+    signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(90000)]) : AbortSignal.timeout(90000),
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.error || "Generation failed. Please try again.");
+  if (!response.ok) throw new ImageRequestError(data.error || "Generation failed. Please try again.", data.code);
   if (!data.outputs || ["detailed", "short", "alt", "social"].some(key => typeof data.outputs[key] !== "string")) throw new Error("The response was incomplete. Please try again.");
   return data;
 }

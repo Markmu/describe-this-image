@@ -143,7 +143,7 @@ async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number) {
   const { rows: [clock] } = await db.query("SELECT now() AS now");
   for (let index = 0; index < months; index++) {
     await grantCredits(db,{ id: `payment:${paymentId}:${index}`,ownerId:`user:${order.user_id}`,
-      kind: start ? "subscription" : "purchase",amount:offer.credits,paymentId,
+      kind: start ? "subscription" : "purchase",amount:order.credit_amount,paymentId,
       startsAt:start ? monthBoundary(start,index) : new Date(clock.now),
       expiresAt: start && end ? (index === months-1 ? end : monthBoundary(start,index+1)) : null });
   }

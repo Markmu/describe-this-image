@@ -7,7 +7,7 @@ import type { ActiveOfferId } from "./types";
 
 export type BillingOrder = {
   id: string; user_id: string; offer_id: string; product_id: string; environment: string;
-  amount_cents: number; currency: string; checkout_id: string | null; checkout_url: string | null;
+  amount_cents: number; credit_amount: number; currency: string; checkout_id: string | null; checkout_url: string | null;
   customer_id: string | null; subscription_id: string | null; status: string;
 };
 export async function getOwnedOrder(id: string, userId: string) {
@@ -40,13 +40,15 @@ export async function createOrder(userId: string, email: string, offerId: string
         if (pending.checkout_id && pending.checkout_url) {
           const previous = await gateway.getCheckout(pending.checkout_id);
           if (previous.status === "expired") await db.query("UPDATE billing_orders SET status='failed' WHERE id=$1",[pending.id]);
-          else if (pending.offer_id === offerId && previous.status === "pending") return {checkoutUrl:pending.checkout_url,orderId:pending.id};
+          else if (pending.offer_id === offerId && pending.amount_cents === offer.amountCents
+            && pending.credit_amount === offer.credits && pending.product_id === productId
+            && pending.environment === gateway.environment && previous.status === "pending") return {checkoutUrl:pending.checkout_url,orderId:pending.id};
           else throw new BillingError("CHECKOUT_PENDING","A Pro payment is pending. Return to that checkout or wait for confirmation before changing plans.",409);
         } else throw new BillingError("CHECKOUT_PENDING","A Pro checkout is awaiting reconciliation. Please try again later or check your Creem receipt.",409);
       }
     }
-    await db.query(`INSERT INTO billing_orders(id,user_id,offer_id,product_id,environment,amount_cents)
-      VALUES ($1,$2,$3,$4,$5,$6)`, [id,userId,offerId,productId,gateway.environment,offer.amountCents]);
+    await db.query(`INSERT INTO billing_orders(id,user_id,offer_id,product_id,environment,amount_cents,credit_amount)
+      VALUES ($1,$2,$3,$4,$5,$6,$7)`, [id,userId,offerId,productId,gateway.environment,offer.amountCents,offer.credits]);
   });
   if (resumed) return resumed;
   const checkout = await gateway.createCheckout({ orderId:id, productId, offerId, customerEmail:email, successUrl:success.href });

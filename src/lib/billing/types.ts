@@ -1,4 +1,4 @@
-import { STARTER_CREDITS, STARTER_PRICE, STARTER_PRICE_CENTS } from "../plans";
+import { STARTER_CREDITS, STARTER_PRICE, STARTER_PRICE_CENTS, PRO_MONTH_PRICE, PRO_MONTH_PRICE_CENTS, PRO_YEAR_PRICE, PRO_YEAR_PRICE_CENTS, PRO_MONTH_CREDITS, PRO_YEAR_MONTHLY_CREDITS } from "../plans";
 
 export interface PlanOffer {
   id: "starter" | "pro-month" | "pro-year" | "addon-1000";
@@ -28,24 +28,24 @@ export const PLAN_OFFERS: Record<ActiveOfferId, PlanOffer> = {
   "pro-month": {
     id: "pro-month",
     name: "Pro Monthly",
-    priceFormatted: "$9.90 / mo",
-    amountCents: 990,
+    priceFormatted: `${PRO_MONTH_PRICE} / mo`,
+    amountCents: PRO_MONTH_PRICE_CENTS,
     billingType: "recurring",
     billingPeriod: "monthly",
-    credits: 2000,
+    credits: PRO_MONTH_CREDITS,
     creditsLabel: "2,000 credits / month",
     description: "Monthly subscription with batch processing & CSV export.",
   },
   "pro-year": {
     id: "pro-year",
     name: "Pro Annual",
-    priceFormatted: "$49.90 / yr",
-    amountCents: 4990,
+    priceFormatted: `${PRO_YEAR_PRICE} / yr`,
+    amountCents: PRO_YEAR_PRICE_CENTS,
     billingType: "recurring",
     billingPeriod: "yearly",
-    credits: 2000,
-    creditsLabel: "2,000 credits / month (24,000/yr)",
-    description: "Annual subscription (~5 months fee, save 58%).",
+    credits: PRO_YEAR_MONTHLY_CREDITS,
+    creditsLabel: "3,000 credits / month (36,000/yr)",
+    description: "Annual subscription with 300 image descriptions per month.",
   },
 };
 
