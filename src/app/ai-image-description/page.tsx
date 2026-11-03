@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ACCOUNT_WELCOME_CREDITS } from "@/lib/plans";
 import { ArrowLeft, Brain, FileText, ShoppingBag, Globe, Share2, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -134,7 +135,7 @@ export default function AiImageDescriptionPage() {
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center space-y-4">
           <h2 className="text-2xl font-bold">Try an Image Description</h2>
           <p className="text-blue-100 text-xs sm:text-sm max-w-xl mx-auto">
-            Try one guest description, or sign in for 10 free descriptions per day. Generation depends on image service availability.
+            Try one guest description, or sign in for {ACCOUNT_WELCOME_CREDITS} welcome credits per account. No daily refill. Generation depends on image service availability.
           </p>
           <div>
             <Link

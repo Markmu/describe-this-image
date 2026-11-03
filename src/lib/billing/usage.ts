@@ -2,11 +2,12 @@ import { randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
+import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS } from "../plans";
 
 export type UsageIdentity = { userId?: string; guestId?: string };
 export type UsageStatus = {
   remaining: number; freeRemaining: number; paidRemaining: number;
-  isPro: boolean; canBatch: boolean; dailyLimit: number; resetsAt: string | null;
+  isPro: boolean; canBatch: boolean; freeAllowance: number; resetsAt: null;
 };
 
 function owner(identity: UsageIdentity) {
@@ -32,27 +33,27 @@ export async function grantCredits(db: PoolClient, input: {
 async function ensureFreeGrant(db: PoolClient, identity: UsageIdentity, ownerId: string) {
   const { rows: [clock] } = await db.query("SELECT now() AS now");
   const now = new Date(clock.now);
-  const start = new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()));
-  const end = new Date(start.getTime() + 86400000);
   await grantCredits(db, {
-    id: identity.userId ? `daily:${ownerId}:${start.toISOString().slice(0,10)}` : `guest:${ownerId}`,
-    ownerId, kind: identity.userId ? "daily" : "guest", amount: identity.userId ? 10 : 1,
-    startsAt: start, expiresAt: identity.userId ? end : null,
+    id: identity.userId ? `welcome:${ownerId}` : `guest:${ownerId}`,
+    ownerId, kind: identity.userId ? "welcome" : "guest",
+    amount: identity.userId ? ACCOUNT_WELCOME_CREDITS : GUEST_FREE_CREDITS,
+    startsAt: now,
   });
-  return identity.userId ? end.toISOString() : null;
 }
 
 async function statusInTransaction(db: PoolClient, identity: UsageIdentity, ownerId: string): Promise<UsageStatus> {
-  const resetsAt = await ensureFreeGrant(db,identity,ownerId);
+  await ensureFreeGrant(db,identity,ownerId);
   const { rows: [balance] } = await db.query(`SELECT
-    COALESCE(sum(remaining) FILTER (WHERE kind IN ('daily','guest')),0)::int AS free,
+    COALESCE(sum(remaining) FILTER (WHERE kind IN ('welcome','guest')),0)::int AS free,
     COALESCE(sum(remaining) FILTER (WHERE kind IN ('purchase','subscription')),0)::int AS paid
     FROM credit_grants WHERE owner_id=$1 AND NOT revoked AND starts_at <= now()
+    AND kind IN ('welcome','guest','purchase','subscription')
     AND (expires_at IS NULL OR expires_at > now())`, [ownerId]);
   const { rows: [pro] } = await db.query(`SELECT EXISTS(SELECT 1 FROM billing_subscriptions
     WHERE user_id=$1 AND paid_through > now() AND status IN ('active','canceled','scheduled_cancel')) AS active`, [identity.userId ?? ""]);
   return { remaining: balance.free + balance.paid, freeRemaining: balance.free, paidRemaining: balance.paid,
-    isPro: pro.active, canBatch: pro.active, dailyLimit: identity.userId ? 10 : 1, resetsAt };
+    isPro: pro.active, canBatch: pro.active,
+    freeAllowance: identity.userId ? ACCOUNT_WELCOME_CREDITS : GUEST_FREE_CREDITS, resetsAt: null };
 }
 
 export async function getUsageStatus(identity: UsageIdentity): Promise<UsageStatus> {
@@ -82,8 +83,10 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
       VALUES ($1,$2,$3,$4,$5,'reserved')`, [reservationId,ownerId,input.requestId,units,input.batch]);
     const { rows } = await db.query(`SELECT id,remaining FROM credit_grants
       WHERE owner_id=$1 AND NOT revoked AND starts_at <= now() AND remaining > 0
+      AND kind IN ('welcome','guest','purchase','subscription')
       AND (expires_at IS NULL OR expires_at > now())
-      ORDER BY expires_at ASC NULLS LAST, starts_at, id FOR UPDATE`, [ownerId]);
+      ORDER BY CASE WHEN kind IN ('welcome','guest') THEN 0 ELSE 1 END,
+      expires_at ASC NULLS LAST, starts_at, id FOR UPDATE`, [ownerId]);
     let needed = units;
     for (const grant of rows) {
       const take = Math.min(needed,grant.remaining);

@@ -5,6 +5,7 @@ import { DescriberTool } from "@/components/DescriberTool";
 import { ReadingMasthead } from "@/components/ReadingMasthead";
 import { ReadingMotion } from "@/components/ReadingMotion";
 import { JsonLd } from "@/components/JsonLd";
+import { ACCOUNT_WELCOME_CREDITS, STARTER_PRICE } from "@/lib/plans";
 export const metadata:Metadata={
   title:"Describe This Image — Images into Words",
   description:"Turn photos into descriptions, captions and alt text. Try one image without an account. Four formats, eight languages.",
@@ -12,7 +13,7 @@ export const metadata:Metadata={
 };
 const questions=[
   ["What can I upload?","JPEG, PNG, WebP or GIF images up to 10 MB and 40 megapixels. GIF descriptions use the first frame. You can also load a public HTTPS image link when its host allows browser access."],
-  ["Can I try it for free?","Yes. Describe one image without an account. Sign in with Google for 10 free descriptions per UTC day. Sample previews do not use credits."],
+  ["Can I try it for free?",`Yes. Describe one image without an account. Sign in with Google for ${ACCOUNT_WELCOME_CREDITS} welcome credits per account. Each credit describes one image. Welcome credits do not expire or refill daily. Sample previews do not use credits.`],
   ["What happens to my image?","Previews stay in your browser until you generate. Generation sends your image to our service and Google Gemini. The application does not save image files or descriptions to its database. See our privacy details for provider processing information."],
   ["Which languages?","English, Spanish, French, German, Chinese, Japanese, Portuguese and Italian. Choose the language before generating. Sample text is in English."],
   ["Can I describe a batch?","Pro includes batch processing and CSV export. Queue up to 50 images; each completed generation uses one credit. Review the generated descriptions before importing them into your website."],
@@ -40,7 +41,7 @@ return <main id="main-content" className="editorial-home">
     <div className="plan-paper"><h2 id="plans-title" data-enter>A little.<br/>Or a lot.</h2><p data-enter>Start with one image.<br/>Make room for the next thousand.</p><Link href="/pricing" data-enter className="design-text-link">Compare every plan <ArrowUpRight size={22}/></Link></div>
     <div className="plan-ink" data-enter>
       <div className="plan-annual"><p className="plan-price" data-enter>$49.90<span>/ year</span></p><p>Pro Annual · 2,000 descriptions each month.<br/>Batch processing. CSV export. Eight languages.</p><Link href="/pricing" className="design-button">Explore Pro <ArrowUpRight size={20}/></Link></div>
-      <div className="plan-alternatives" data-enter><p><strong>Just getting started?</strong><br/>300 credits. $9.99 once. No expiry.</p><p><strong>Prefer monthly?</strong><br/>Pro at $9.90 per month.</p></div>
+      <div className="plan-alternatives" data-enter><p><strong>Just getting started?</strong><br/>300 credits. {STARTER_PRICE} once. No expiry.</p><p><strong>Prefer monthly?</strong><br/>Pro at $9.90 per month.</p></div>
     </div>
   </section>
   <section className="reading-faq" aria-labelledby="faq-title"><h2 id="faq-title" data-enter>A few things<br/>to know.</h2><div>{questions.map(([question,answer])=><details key={question} data-enter><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}<Link href="/privacy" className="design-text-link">Image handling & privacy <ArrowUpRight size={20}/></Link></div></section>

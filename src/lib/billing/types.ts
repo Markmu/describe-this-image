@@ -1,3 +1,5 @@
+import { STARTER_CREDITS, STARTER_PRICE, STARTER_PRICE_CENTS } from "../plans";
+
 export interface PlanOffer {
   id: "starter" | "pro-month" | "pro-year" | "addon-1000";
   name: string;
@@ -10,14 +12,16 @@ export interface PlanOffer {
   description: string;
 }
 
-export const PLAN_OFFERS: Record<string, PlanOffer> = {
+export type ActiveOfferId = Exclude<PlanOffer["id"], "addon-1000">;
+
+export const PLAN_OFFERS: Record<ActiveOfferId, PlanOffer> = {
   starter: {
     id: "starter",
     name: "Starter Pack",
-    priceFormatted: "$9.99",
-    amountCents: 999,
+    priceFormatted: STARTER_PRICE,
+    amountCents: STARTER_PRICE_CENTS,
     billingType: "onetime",
-    credits: 300,
+    credits: STARTER_CREDITS,
     creditsLabel: "300 non-expiring credits",
     description: "One-time purchase, credits never expire.",
   },
@@ -43,6 +47,10 @@ export const PLAN_OFFERS: Record<string, PlanOffer> = {
     creditsLabel: "2,000 credits / month (24,000/yr)",
     description: "Annual subscription (~5 months fee, save 58%).",
   },
+};
+
+// Retired products remain available to reconcile existing orders and reversals.
+const RETIRED_OFFERS: Record<string, PlanOffer> = {
   "addon-1000": {
     id: "addon-1000",
     name: "Add-on Credits (1,000)",
@@ -54,3 +62,8 @@ export const PLAN_OFFERS: Record<string, PlanOffer> = {
     description: "On-demand extra credits for high-volume batches.",
   },
 };
+
+export function getOrderOffer(id: string): PlanOffer | undefined {
+  if (Object.hasOwn(PLAN_OFFERS, id)) return PLAN_OFFERS[id as ActiveOfferId];
+  return Object.hasOwn(RETIRED_OFFERS, id) ? RETIRED_OFFERS[id] : undefined;
+}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageIntro } from "@/components/PageIntro";
 import { SAMPLE_IMAGES } from "@/data/samples";
+import { ACCOUNT_WELCOME_CREDITS } from "@/lib/plans";
 
 export const metadata: Metadata = {
   title: "How to Describe a Picture – Step-by-Step Guide",
@@ -60,7 +61,7 @@ export default function HowToUsePage() {
 
     <section className="page-callout" aria-labelledby="guide-action-title">
       <h2 id="guide-action-title">Your image.<br />Your next words.</h2>
-      <div><p>Try one description without an account. Sign in with Google for 10 free descriptions per day.</p><Link href="/#describer" className="design-button">Describe an image<ArrowUpRight size={18} aria-hidden="true" /></Link></div>
+      <div><p>Try one description without an account. Sign in with Google for {ACCOUNT_WELCOME_CREDITS} welcome credits per account. No daily refill.</p><Link href="/#describer" className="design-button">Describe an image<ArrowUpRight size={18} aria-hidden="true" /></Link></div>
     </section>
   </main>;
 }

@@ -3,6 +3,7 @@ import { getBillingPool, lockOwner, transaction } from "./db";
 import { getPaymentGateway, getProductBinding, PLAN_OFFERS } from "./index";
 import { BillingError } from "./errors";
 import { appOrigin, signReturnState } from "./callback";
+import type { ActiveOfferId } from "./types";
 
 export type BillingOrder = {
   id: string; user_id: string; offer_id: string; product_id: string; environment: string;
@@ -19,7 +20,7 @@ export async function getOwnedOrder(id: string, userId: string) {
 }
 export async function createOrder(userId: string, email: string, offerId: string) {
   if (!Object.hasOwn(PLAN_OFFERS,offerId)) throw new BillingError("INVALID_OFFER", "Unknown offer.",400);
-  const offer = PLAN_OFFERS[offerId];
+  const offer = PLAN_OFFERS[offerId as ActiveOfferId];
   const gateway = getPaymentGateway();
   const productId = getProductBinding(offerId);
   const id = randomUUID();

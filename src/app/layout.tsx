@@ -5,6 +5,7 @@ import "./reading-pages.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/components/AuthProvider";
+import { ACCOUNT_WELCOME_CREDITS } from "@/lib/plans";
 
 const geistSans = Libre_Franklin({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     default: "Describe This Image – Free AI Image Describer, No Sign-Up",
     template: "%s | Describe This Image",
   },
-  description: "Draft image descriptions, alt text and captions. Try one image without login, or sign in for 10 free descriptions per day.",
+  description: `Draft image descriptions, alt text and captions. Try one image without login, or sign in for ${ACCOUNT_WELCOME_CREDITS} welcome credits per account.`,
 };
 
 export default function RootLayout({

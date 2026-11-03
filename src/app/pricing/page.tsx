@@ -3,24 +3,25 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageIntro } from "@/components/PageIntro";
 import { SAMPLE_IMAGES } from "@/data/samples";
+import { ACCOUNT_WELCOME_CREDITS, STARTER_PRICE, STARTER_UNIT_COST } from "@/lib/plans";
 import { PricingCheckoutButton } from "@/components/PricingCheckoutButton";
 
 export const metadata: Metadata = {
   title: "Pricing Plans – Describe This Image Pro & Credit Packs",
-  description: "Compare a $9.99 pack of 300 credits, $9.90 monthly Pro, and $49.90 annual Pro. Pro includes 2,000 credits per month. Add 1,000 credits for $5.",
+  description: `Compare a ${STARTER_PRICE} pack of 300 non-expiring credits, $9.90 monthly Pro and $49.90 annual Pro. Sign in with Google for ${ACCOUNT_WELCOME_CREDITS} welcome credits.`,
   alternates: { canonical: "https://describethisimage.com/pricing/" },
 };
 
 const alternatives = [
   {
     id: "free", name: "Free", price: "$0", period: "to begin",
-    features: ["1 description without login", "10 free descriptions per day with Google", "Single-image upload and supported image links"],
+    features: ["1 description without login", `${ACCOUNT_WELCOME_CREDITS} welcome credits per Google account, no daily refill`, "Single-image upload and supported image links"],
     label: "Try an image", unit: "$0 per image",
   },
   {
-    id: "starter", name: "Starter Pack", price: "$9.99", period: "one payment",
-    features: ["Credits never expire", "No subscription or recurring charge", "Single-image workflow with alt text"],
-    label: "Buy Starter Pack", unit: "$0.033 per included credit",
+    id: "starter", name: "Starter Pack", price: STARTER_PRICE, period: "one payment",
+    features: ["300 image descriptions", "Credits never expire", "No subscription or recurring charge", "Single-image workflow with alt text"],
+    label: "Buy Starter Pack", unit: `${STARTER_UNIT_COST} per included credit`,
   },
   {
     id: "pro-month", name: "Pro Monthly", price: "$9.90", period: "per month",
@@ -30,11 +31,10 @@ const alternatives = [
 ] as const;
 
 const comparison = [
-  { name: "Free", price: "$0", credits: "1 guest description; 10 per day with Google", cost: "$0", use: "Try your first image.", featured: false },
-  { name: "Starter Pack", price: "$9.99 once", credits: "300 credits, never expire", cost: "$0.033", use: "Occasional images, one purchase.", featured: false },
+  { name: "Free", price: "$0", credits: `1 guest description; ${ACCOUNT_WELCOME_CREDITS} welcome credits per Google account, no daily refill`, cost: "$0", use: "Try your first image.", featured: false },
+  { name: "Starter Pack", price: `${STARTER_PRICE} once`, credits: "300 credits, never expire", cost: STARTER_UNIT_COST, use: "Occasional images, one purchase.", featured: false },
   { name: "Pro Monthly", price: "$9.90 / month", credits: "2,000 credits per month", cost: "$0.005", use: "Ongoing image work, billed monthly.", featured: false },
   { name: "Pro Annual", price: "$49.90 / year", credits: "2,000 credits per month for 12 months", cost: "$0.0021", use: "A year of Pro at a lower total price.", featured: true },
-  { name: "Add-on Credits", price: "$5 per 1,000", credits: "1,000 credits, never expire", cost: "$0.005", use: "Extra credits for a larger workload.", featured: false },
 ];
 
 export default function PricingPage() {
@@ -75,10 +75,6 @@ export default function PricingPage() {
             : <PricingCheckoutButton offerId={plan.id} label={plan.label} />}</div>
         </article>)}
       </div>
-      <section className="credit-addon" aria-labelledby="addon-title">
-        <div><h2 id="addon-title">A little extra room.</h2><p>Add 1,000 credits for $5. A single payment, with no expiry. $0.005 per credit, in packs of 1,000.</p></div>
-        <PricingCheckoutButton offerId="addon-1000" label="Add 1,000 credits · $5" />
-      </section>
     </section>
 
     <section className="page-section plan-image-examples" aria-labelledby="reading-examples-title">
@@ -103,8 +99,8 @@ export default function PricingPage() {
         </tr>)}</tbody>
       </table>
       <div className="billing-notes">
-        <div><h3>Billing, with clarity.</h3><p>Payments are handled by Creem. Starter and add-on packs are one-time purchases. Pro subscriptions are billed monthly or annually. Manage your subscription through your account.</p></div>
-        <div><h3>Start with your first image.</h3><p>Try one description without an account, or sign in with Google for 10 free descriptions per day. Generation requires an available image service. <Link href="/privacy">Read how images are handled.</Link></p></div>
+        <div><h3>Billing, with clarity.</h3><p>Payments are handled by Creem. Starter is a one-time purchase. Pro subscriptions are billed monthly or annually. Manage your subscription through your account.</p></div>
+        <div><h3>Start with your first image.</h3><p>Try one description without an account, or sign in with Google for {ACCOUNT_WELCOME_CREDITS} welcome credits per account. Welcome credits have no expiry or daily refill. Generation requires an available image service. <Link href="/privacy">Read how images are handled.</Link></p></div>
       </div>
     </section>
   </main>;

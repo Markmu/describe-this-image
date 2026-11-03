@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import type { PoolClient } from "pg";
 import { getBillingPool, lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
-import { getPaymentGateway, PLAN_OFFERS } from "./index";
+import { getPaymentGateway, getOrderOffer } from "./index";
 import type { BillingOrder } from "./orders";
 import { object, providerId, type CreemGateway, type ProviderObject } from "./providers/creem";
 import { grantCredits } from "./usage";
@@ -42,7 +42,9 @@ async function collectEvidence(type: string, data: ProviderObject, gateway: Cree
   if (type === "checkout.completed") {
     const checkout = await gateway.getCheckout(providerId(data.id));
     const order = await checkoutEvidence(gateway,checkout);
-    if (PLAN_OFFERS[order.offer_id].billingType === "recurring") return { order, checkout };
+    const offer = getOrderOffer(order.offer_id);
+    requireEvidence(offer);
+    if (offer.billingType === "recurring") return { order, checkout };
     const receipt = object(checkout.order);
     const payment = await gateway.getTransaction(providerId(receipt.transaction));
     requireEvidence(providerId(payment.order) === providerId(receipt.id));
@@ -95,7 +97,8 @@ async function revokePayment(db: PoolClient, paymentId: string, order: BillingOr
 
 async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number) {
   const { order, checkout, subscription, payment } = evidence;
-  const offer = PLAN_OFFERS[order.offer_id];
+  const offer = getOrderOffer(order.offer_id);
+  requireEvidence(offer);
   if (checkout) {
     const customer = providerId(checkout.customer);
     requireEvidence(!order.customer_id || order.customer_id === customer);

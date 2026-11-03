@@ -5,7 +5,9 @@ The local site runs with `pnpm dev` at http://localhost:3000. Sample previews wo
 ## Database and usage
 Set DATABASE_URL to a PostgreSQL database owned by this application. Export it in the terminal and run `pnpm db:migrate`. The migration creates tables without dropping data. Back up a populated database before migrations. Development reads .env.local through Next.js; the standalone migration and recovery scripts require exported variables.
 
-Guests receive one credit per signed browser identity. Signed-in Google accounts receive 10 free credits per UTC day. Clearing browser cookies can create another guest identity; this is not a person-level limit. Generation has a persistent hourly throttle (30 anonymous requests, 120 signed-in requests). Usage reads have a separate 300/hour throttle. Configure TRUSTED_CLIENT_IP_HEADER only when ingress overwrites that header; otherwise anonymous traffic shares a bucket. Enforce request size and traffic limits at ingress as well.
+Guests receive one credit per signed browser identity. Each signed-in Google account receives 2 non-expiring welcome credits once. There is no daily refill. The guest allowance is separate. Clearing browser cookies can create another guest identity; this is not a person-level limit. Generation has a persistent hourly throttle (30 anonymous requests, 120 signed-in requests). Usage reads have a separate 300/hour throttle. Configure TRUSTED_CLIENT_IP_HEADER only when ingress overwrites that header; otherwise anonymous traffic shares a bucket. Enforce request size and traffic limits at ingress as well.
+
+Apply migration 003_welcome_credits.sql before deploying this usage policy. It adds the welcome grant kind while retaining historical daily grants and ledger entries. Existing daily grants are excluded from available balances and spending. The first usage read under the policy grants 2 welcome credits to each account; later reads and later days do not grant more. Paid purchase and subscription credits are unaffected. Welcome credits are spent before paid credits.
 
 Run `pnpm usage:recover` with DATABASE_URL exported to refund reservations left pending for more than five minutes after a process crash. Run this through the deployment scheduler. The model request timeout is 45 seconds; recovery processes up to 500 reservations per invocation.
 
@@ -23,10 +25,11 @@ Remote image URLs are loaded by the browser with CORS, omitted credentials and b
 
 ## Creem
 Set CREEM_ENVIRONMENT to test or live and use matching API key, signing secret and product IDs:
-- CREEM_PRODUCT_STARTER: USD 999 cents, one time, 300 non-expiring credits.
+- CREEM_PRODUCT_STARTER: USD 699 cents ($6.99), one time, 300 non-expiring credits.
 - CREEM_PRODUCT_PRO_MONTH: USD 990 cents, every month, 2,000 credits per month.
 - CREEM_PRODUCT_PRO_YEAR: USD 4990 cents, every year, twelve monthly windows of 2,000 credits.
-- CREEM_PRODUCT_ADDON: USD 500 cents, one time, 1,000 non-expiring credits.
+
+Add-on is retired: new checkout requests reject its offer ID. Keep historical orders and their provider records for fulfillment and refunds; already-purchased credits remain valid. The server reconciles Starter payments using each stored order amount, including the previous $9.99 price. Configure the current Starter product at 699 cents and bind its product ID through CREEM_PRODUCT_STARTER before enabling checkout.
 
 Configure active products without trials, seat multipliers or discounts. The checkout validates product price, currency, billing type and interval. Unadvertised product configuration fails closed. Subscription credits expire at the next monthly boundary; annual credits do not become usable as a single 24,000-credit balance. Cancellation retains Pro access through the paid period. Refunds, including partial refunds, or disputes revoke the remaining credits for that transaction; consumed credits are not restored. Review partial refunds through support.
 

@@ -6,6 +6,7 @@ import { Upload, Copy, Check, LoaderCircle, ArrowRight } from "lucide-react";
 import { SAMPLE_IMAGES, type SampleImage } from "@/data/samples";
 import { OUTPUT_MODES, type OutputMode, type ImageOutputs } from "@/lib/image-input";
 import { LanguageSelect } from "@/components/LanguageSelect";
+import { ACCOUNT_WELCOME_CREDITS } from "@/lib/plans";
 import { fileData, generateDescription, remoteImage } from "@/lib/image-client";
 
 const labels: Record<OutputMode, string> = { detailed: "Detailed", short: "Caption", alt: "Alt text", social: "Social" };
@@ -87,7 +88,7 @@ export function DescriberTool({ initialMode = "detailed", fixedMode = false }: {
     } catch { setError("Clipboard access failed. Select and copy the description text."); }
   }
   return <section id="describer" aria-label="Image description workspace" className="reading-desk">
-    <div className="desk-status"><p>{typeof usage?.remaining==="number" ? usage.remaining+" credits available" : "One image to begin. No login needed."}</p><span>10 free per day with Google</span></div>
+    <div className="desk-status"><p>{typeof usage?.remaining==="number" ? usage.remaining+" credits available" : "One image to begin. No login needed."}</p><span>{ACCOUNT_WELCOME_CREDITS} welcome credits with Google · no daily refill</span></div>
     <div className="desk-grid">
       <div className="desk-source">
         <label className={"desk-upload"+(dragging?" is-dragging":"")} onDragOver={event=>{event.preventDefault();if(!busy)setDragging(true);}} onDragLeave={()=>setDragging(false)} onDrop={event=>{event.preventDefault();setDragging(false);const file=event.dataTransfer.files[0];if(file)void loadFile(file);}}>

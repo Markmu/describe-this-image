@@ -3,9 +3,10 @@
 import { useRef, useState } from "react";
 import { ArrowUpRight, RefreshCw } from "lucide-react";
 import { useRouter } from "next/navigation";
+import type { ActiveOfferId } from "@/lib/billing/types";
 
 interface PricingCheckoutButtonProps {
-  offerId: "starter" | "pro-month" | "pro-year" | "addon-1000";
+  offerId: ActiveOfferId;
   label: string;
   featured?: boolean;
   className?: string;
