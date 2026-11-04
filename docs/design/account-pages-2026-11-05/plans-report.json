@@ -1,0 +1,1596 @@
+{
+ "url": "http://localhost:3102/account/plans",
+ "at": "2026-11-04T16:39:59.053Z",
+ "allow": [
+  "palette-cream"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.48,
+    0.56
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1357,
+     "screens": 1.5,
+     "words": 259,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 28,
+     "vw": 1.9,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 132,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Plans and credits",
+     "words": 3,
+     "lines": 1,
+     "size": 28,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Plans and credits",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 132,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "3,290 credits",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 375,
+      "tag": "p",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      20,
+      28,
+      32
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.7
+     },
+     "measureChars": 79,
+     "max": {
+      "size": 32,
+      "vw": 2.2,
+      "font": "Libre Franklin",
+      "text": "3,290"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 9
+    },
+    "eyebrows": [
+     {
+      "text": "Available credits",
+      "above": "3,290 credits",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 325
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 588,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.46
+      },
+      {
+       "color": "#5f5b52",
+       "share": 0.45
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.08
+      },
+      {
+       "color": "#eeece7",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 6,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Explore plans",
+      "Plans and credits",
+      "Refresh"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "section.account-panel.account-history 560px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1357,
+    "margins": {
+     "left": 89,
+     "right": 184
+    },
+    "sections": [
+     {
+      "sel": "div.account-overview",
+      "tag": "div",
+      "top": 291,
+      "height": 273,
+      "words": 55,
+      "media": 0,
+      "middle": 111,
+      "heading": {
+       "text": "3,290",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 184,
+      "right": 192,
+      "textLeft": 184,
+      "textRight": 192,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.account-ledger-columns",
+      "tag": "div",
+      "top": 588,
+      "height": 459,
+      "words": 119,
+      "media": 0,
+      "middle": 49,
+      "heading": {
+       "text": "Credit breakdown",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 184,
+      "right": 184,
+      "textLeft": 184,
+      "textRight": 184,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#more-credits.account-purchase",
+      "tag": "section",
+      "top": 1071,
+      "height": 155,
+      "words": 31,
+      "media": 0,
+      "middle": 625,
+      "heading": {
+       "text": "Need more credits?",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 185,
+      "right": 185,
+      "textLeft": 185,
+      "textRight": 202,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Plans and credits",
+      "size": 28,
+      "top": 132,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 184,
+      "n": 3
+     },
+     {
+      "x": 160,
+      "n": 1
+     },
+     {
+      "x": 745,
+      "n": 1
+     },
+     {
+      "x": 756,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.11,
+    "voidBox": {
+     "x": 1260,
+     "y": 120,
+     "w": 180,
+     "h": 780
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 92
+    },
+    "canvas": {
+     "left": 48,
+     "right": 78
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 28,
+     "vw": 1.9,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 132,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 5,
+     "firstScreen": 4,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 5,
+     "radii": [
+      [
+       8,
+       4
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 1,
+     "borderSamples": [
+      "#b8b1a2 on #e6e0d2 (1.62:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 7,
+     "leftAligned": 0,
+     "figures": 6,
+     "tabularShare": 1,
+     "kpiMax": 14
+    },
+    "rows": {
+     "count": 7,
+     "median": 72
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.12,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      28,
+      32,
+      59
+     ]
+    },
+    "title": {
+     "text": "Plans and credits",
+     "size": 28,
+     "top": 132
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.71,
+    0.7,
+    0.78
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2063,
+     "screens": 2,
+     "words": 257,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 28,
+     "vw": 3.6,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 124,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Plans and credits",
+     "words": 3,
+     "lines": 1,
+     "size": 28,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "Plans and credits",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 124,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "3,290 credits",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 363,
+      "tag": "p",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      20,
+      28,
+      32
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.7
+     },
+     "measureChars": 105,
+     "max": {
+      "size": 32,
+      "vw": 4.2,
+      "font": "Libre Franklin",
+      "text": "3,290"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 9
+    },
+    "eyebrows": [
+     {
+      "text": "Available credits",
+      "above": "3,290 credits",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 313
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 870,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5f5b52",
+       "share": 0.45
+      },
+      {
+       "color": "#1a1a1a",
+       "share": 0.45
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.08
+      },
+      {
+       "color": "#eeece7",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#dcd5c5",
+      "hsl": {
+       "h": 42,
+       "s": 0.25,
+       "l": 0.82
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 6,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Explore plans",
+      "Plans and credits",
+      "Refresh"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "section.account-panel.account-history 720px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2063,
+    "margins": {
+     "left": 25,
+     "right": 44
+    },
+    "sections": [
+     {
+      "sel": "div.account-overview",
+      "tag": "div",
+      "top": 283,
+      "height": 564,
+      "words": 55,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "3,290",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 44,
+      "right": 44,
+      "textLeft": 44,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.account-ledger-columns",
+      "tag": "div",
+      "top": 870,
+      "height": 838,
+      "words": 119,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Credit breakdown",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 44,
+      "right": 44,
+      "textLeft": 44,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#more-credits.account-purchase",
+      "tag": "section",
+      "top": 1732,
+      "height": 155,
+      "words": 31,
+      "media": 0,
+      "middle": 225,
+      "heading": {
+       "text": "Need more credits?",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 49,
+      "right": 49,
+      "textLeft": 49,
+      "textRight": 66,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Plans and credits",
+      "size": 28,
+      "top": 124,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 44,
+      "n": 5
+     },
+     {
+      "x": 24,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 92
+    },
+    "canvas": {
+     "left": 24,
+     "right": 33
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 28,
+     "vw": 3.6,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 124,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 5,
+     "firstScreen": 4,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 6,
+     "radii": [
+      [
+       8,
+       4
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     "heavyBorders": 1,
+     "borderSamples": [
+      "#b8b1a2 on #e6e0d2 (1.62:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 7,
+     "leftAligned": 0,
+     "figures": 6,
+     "tabularShare": 1,
+     "kpiMax": 14
+    },
+    "rows": {
+     "count": 7,
+     "median": 72
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.12,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      28,
+      32,
+      34
+     ]
+    },
+    "title": {
+     "text": "Plans and credits",
+     "size": 28,
+     "top": 124
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.53,
+    0.83,
+    0.59
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2398,
+     "screens": 2.8,
+     "words": 246,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 106,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Plans and credits",
+     "words": 3,
+     "lines": 1,
+     "size": 24,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Libre Franklin",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 20,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Plans and credits",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.03,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 106,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "3,290 credits",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Libre Franklin",
+      "weight": 600,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 413,
+      "tag": "p",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      18,
+      24,
+      26,
+      32
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Libre Franklin",
+      "size": 13,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.7
+     },
+     "measureChars": 48,
+     "max": {
+      "size": 32,
+      "vw": 8.2,
+      "font": "Libre Franklin",
+      "text": "3,290"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 8
+    },
+    "eyebrows": [
+     {
+      "text": "Available credits",
+      "above": "3,290 credits",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 353
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#e6e0d2",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.29,
+      "l": 0.86
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeece7",
+       "top": 879,
+       "hsl": {
+        "h": 43,
+        "s": 0.17,
+        "l": 0.92
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5f5b52",
+       "share": 0.5
+      },
+      {
+       "color": "#1a1a1a",
+       "share": 0.4
+      },
+      {
+       "color": "#e6e0d2",
+       "share": 0.09
+      },
+      {
+       "color": "#eeece7",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#1a1a1a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#e6e0d2"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 4,
+     "radius": 6,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Describe this image.",
+      "Explore plans",
+      "Plans and credits",
+      "Refresh"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "section.account-panel.account-history 350px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 78,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2398,
+    "margins": {
+     "left": 20,
+     "right": 40
+    },
+    "sections": [
+     {
+      "sel": "div.account-page-heading",
+      "tag": "div",
+      "top": 106,
+      "height": 139,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Plans and credits",
+       "size": 24,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 68,
+      "textLeft": 20,
+      "textRight": 68,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.account-overview",
+      "tag": "div",
+      "top": 333,
+      "height": 526,
+      "words": 55,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "3,290",
+       "size": 32,
+       "tag": "p"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.account-ledger-columns",
+      "tag": "div",
+      "top": 879,
+      "height": 987,
+      "words": 112,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Credit breakdown",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 40,
+      "right": 40,
+      "textLeft": 40,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#more-credits.account-purchase",
+      "tag": "section",
+      "top": 1886,
+      "height": 267,
+      "words": 31,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Need more credits?",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 41,
+      "right": 41,
+      "textLeft": 41,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.reading-footer.reading-footer-compact",
+      "tag": "footer",
+      "top": 2217,
+      "height": 181,
+      "words": 16,
+      "media": 0,
+      "middle": 20,
+      "heading": null,
+      "left": 20,
+      "right": 43,
+      "textLeft": 20,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Plans and credits",
+      "size": 24,
+      "top": 106,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 5
+     },
+     {
+      "x": 20,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#e6e0d2",
+    "sidebar": null,
+    "topbar": {
+     "h": 78
+    },
+    "canvas": {
+     "left": 20,
+     "right": 40
+    },
+    "hero": {
+     "text": "Plans and credits",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Libre Franklin",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.2,
+     "top": 106,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 5,
+     "firstScreen": 3,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 6,
+     "radii": [
+      [
+       8,
+       4
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     "heavyBorders": 1,
+     "borderSamples": [
+      "#b8b1a2 on #e6e0d2 (1.62:1)"
+     ],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 7,
+     "leftAligned": 0,
+     "figures": 6,
+     "tabularShare": 1,
+     "kpiMax": 14
+    },
+    "rows": {
+     "count": 7,
+     "median": 96
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.17,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      24,
+      27,
+      32,
+      34
+     ]
+    },
+    "title": {
+     "text": "Plans and credits",
+     "size": 24,
+     "top": 106
+    },
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/desktop-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/tablet-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/mobile-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/account/inspect-plans/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

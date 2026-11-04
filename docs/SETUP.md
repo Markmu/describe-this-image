@@ -3,13 +3,13 @@
 The local site runs with `pnpm dev` at http://localhost:3000. Sample previews work without service credentials. Image generation, authenticated usage and payments require the settings below; missing settings produce an unavailable state.
 
 ## Database and usage
-Set DATABASE_URL to a PostgreSQL database owned by this application. Export it in the terminal and run `pnpm db:migrate`. The migration creates tables without dropping data. Back up a populated database before migrations. Development reads .env.local through Next.js; the standalone migration and recovery scripts require exported variables.
+Set DATABASE_URL in `.env.local` to a PostgreSQL database owned by this application, then run `pnpm db:migrate`. The migration creates tables without dropping data. Back up a populated database before migrations. Development reads `.env.local` through Next.js; the migration, recovery and billing test commands load it through Node.js (22.9 or later). Exported variables take precedence.
 
 Each image generation costs 10 credits and returns all four description formats. Guests receive 10 credits (one image) per signed browser identity. Each signed-in Google account receives 20 non-expiring welcome credits (two images) once. There is no daily refill. The guest allowance is separate. Clearing browser cookies can create another guest identity; this is not a person-level limit. Generation has a persistent hourly throttle (30 anonymous requests, 120 signed-in requests). Usage reads have a separate 300/hour throttle. Configure TRUSTED_CLIENT_IP_HEADER only when ingress overwrites that header; otherwise anonymous traffic shares a bucket. Enforce request size and traffic limits at ingress as well.
 
 Apply all migrations before deploying this usage policy. Migration 003 adds the welcome grant kind while retaining historical daily grants and ledger entries. Existing daily grants are excluded from available balances and spending. The first usage read grants welcome credits to each account; later reads and later days do not grant more. Welcome credits are spent before paid credits. Migration 004 converts the previous 1-credit guest and 2-credit welcome grants to the 10-credit image denomination, preserving the number of free images left. It retains prior ledger entries and adds balance conversion entries. Pending reservations created before migration retain their original denomination for refunds. Purchased and subscription balances keep their stored credit amounts.
 
-Run `pnpm usage:recover` with DATABASE_URL exported to refund reservations left pending for more than five minutes after a process crash. Run this through the deployment scheduler. The safety check has a 30-second deadline, followed by a model request timeout of 45 seconds. The description route and browser allow 90 seconds; configure ingress and hosting limits to match. Recovery processes up to 500 reservations per invocation.
+Run `pnpm usage:recover` with DATABASE_URL configured to refund reservations left pending for more than five minutes after a process crash. Run this through the deployment scheduler. The safety check has a 30-second deadline, followed by a model request timeout of 45 seconds. The description route and browser allow 90 seconds; configure ingress and hosting limits to match. Recovery processes up to 500 reservations per invocation.
 
 ## Google
 Generate a private AUTH_SECRET (at least 32 characters), set AUTH_GOOGLE_ID and AUTH_GOOGLE_SECRET, and register:
@@ -62,6 +62,18 @@ Before accepting live payments, exercise Google login, initial payment, duplicat
 - `pnpm lint`
 - `pnpm build`
 - `pnpm test`
-- `TEST_DATABASE_URL=postgresql://.../describe_audit pnpm test:billing`
+- `pnpm test:billing`
 
-Billing tests require an isolated database whose name begins with describe_audit; apply migrations to it first. Provider requests use fixtures and assert method, URL and payload; they do not charge a card.
+Set `TEST_DATABASE_URL` in `.env.local` to an isolated database whose name begins with describe_audit. Apply migrations to it with `DATABASE_URL="$TEST_DATABASE_URL" pnpm db:migrate` after exporting that test URL in the terminal. Keep the development database and test database separate. Provider requests use fixtures and assert method, URL and payload; they do not charge a card.
+
+## Account pages
+
+`/account/plans` reads available credits, their source grants, the next monthly window, and credit activity. `/account/billing` reads the subscription, pending checkouts, and payment transactions. Both pages require a server-verified session, disable indexing and shared caching, and preserve an allowlisted account destination through sign-in. The Account menu links to these pages.
+
+Use separate databases for Creem test and live environments. Billing summaries and payment queries filter orders by `CREEM_ENVIRONMENT`; credit grants and the usage ledger have no environment column. The account credit balance uses the same owner-scoped grants as generation, including historical entitlements. Switching a shared database between payment environments would mix spendable grants. The application requires migrations 001–004; this page implementation adds no migration.
+
+History endpoints `/api/account/credits` and `/api/account/payments` return 20 entries per cursor page with `Cache-Control: no-store`. Credit activity combines allocations for a generation into one debit or refund. Monthly expiry entries are inferred from grant dates and have no invented ledger delta. Dates display in UTC.
+
+Payment history uses verified `billing_payments` records, including renewals. Transaction amounts display as an em dash because this schema does not store each transaction's charged amount. Creem provides payment amounts and receipts through the billing portal. Order amounts appear on pending checkout summaries and are not substituted for renewal amounts.
+
+The account tests run with `pnpm test:billing`, using `TEST_DATABASE_URL`. Browser verification uses isolated test accounts and temporary signed test sessions; no authentication bypass or preview fixture is part of the application routes.

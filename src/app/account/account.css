@@ -1,0 +1,125 @@
+.account-page{--account-line:var(--paper-deep);width:min(1120px,calc(100% - 80px));margin:0 auto;padding:40px 0 64px;font-size:14px;line-height:1.5;color:var(--reading-ink);flex:1;}
+.account-page h1{font-size:28px;font-weight:600;line-height:1.2;letter-spacing:-.03em;}
+.account-page h2{font-size:16px;font-weight:600;line-height:1.4;}
+.account-page-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px;}
+.account-page-heading p{color:var(--reading-muted);margin-top:8px;}
+.account-page-tabs{display:flex;gap:8px;margin-bottom:28px;}
+.account-page-tabs a{display:flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:6px;color:var(--reading-muted);}
+.account-page-tabs a:hover,.account-page-tabs a[aria-current=page]{background:var(--paper-deep);color:var(--reading-ink);}
+.account-page-tabs a[aria-current=page]{font-weight:600;}
+.account-content{display:grid;gap:24px;}
+/* 1120px canvas = 548px + 24px gutter + 548px. Each column shares the outer frame. */
+.account-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch;}
+.account-ledger-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;border-radius:8px;background:var(--paper-soft);}
+.account-ledger-columns>.account-panel{background:transparent;}
+.account-ledger-columns>.account-panel+.account-panel{border-left:1px solid var(--paper-deep);border-radius:0;}
+.account-panel{min-width:0;padding:24px;background:var(--paper-soft);border-radius:8px;}
+.account-section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:16px;}
+.account-section-top .account-help{margin:0;}
+.account-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 16px;border:1px solid transparent;border-radius:6px;font:inherit;font-weight:500;text-decoration:none;transition:background .18s,color .18s;}
+.account-button-primary{background:var(--reading-ink);color:var(--paper-soft);}
+.account-button-primary:hover{background:#38362f;}
+.account-button-secondary{background:transparent;border-color:#b8b1a2;color:var(--reading-ink);}
+.account-button-secondary:hover{background:var(--paper-deep);}
+.account-button:disabled{color:var(--reading-muted);background:var(--paper-deep);border-color:var(--paper-deep);}
+.account-text-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:inherit;color:var(--reading-ink);text-decoration:underline;text-underline-offset:4px;}
+.account-text-link:hover{color:var(--reading-muted);}
+.account-balance-value{margin-top:8px;font-size:32px;font-weight:600;line-height:1.2;letter-spacing:-.035em;font-variant-numeric:tabular-nums;}
+.account-balance-value>span{font-size:14px;font-weight:400;letter-spacing:0;color:var(--reading-muted);}
+.account-balance-caption{margin-top:10px;}
+.account-help{margin-top:10px;color:var(--reading-muted);font-size:13px;line-height:1.55;}
+.account-plan-name{font-size:20px;line-height:1.3;margin:16px 0;}
+.account-status{display:inline-flex;align-items:center;flex:none;padding:3px 8px;border-radius:4px;background:var(--paper-deep);font-size:12px;line-height:1.5;white-space:nowrap;}
+.account-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.account-facts dt{font-size:12px;color:var(--reading-muted);margin-bottom:4px;}
+.account-facts dd{font-variant-numeric:tabular-nums;}
+.account-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:16px;}
+.account-table th{padding:8px 0;text-align:left;font-size:12px;font-weight:400;color:var(--reading-muted);}
+.account-table td{padding:14px 0;border-bottom:1px solid var(--account-line);vertical-align:middle;}
+.account-table th:first-child,.account-table td:first-child{width:52%;padding-right:20px;}
+.account-table th:nth-child(2),.account-table td:nth-child(2){width:24%;}
+.account-table th:last-child,.account-table td:last-child{width:24%;text-align:right;}
+.account-table tr:last-child td{border-bottom:0;}
+.account-table small{display:block;margin-top:4px;font-size:12px;line-height:1.5;color:var(--reading-muted);}
+.account-table .account-numeric,.account-table .account-date,.account-expiry{font-variant-numeric:tabular-nums;}
+.account-table .account-numeric{text-align:right;}
+.account-payment-table th:first-child,.account-payment-table td:first-child{width:43%;}
+.account-payment-table th:nth-child(2),.account-payment-table td:nth-child(2){width:23%;}
+.account-payment-table th:nth-child(3),.account-payment-table td:nth-child(3){width:22%;}
+.account-payment-table th:last-child,.account-payment-table td:last-child{width:12%;}
+.account-credit-table th:nth-child(2){text-align:right;}
+.account-credit-table td:nth-child(2){padding-right:24px;}
+.account-credit-table th:nth-child(2){padding-right:24px;}
+.account-credit-progress{max-width:240px;margin-top:10px;}
+.account-credit-progress progress{display:block;appearance:none;width:100%;height:5px;border:0;border-radius:3px;overflow:hidden;background:var(--paper-deep);color:var(--reading-ink);}
+.account-credit-progress progress::-webkit-progress-bar{background:var(--paper-deep);}
+.account-credit-progress progress::-webkit-progress-value{background:var(--reading-ink);}
+.account-credit-progress progress::-moz-progress-bar{background:var(--reading-ink);}
+.account-window-note{margin:16px 0 0;font-size:14px;}
+.account-empty{margin:16px 0;padding:16px 0;color:var(--reading-muted);}
+.account-history .account-section-top{margin-bottom:0;}
+.account-history-more{margin-top:16px;}
+.account-history-count{text-align:right;}
+.account-purchase{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px;border:1px solid #b8b1a2;border-radius:8px;}
+.account-purchase h2{margin-bottom:10px;}
+.account-purchase-actions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;flex-shrink:0;}
+.account-page .checkout-message{max-width:300px;font-size:13px;}
+.account-payment-details>p{margin-top:16px;}
+.account-portal-control{margin-top:20px;}
+.account-inline-error{margin-top:12px;padding:12px;background:var(--paper);color:#8b2727;font-size:13px;overflow-wrap:anywhere;}
+.account-inline-error a{display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;}
+.account-data-error{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-top:16px;}
+.account-data-error p{max-width:45ch;color:var(--reading-muted);}
+.account-data-error .account-button{flex-shrink:0;}
+.account-pending-orders{list-style:none;margin:16px 0 0;}
+.account-pending-orders li{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0;}
+.account-pending-orders small{display:block;margin-top:4px;font-size:12px;color:var(--reading-muted);}
+.account-billing-footnote{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:14px;}
+.account-loading{padding:24px;border-radius:8px;background:var(--paper-soft);}
+.account-loading-line{height:20px;width:60%;margin-top:20px;border-radius:4px;background:var(--paper-deep);}
+.account-loading-line:last-child{width:35%;}
+.reading-footer-compact{padding:24px var(--reading-margin);}
+.reading-footer-compact :is(.footer-top,.footer-name,.photo-credit){display:none;}
+.reading-footer-compact .footer-bottom{margin:0;padding:0;}
+@media(max-width:1100px){.account-ledger-columns{grid-template-columns:1fr;}.account-ledger-columns>.account-panel+.account-panel{border-left:0;border-top:1px solid var(--paper-deep);}}
+@media(max-width:900px){
+ .account-page{width:calc(100% - 48px);padding-top:32px;}
+ .account-overview{grid-template-columns:1fr;gap:20px;}
+ .account-billing-overview{grid-template-columns:1fr 1fr;gap:20px;}
+ .account-panel{padding:20px;}
+ .account-facts{grid-template-columns:1fr;gap:12px;}
+}
+@media(max-width:640px){
+ .account-page{width:calc(100% - 40px);padding-top:28px;}
+ .account-page h1{font-size:24px;}
+ .account-page-heading{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:20px;}
+ .account-page-heading>div{width:100%;}
+ .account-page-tabs{gap:4px;margin-bottom:24px;}
+ .account-page-tabs a{padding:10px 12px;font-size:13px;}
+ .account-content{gap:20px;}
+ .account-overview,.account-billing-overview{grid-template-columns:1fr;gap:20px;}
+ .account-panel{padding:20px;}
+ .account-section-top{gap:12px;align-items:flex-start;}
+ .account-facts{grid-template-columns:1fr 1fr;}
+ .account-plan-name{font-size:18px;}
+ .account-table,.account-table tbody{display:block;}
+ .account-table thead{display:none;}
+ .account-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:14px 0;border-bottom:1px solid var(--account-line);}
+ .account-table tr:last-child{border-bottom:0;}
+ .account-table td,.account-table td:first-child,.account-table td:nth-child(2),.account-table td:last-child{display:block;width:auto;border:0;padding:0;}
+ .account-table td:first-child{grid-column:1;grid-row:1;}
+ .account-table .account-date{grid-column:1;grid-row:2;margin-top:6px;font-size:12px;color:var(--reading-muted);}
+ .account-table .account-numeric{grid-column:2;grid-row:1;white-space:nowrap;}
+ .account-payment-table .account-payment-status{grid-column:2;grid-row:2;margin-top:6px;text-align:right;}
+ .account-table .account-expiry{grid-column:1;grid-row:2;margin-top:6px;font-size:12px;color:var(--reading-muted);text-align:left;}
+ .account-credit-progress{max-width:180px;}
+ .account-credit-table .account-numeric::after{content:" credits";font-size:12px;color:var(--reading-muted);}
+ .account-purchase{flex-direction:column;align-items:stretch;padding:20px;}
+ .account-purchase-actions{align-items:stretch;}
+ .account-purchase-actions .account-button{width:100%;}
+ .account-data-error{flex-direction:column;}
+ .account-pending-orders li{align-items:flex-start;flex-direction:column;gap:4px;}
+ .account-billing-footnote{align-items:flex-start;flex-direction:column;gap:0;}
+ .account-history .account-section-top{flex-wrap:wrap;}
+ .account-history .account-section-top .account-text-link{min-height:32px;}
+}

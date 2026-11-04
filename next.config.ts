@@ -11,7 +11,11 @@ const nextConfig: NextConfig = {
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
       { key: "Content-Security-Policy", value: "frame-ancestors 'none'; object-src 'none'; base-uri 'self'" },
-    ] }, { source: "/billing/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+    ] }, { source: "/billing/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+      { source: "/account/:path*", headers: [
+        { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        { key: "Cache-Control", value: "private, no-store" },
+      ] }];
   },
 
 };

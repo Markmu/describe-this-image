@@ -4,12 +4,14 @@ import { useRef, useState } from "react";
 import { ArrowUpRight, RefreshCw } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { ActiveOfferId } from "@/lib/billing/types";
+import { accountLoginUrl } from "@/lib/account/navigation";
 
 interface PricingCheckoutButtonProps {
   offerId: ActiveOfferId;
   label: string;
   featured?: boolean;
   className?: string;
+  returnTo?: string;
 }
 
 export function PricingCheckoutButton({
@@ -17,6 +19,7 @@ export function PricingCheckoutButton({
   label,
   featured = false,
   className = "",
+  returnTo,
 }: PricingCheckoutButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +40,7 @@ export function PricingCheckoutButton({
       });
 
       const data = await res.json();
-      if (res.status === 401) { router.push("/billing/login"); setLoading(false); pending.current=false; return; }
+      if (res.status === 401) { router.push(returnTo ? accountLoginUrl(returnTo) : "/billing/login"); setLoading(false); pending.current=false; return; }
       if (!res.ok || !data.checkoutUrl) {
         throw new Error(data.error || "Failed to initiate Creem checkout");
       }
