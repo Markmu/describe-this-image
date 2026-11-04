@@ -5,7 +5,7 @@ import { DescriberTool } from "@/components/DescriberTool";
 import { ReadingMasthead } from "@/components/ReadingMasthead";
 import { ReadingMotion } from "@/components/ReadingMotion";
 import { JsonLd } from "@/components/JsonLd";
-import { ACCOUNT_WELCOME_CREDITS, STARTER_PRICE, STARTER_IMAGES, PRO_YEAR_PRICE, PRO_YEAR_MONTHLY_IMAGES, PRO_MONTH_PRICE, PRO_MONTH_IMAGES, CREDITS_PER_IMAGE } from "@/lib/plans";
+import { ACCOUNT_WELCOME_CREDITS, STARTER_PRICE, STARTER_CREDITS, STARTER_IMAGES, PRO_YEAR_PRICE, PRO_YEAR_MONTHLY_IMAGES, PRO_MONTH_PRICE, PRO_MONTH_IMAGES, CREDITS_PER_IMAGE } from "@/lib/plans";
 export const metadata:Metadata={
   title:"Describe This Image — Images into Words",
   description:"Turn photos into descriptions, captions and alt text. Try one image without an account. Four formats, eight languages.",
@@ -41,7 +41,7 @@ return <main id="main-content" className="editorial-home">
     <div className="plan-paper"><h2 id="plans-title" data-enter>A little.<br/>Or a lot.</h2><p data-enter>Start with one image.<br/>Make room for the next thousand.</p><Link href="/pricing" data-enter className="design-text-link">Compare every plan <ArrowUpRight size={22}/></Link></div>
     <div className="plan-ink" data-enter>
       <div className="plan-annual"><p className="plan-price" data-enter>{PRO_YEAR_PRICE}<span>/ year</span></p><p>Pro Annual · {PRO_YEAR_MONTHLY_IMAGES} image descriptions each month.<br/>3,000 credits/month. Batch processing. CSV export.</p><Link href="/pricing" className="design-button">Explore Pro <ArrowUpRight size={20}/></Link></div>
-      <div className="plan-alternatives" data-enter><p><strong>Just getting started?</strong><br/>{STARTER_IMAGES} image descriptions · 300 credits. {STARTER_PRICE} once. No expiry.</p><p><strong>Prefer monthly?</strong><br/>Pro at {PRO_MONTH_PRICE} per month.<br/>{PRO_MONTH_IMAGES} image descriptions · 2,000 credits.</p></div>
+      <div className="plan-alternatives" data-enter><p><strong>Just getting started?</strong><br/>{STARTER_IMAGES} image descriptions · {STARTER_CREDITS} credits. {STARTER_PRICE} once. No expiry.</p><p><strong>Prefer monthly?</strong><br/>Pro at {PRO_MONTH_PRICE} per month.<br/>{PRO_MONTH_IMAGES} image descriptions · 2,000 credits.</p></div>
     </div>
   </section>
   <section className="reading-faq" aria-labelledby="faq-title"><h2 id="faq-title" data-enter>A few things<br/>to know.</h2><div>{questions.map(([question,answer])=><details key={question} data-enter><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}<Link href="/privacy" className="design-text-link">Image handling & privacy <ArrowUpRight size={20}/></Link></div></section>

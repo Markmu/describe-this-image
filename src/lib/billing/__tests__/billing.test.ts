@@ -58,10 +58,10 @@ test("provider requests use documented methods, URLs and order bindings", async 
     await assert.rejects(live.validateProduct("prod_starter",PLAN_OFFERS.starter),{code:"PRODUCT_MISMATCH"});
   } finally {globalThis.fetch=original;}
 });
-test("only active offers can create checkouts; Starter costs $6.99 for 300 credits",async()=>{
+test("only active offers can create checkouts; Starter costs $6.99 for 500 credits",async()=>{
   assert.deepEqual(Object.keys(PLAN_OFFERS).sort(),["pro-month","pro-year","starter"]);
   assert.equal(PLAN_OFFERS.starter.amountCents,699);
-  assert.equal(PLAN_OFFERS.starter.credits,300);
+  assert.equal(PLAN_OFFERS.starter.credits,500);
   assert.equal(PLAN_OFFERS['pro-month'].credits,2000);
   assert.equal(PLAN_OFFERS['pro-year'].credits,3000);
   assert.equal(PLAN_OFFERS['pro-year'].amountCents,7990);
@@ -149,11 +149,11 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     const {rows:[legacy]}=await pool.query("SELECT remaining FROM credit_grants WHERE id=$1",[dailyId]);
     assert.equal(legacy.remaining,10);
   });
-  async function fixture(offerId="starter",amountCents?:number) {
+  async function fixture(offerId="starter",amountCents?:number,creditAmount?:number) {
     const suffix=randomUUID().replaceAll("-","");const orderId=randomUUID();const userId="test:"+suffix;
     const offer=getOrderOffer(offerId);assert.ok(offer);
     const amount=amountCents??offer.amountCents;
-    const credits=offerId==='pro-year' && amount===4990 ? 2000 : offer.credits;
+    const credits=creditAmount ?? (offerId==='pro-year' && amount===4990 ? 2000 : offer.credits);
     const productId="prod_"+suffix;const checkoutId="ch_"+suffix;const transactionId="txn_"+suffix;const customerId="cus_"+suffix;
     const subId=offer.billingType==="recurring" ? "sub_"+suffix : null;
     await pool.query("INSERT INTO billing_orders(id,user_id,offer_id,product_id,environment,amount_cents,checkout_id,credit_amount) VALUES ($1,$2,$3,$4,'test',$5,$6,$7)",[orderId,userId,offerId,productId,amount,checkoutId,credits]);
@@ -185,7 +185,7 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
       const e=f.event();
       await Promise.all([f.send(e),f.send(e),f.send(e)]);
       await f.send(f.event());
-      assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,300);
+      assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,500);
       assert.equal((await getOwnedOrder(f.orderId,f.userId)).status,"confirmed");
       await assert.rejects(getOwnedOrder(f.orderId,"another-user"),{status:404});
       const old=e.raw;
@@ -208,11 +208,22 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     } finally {f.restore();}
   });
   await t.test("previous-price Starter orders still fulfill using their stored amount",async()=>{
-    const f=await fixture("starter",999);
+    const f=await fixture("starter",999,300);
     try {
       await f.send(f.event());
       assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,300);
       assert.equal((await getOwnedOrder(f.orderId,f.userId)).amount_cents,999);
+    } finally {f.restore();}
+  });
+  await t.test("previous $6.99 Starter orders retain 300 credits through delayed payment and refund",async()=>{
+    const f=await fixture("starter",699,300);
+    try {
+      await f.send(f.event());
+      assert.equal((await getOwnedOrder(f.orderId,f.userId)).credit_amount,300);
+      assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,300);
+      f.payment.status="refunded";f.payment.refunded_amount=699;
+      await f.send(f.event("refund.created",{transaction:f.payment.id,status:"succeeded"}));
+      assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,0);
     } finally {f.restore();}
   });
   await t.test("historical add-on payments reconcile and refund after the offer is retired",async()=>{

@@ -22,7 +22,7 @@ export const PLAN_OFFERS: Record<ActiveOfferId, PlanOffer> = {
     amountCents: STARTER_PRICE_CENTS,
     billingType: "onetime",
     credits: STARTER_CREDITS,
-    creditsLabel: "300 non-expiring credits",
+    creditsLabel: `${STARTER_CREDITS} non-expiring credits`,
     description: "One-time purchase, credits never expire.",
   },
   "pro-month": {

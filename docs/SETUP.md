@@ -36,11 +36,13 @@ Contract and workflow tests use fixtures without paid API calls. This checkout h
 
 ## Creem
 Set CREEM_ENVIRONMENT to test or live and use matching API key, signing secret and product IDs:
-- CREEM_PRODUCT_STARTER: USD 699 cents ($6.99), one time, 300 non-expiring credits (30 images).
+- CREEM_PRODUCT_STARTER: USD 699 cents ($6.99), one time, 500 non-expiring credits (50 images).
 - CREEM_PRODUCT_PRO_MONTH: USD 990 cents ($9.90), every month, 2,000 credits per month (200 images).
 - CREEM_PRODUCT_PRO_YEAR: USD 7990 cents ($79.90), every year, twelve monthly windows of 3,000 credits (300 images per month, 3,600 per year).
 
 Add-on is retired: new checkout requests reject its offer ID. Keep historical orders and their provider records for fulfillment and refunds; already-purchased credits remain valid. The server reconciles Starter payments using each stored order amount, including the previous $9.99 price. Configure the current Starter product at 699 cents and bind its product ID through CREEM_PRODUCT_STARTER before enabling checkout.
+
+New Starter orders snapshot 500 credits. Existing Starter orders retain their stored 300-credit entitlement, including pending payments and refunds. Migration 004 keeps the historical 300-credit backfill. Update the Creem product description to 500 credits / 50 image descriptions while retaining the $6.99 one-time price.
 
 Migration 004 snapshots each existing order's credit entitlement in `billing_orders.credit_amount`. Previous $49.90 annual orders retain twelve windows of 2,000 credits. New $79.90 annual orders snapshot 3,000 credits per monthly window. Renewals and delayed webhooks use the stored order price and credit amount. Do not reprice or rebind historical provider orders. A pending checkout with old terms is not resumed as a new-price checkout.
 
