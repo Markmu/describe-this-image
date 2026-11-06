@@ -17,7 +17,7 @@ export function generationReady() {
 
 export async function generateImageDescription(input: DescriptionRequest, dependencies = services) {
   await input.onStage?.("reservation");
-  const usage = await dependencies.reserveUsage({ userId: input.userId, guestId: input.guestId, requestId: input.requestId, batch: input.batch });
+  const usage = await dependencies.reserveUsage({ userId: input.userId, guestId: input.guestId, guestSource: input.guestSource, requestId: input.requestId, batch: input.batch });
   try {
     await input.onStage?.("moderation", usage.reservationId);
     await dependencies.assertImageAllowed(input.image, usage.reservationId, { signal: input.signal });

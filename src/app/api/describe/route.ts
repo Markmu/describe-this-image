@@ -18,22 +18,22 @@ export async function POST(request: NextRequest) {
   let started = false;
   try {
     requireSameOrigin(request);
-    await trace.start();
-    started = true;
     const session = await auth();
     const userId = session?.user?.id;
-    const guest = userId ? undefined : guestIdentity(request);
-    guestToken = guest?.token;
-    await trace.identify(userId, guest?.guestId);
+    const guestSource = await rateLimit(request, userId);
     if (!generationReady()) throw new HttpError(503, "Image description is unavailable. You can explore the sample previews.", "GENERATION_NOT_CONFIGURED");
-    await rateLimit(request, userId);
+    const guest = userId ? undefined : guestIdentity(request, guestSource);
+    guestToken = guest?.token;
+    await trace.start();
+    started = true;
+    await trace.identify(userId, guest?.guestId);
     const body = await readLimitedJson(request, Math.ceil(MAX_IMAGE_BYTES * 4 / 3) + 4096);
     if (typeof body.language !== "string" || !LANGUAGES.includes(body.language) || typeof body.requestId !== "string" || !/^[a-zA-Z0-9_-]{8,128}$/.test(body.requestId) || typeof body.batch !== "boolean") throw new HttpError(400, "Choose a supported language and submit a valid request.");
     if (body.batch && !userId) throw new HttpError(401, "Sign in with Google to use batch processing.");
     await trace.input(body.requestId, body.language, body.batch);
     await trace.event("validation");
     const image = await normalizeImage(body.image);
-    const result = await generateImageDescription({ image, language: body.language, userId, guestId: guest?.guestId, requestId: body.requestId, batch: body.batch, signal: request.signal, onStage: trace.event });
+    const result = await generateImageDescription({ image, language: body.language, userId, guestId: guest?.guestId, guestSource, requestId: body.requestId, batch: body.batch, signal: request.signal, onStage: trace.event });
     await trace.finish();
     response = NextResponse.json(result);
   } catch (error) {

@@ -85,7 +85,7 @@ test("administrator workflows against PostgreSQL",{skip:!database},async t=>{
       assert.equal((await getUsageStatus({userId:user})).remaining,40);
       await executeAdminAction(actor,action("unban",user));
       await executeAdminAction(actor,action("settings","settings",{pauseGeneration:true,pauseCheckout:true}));
-      await assert.rejects(reserveUsage({guestId:randomUUID(),requestId:randomUUID(),batch:false}),{code:"SERVICE_PAUSED"});
+      await assert.rejects(reserveUsage({guestId:randomUUID(),guestSource:randomUUID().replaceAll("-","").repeat(2),requestId:randomUUID(),batch:false}),{code:"SERVICE_PAUSED"});
       await assert.rejects(transaction(db=>assertOperationalAccess(db,user,"checkout")),{code:"SERVICE_PAUSED"});
       assert.equal((await getUsageStatus({userId:user})).remaining,40);
       await executeAdminAction(actor,action("settings","settings",{pauseGeneration:false,pauseCheckout:false}));

@@ -37,12 +37,22 @@ function harness(overrides: Partial<Services> = {}) {
 }
 
 test("guest, signed-in and batch requests reserve credits before moderation and charge after description", async () => {
-  for (const identity of [{ userId: "fixture-user", batch: false }, { userId: undefined, guestId: "fixture-guest", batch: false }, { userId: "fixture-user", batch: true }]) {
+  for (const identity of [{ userId: "fixture-user", batch: false }, { userId: undefined, guestId: "fixture-guest", guestSource: "a".repeat(64), batch: false }, { userId: "fixture-user", batch: true }]) {
     const { calls, dependencies } = harness();
     const result = await generateImageDescription({ ...input, ...identity }, dependencies);
     assert.deepEqual(result, { outputs, language: "French", remaining: 10 });
     assert.deepEqual(calls, ["reserve", "moderate", "describe", "complete"]);
   }
+});
+
+test("the generation service carries the server guest source into the quota boundary", async () => {
+  const guestSource = "b".repeat(64);
+  const { dependencies } = harness({ reserveUsage: async identity => {
+    assert.equal(identity.guestSource, guestSource);
+    assert.equal(identity.guestId, "fixture-guest");
+    return { reservationId, remaining: 0 };
+  } });
+  await generateImageDescription({ ...input, userId: undefined, guestId: "fixture-guest", guestSource }, dependencies);
 });
 
 test("blocked, unavailable and timed-out moderation refunds credits and never calls Gemini", async () => {

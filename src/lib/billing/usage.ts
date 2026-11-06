@@ -5,7 +5,7 @@ import { BillingError } from "./errors";
 import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS, CREDITS_PER_IMAGE } from "../plans";
 import { assertOperationalAccess } from "../admin/identity";
 
-export type UsageIdentity = { userId?: string; guestId?: string };
+export type UsageIdentity = { userId?: string; guestId?: string; guestSource?: string };
 export type UsageStatus = {
   remaining: number; freeRemaining: number; paidRemaining: number;
   isPro: boolean; canBatch: boolean; freeAllowance: number; resetsAt: null;
@@ -15,6 +15,9 @@ function owner(identity: UsageIdentity) {
   const id = identity.userId || identity.guestId;
   if (!id || id.length > 256 || Boolean(identity.userId) === Boolean(identity.guestId)) {
     throw new BillingError("INVALID_IDENTITY", "A verified user or guest identity is required.", 401);
+  }
+  if (identity.guestId && !/^[0-9a-f]{64}$/.test(identity.guestSource ?? "")) {
+    throw new BillingError("INVALID_IDENTITY", "A verified guest source is required.", 401);
   }
   return `${identity.userId ? "user" : "guest"}:${id}`;
 }
@@ -32,6 +35,15 @@ export async function grantCredits(db: PoolClient, input: {
 }
 
 async function ensureFreeGrant(db: PoolClient, identity: UsageIdentity, ownerId: string) {
+  if (identity.guestId) {
+    const existing = await db.query("SELECT 1 FROM guest_allowance_claims WHERE owner_id=$1", [ownerId]);
+    if (!existing.rowCount) {
+      const claimed = await db.query(`INSERT INTO guest_allowance_claims(source_key,owner_id) VALUES($1,$2)
+        ON CONFLICT(source_key) DO NOTHING RETURNING owner_id`, [identity.guestSource, ownerId]);
+      // An existing cookie keeps its recorded balance; a fresh identity receives no new grant.
+      if (!claimed.rowCount) return;
+    }
+  }
   const { rows: [clock] } = await db.query("SELECT now() AS now");
   const now = new Date(clock.now);
   await grantCredits(db, {
@@ -80,7 +92,9 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
     if (existing.rowCount) throw new BillingError("REQUEST_ALREADY_USED", "This request has already been submitted. Use a new request ID.", 409);
     const status = await statusInTransaction(db,input,ownerId);
     if (input.batch && !status.canBatch) throw new BillingError("PRO_REQUIRED", "An active Pro subscription is required for batches.", 403);
-    if (status.remaining < credits) throw new BillingError("QUOTA_EXCEEDED", "You have insufficient credits for this request.", 429);
+    if (status.remaining < credits) throw new BillingError("QUOTA_EXCEEDED", input.guestId
+      ? "The guest trial for this connection has been used. Sign in with Google for welcome credits."
+      : "You have insufficient credits for this request.", 429);
     const reservationId = randomUUID();
     await db.query(`INSERT INTO usage_reservations (id,owner_id,request_id,units,batch,status,credits_per_image)
       VALUES ($1,$2,$3,$4,$5,'reserved',$6)`, [reservationId,ownerId,input.requestId,units,input.batch,CREDITS_PER_IMAGE]);

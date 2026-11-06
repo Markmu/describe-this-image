@@ -26,6 +26,7 @@ const plans = [
     features: [
       ACCOUNT_WELCOME_CREDITS + " welcome credits for 2 more image descriptions with Google",
       "No daily refill",
+      "Guest trial subject to shared-network limits",
       "Single-image upload and image links",
     ],
     label: "Describe an image",

@@ -91,15 +91,15 @@ after(async()=>{if(database) await getBillingPool().end();});
 test("persistent billing and usage integration",{skip:!database},async t=>{
   const pool=getBillingPool();
   await t.test("guest concurrency permits one call; failed usage refunds once",async()=>{
-    const guestId=randomUUID();
-    const results=await Promise.allSettled(Array.from({length:6},()=>reserveUsage({guestId,requestId:randomUUID(),batch:false})));
+    const guestId=randomUUID();const guestSource=randomUUID().replaceAll("-","").repeat(2);
+    const results=await Promise.allSettled(Array.from({length:6},()=>reserveUsage({guestId,guestSource,requestId:randomUUID(),batch:false})));
     const successful=results.filter(result=>result.status==="fulfilled");
     assert.equal(successful.length,1);
     const reservation=successful[0].value;
-    assert.equal((await getUsageStatus({guestId})).remaining,0);
+    assert.equal((await getUsageStatus({guestId,guestSource})).remaining,0);
     await refundUsage(reservation.reservationId);await refundUsage(reservation.reservationId);
-    assert.equal((await getUsageStatus({guestId})).remaining,10);
-    const next=await reserveUsage({guestId,requestId:randomUUID(),batch:false});
+    assert.equal((await getUsageStatus({guestId,guestSource})).remaining,10);
+    const next=await reserveUsage({guestId,guestSource,requestId:randomUUID(),batch:false});
     await completeUsage(next.reservationId);
     await assert.rejects(refundUsage(next.reservationId),{code:"USAGE_ALREADY_SETTLED"});
   });
@@ -291,7 +291,7 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     } finally {f.restore();}
   });
   await t.test("free-credit denomination migration is repeatable and refunds pre-migration reservations",async()=>{
-    const guestId=randomUUID();const ownerId='guest:'+guestId;const grantId='guest:'+ownerId;const reservationId=randomUUID();
+    const guestId=randomUUID();const guestSource=randomUUID().replaceAll("-","").repeat(2);const ownerId='guest:'+guestId;const grantId='guest:'+ownerId;const reservationId=randomUUID();
     await transaction(async db=>{
       await grantCredits(db,{id:grantId,ownerId,kind:'guest',amount:1,startsAt:new Date(Date.now()-1000)});
       await db.query("INSERT INTO usage_reservations(id,owner_id,request_id,units,batch,status,credits_per_image) VALUES ($1,$2,$3,1,false,'reserved',1)",[reservationId,ownerId,randomUUID()]);
@@ -303,14 +303,14 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
     await transaction(db=>grantCredits(db,{id:unspentGrant,ownerId:'guest:'+unspentGuest,kind:'guest',amount:1,startsAt:new Date(Date.now()-1000)}));
     const migration=await readFile(new URL('../migrations/004_plan_terms.sql',import.meta.url),'utf8');
     await pool.query(migration);await pool.query(migration);
-    assert.equal((await getUsageStatus({guestId:unspentGuest})).remaining,10);
+    assert.equal((await getUsageStatus({guestId:unspentGuest,guestSource:randomUUID().replaceAll("-","").repeat(2)})).remaining,10);
     const {rows:[ledger]}=await pool.query('SELECT sum(delta)::int AS balance FROM credit_ledger WHERE grant_id=$1',[unspentGrant]);
     assert.equal(ledger.balance,10);
-    assert.equal((await getUsageStatus({guestId})).remaining,0);
+    assert.equal((await getUsageStatus({guestId,guestSource})).remaining,0);
     await refundUsage(reservationId);await refundUsage(reservationId);
-    assert.equal((await getUsageStatus({guestId})).remaining,10);
-    const next=await reserveUsage({guestId,requestId:randomUUID(),batch:false});
+    assert.equal((await getUsageStatus({guestId,guestSource})).remaining,10);
+    const next=await reserveUsage({guestId,guestSource,requestId:randomUUID(),batch:false});
     await completeUsage(next.reservationId);
-    assert.equal((await getUsageStatus({guestId})).remaining,0);
+    assert.equal((await getUsageStatus({guestId,guestSource})).remaining,0);
   });
 });
