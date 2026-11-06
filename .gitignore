@@ -24,6 +24,8 @@
 .DS_Store
 *.pem
 .taste-skill/
+/.playwright-cli/
+/output/playwright/
 
 # debug
 npm-debug.log*

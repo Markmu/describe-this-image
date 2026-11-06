@@ -1,0 +1,23 @@
+{
+  "resources": [
+    "overview: anonymous 401, ordinary 403, admin 200",
+    "users: anonymous 401, ordinary 403, admin 200",
+    "orders: anonymous 401, ordinary 403, admin 200",
+    "payments: anonymous 401, ordinary 403, admin 200",
+    "subscriptions: anonymous 401, ordinary 403, admin 200",
+    "grants: anonymous 401, ordinary 403, admin 200",
+    "ledger: anonymous 401, ordinary 403, admin 200",
+    "reservations: anonymous 401, ordinary 403, admin 200",
+    "requests: anonymous 401, ordinary 403, admin 200",
+    "operations: anonymous 401, ordinary 403, admin 200",
+    "webhooks: anonymous 401, ordinary 403, admin 200",
+    "tasks: anonymous 401, ordinary 403, admin 200",
+    "audit: anonymous 401, ordinary 403, admin 200",
+    "cases: anonymous 401, ordinary 403, admin 200",
+    "queue: anonymous 401, ordinary 403, admin 200"
+  ],
+  "csrf": "passed",
+  "validation": "passed",
+  "mutationAuthorization": "passed",
+  "cronAuthentication": "passed"
+}

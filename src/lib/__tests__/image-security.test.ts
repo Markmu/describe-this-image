@@ -18,12 +18,24 @@ test("CSV cells neutralize spreadsheet formulas and retain quotes/newlines", () 
   assert.equal(csvCell('hello "world"\nline'),'"hello ""world""\nline"');
 });
 test("origin guard rejects absent and cross-site origins", () => {
-  const original = process.env.NEXT_PUBLIC_APP_URL; process.env.NEXT_PUBLIC_APP_URL = "https://site.example";
+  const original = process.env.NEXT_PUBLIC_APP_URL, authUrl = process.env.AUTH_URL; delete process.env.AUTH_URL; process.env.NEXT_PUBLIC_APP_URL = "https://site.example";
   try {
     assert.throws(() => requireSameOrigin(new Request("https://site.example/api/describe")));
     assert.throws(() => requireSameOrigin(new Request("https://site.example/api/describe",{headers:{origin:"https://evil.example"}})));
     assert.doesNotThrow(() => requireSameOrigin(new Request("https://site.example/api/describe",{headers:{origin:"https://site.example"}})));
-  } finally { if(original === undefined) delete process.env.NEXT_PUBLIC_APP_URL; else process.env.NEXT_PUBLIC_APP_URL = original; }
+  } finally { if(original === undefined) delete process.env.NEXT_PUBLIC_APP_URL; else process.env.NEXT_PUBLIC_APP_URL = original; if(authUrl === undefined) delete process.env.AUTH_URL; else process.env.AUTH_URL=authUrl; }
+});
+test("server origin follows runtime AUTH_URL when the public build origin differs",()=>{
+  const previous={auth:process.env.AUTH_URL,public:process.env.NEXT_PUBLIC_APP_URL};
+  try {
+    process.env.AUTH_URL="https://runtime.example";process.env.NEXT_PUBLIC_APP_URL="https://build.example";
+    assert.doesNotThrow(()=>requireSameOrigin(new Request("http://internal/api/admin/actions",{headers:{origin:"https://runtime.example"}})));
+    assert.throws(()=>requireSameOrigin(new Request("http://internal/api/admin/actions",{headers:{origin:"https://build.example"}})));
+    assert.throws(()=>requireSameOrigin(new Request("http://internal/api/admin/actions",{headers:{origin:"https://runtime.example","sec-fetch-site":"cross-site"}})));
+  } finally {
+    if(previous.auth===undefined)delete process.env.AUTH_URL;else process.env.AUTH_URL=previous.auth;
+    if(previous.public===undefined)delete process.env.NEXT_PUBLIC_APP_URL;else process.env.NEXT_PUBLIC_APP_URL=previous.public;
+  }
 });
 test("body limits apply to chunked requests without content-length", async () => {
   const stream = new ReadableStream({start(control){control.enqueue(new TextEncoder().encode('{"image":"'+ "a".repeat(200)+'"}'));control.close();}});

@@ -66,7 +66,7 @@ export async function getCreditSummary(userId: string): Promise<CreditSummary> {
     }>(`SELECT g.*, g.starts_at > now() AS future, o.offer_id
       FROM credit_grants g LEFT JOIN billing_payments p ON p.transaction_id=g.payment_id
       LEFT JOIN billing_orders o ON o.id=p.order_id AND o.user_id=$2
-      WHERE g.owner_id=$1 AND NOT g.revoked AND g.kind IN ('welcome','purchase','subscription')
+      WHERE g.owner_id=$1 AND NOT g.revoked AND g.kind IN ('welcome','purchase','subscription','compensation')
       AND (g.expires_at IS NULL OR g.expires_at > now()) ORDER BY g.starts_at,g.id`, [ownerId, userId]);
     const sources = new Map<string, CreditSource>();
     let nextWindow: CreditSummary["nextWindow"] = null;
@@ -78,7 +78,7 @@ export async function getCreditSummary(userId: string): Promise<CreditSummary> {
       }
       const expiresAt = row.expires_at?.toISOString() ?? null;
       const label = row.kind === "welcome" ? "Welcome credits"
-        : row.kind === "subscription" ? "Subscription credits"
+        : row.kind === "subscription" ? "Subscription credits" : row.kind === "compensation" ? "Support credits"
         : row.offer_id === "starter" ? "Starter Pack"
         : row.offer_id === "addon-1000" ? "Add-on credits" : "Purchased credits";
       const key = `${label}:${expiresAt ?? "no-expiry"}`;
@@ -129,7 +129,7 @@ export async function getCreditActivity(userId: string, value?: string | null): 
         max(r.units)::int AS units,max(r.status) AS reservation_status
       FROM credit_ledger l JOIN credit_grants g ON g.id=l.grant_id
       LEFT JOIN usage_reservations r ON r.id::text=l.reference_id AND r.owner_id=$1
-      WHERE g.owner_id=$1 AND g.kind IN ('welcome','purchase','subscription')
+      WHERE g.owner_id=$1 AND g.kind IN ('welcome','purchase','subscription','compensation')
       AND (l.kind<>'grant' OR g.starts_at<=now()) GROUP BY l.kind,l.reference_id
       UNION ALL
       SELECT 'expiry:' || g.id,g.expires_at,'expiry',g.kind,NULL::int,NULL::int,NULL::text
@@ -142,7 +142,7 @@ export async function getCreditActivity(userId: string, value?: string | null): 
     const label = row.kind === "reserve" ? "Image description" : row.kind === "refund" ? "Credits returned"
       : row.kind === "revoke" ? "Payment reversed" : row.kind === "expiry" ? "Monthly credit window ended"
       : row.id.includes("free-denomination-10:") ? "Credit adjustment"
-      : row.grant_kind === "welcome" ? "Welcome credits" : row.grant_kind === "subscription" ? "Monthly credits" : "Credit purchase";
+      : row.grant_kind === "welcome" ? "Welcome credits" : row.grant_kind === "subscription" ? "Monthly credits" : row.grant_kind === "compensation" ? "Support credits" : "Credit purchase";
     const detail = row.kind === "expiry" ? "Window expiry inferred from grant dates"
       : row.kind === "reserve" ? `${row.units ?? 1} image${row.units === 1 ? "" : "s"} · ${row.reservation_status === "reserved" ? "Processing" : row.reservation_status === "refunded" ? "Returned in a separate entry" : "Completed"}`
       : row.kind === "grant" && row.grant_kind === "purchase" ? "No expiry" : "";
@@ -155,14 +155,14 @@ export async function getAccountPayments(userId: string, value?: string | null):
   const environment = billingEnvironment();
   const cursor = decodeAccountCursor(value);
   const { rows } = await getBillingPool().query<{
-    id: string; createdAt: string; offer_id: string; revoked: boolean; period_start: Date | null; period_end: Date | null;
+    id: string; createdAt: string; offer_id: string; revoked: boolean; period_start: Date | null; period_end: Date | null; amount_paid: number | null;
   }>(`SELECT p.transaction_id AS id,to_char(p.created_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS "createdAt",
-      o.offer_id,p.revoked,p.period_start,p.period_end
+      o.offer_id,p.revoked,p.period_start,p.period_end,p.amount_paid
       FROM billing_payments p JOIN billing_orders o ON o.id=p.order_id
       WHERE o.user_id=$1 AND o.environment=$2
       AND ($3::timestamptz IS NULL OR (p.created_at,p.transaction_id)<($3::timestamptz,$4::text))
       ORDER BY p.created_at DESC,p.transaction_id DESC LIMIT $5`, [userId, environment, cursor?.at ?? null, cursor?.id ?? null, PAGE_SIZE + 1]);
   return pageOf(rows.map(row => ({ id: row.id, createdAt: row.createdAt, name: getOrderOffer(row.offer_id)?.name ?? "Purchase",
     status: row.revoked ? "reversed" : "confirmed", periodStart: row.period_start?.toISOString() ?? null,
-    periodEnd: row.period_end?.toISOString() ?? null, amountCents: null })));
+    periodEnd: row.period_end?.toISOString() ?? null, amountCents: row.amount_paid })));
 }

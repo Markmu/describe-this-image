@@ -1,0 +1,77 @@
+{
+  "overview": {
+    "fails": 0,
+    "warnings": [],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "users": {
+    "fails": 0,
+    "warnings": [
+      "hero-void",
+      "panel-void"
+    ],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "billing": {
+    "fails": 0,
+    "warnings": [
+      "hero-void",
+      "panel-void"
+    ],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "credits": {
+    "fails": 0,
+    "warnings": [
+      "panel-void"
+    ],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "requests": {
+    "fails": 0,
+    "warnings": [
+      "panel-void"
+    ],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "operations": {
+    "fails": 0,
+    "warnings": [],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "audit": {
+    "fails": 0,
+    "warnings": [
+      "panel-void"
+    ],
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  }
+}

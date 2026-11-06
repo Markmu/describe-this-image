@@ -187,6 +187,9 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
       await f.send(f.event());
       assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,500);
       assert.equal((await getOwnedOrder(f.orderId,f.userId)).status,"confirmed");
+      const {rows:[evidence]}=await pool.query("SELECT amount_paid,currency,refunded_amount,paid_at FROM billing_payments WHERE transaction_id=$1",[f.payment.id]);
+      assert.equal(evidence.amount_paid,699);assert.equal(evidence.currency,"USD");assert.equal(evidence.refunded_amount,0);assert.ok(evidence.paid_at instanceof Date);
+      assert.ok((await pool.query("SELECT 1 FROM webhook_attempts WHERE event_id=$1 AND order_id=$2 AND result='succeeded'",[JSON.parse(e.raw).id,f.orderId])).rowCount);
       await assert.rejects(getOwnedOrder(f.orderId,"another-user"),{status:404});
       const old=e.raw;
       await assert.rejects(f.send({...e,raw:old+" "}),{status:401});
@@ -195,6 +198,10 @@ test("persistent billing and usage integration",{skip:!database},async t=>{
       await f.send(f.event());
       assert.equal((await getUsageStatus({userId:f.userId})).paidRemaining,0);
       assert.equal((await getOwnedOrder(f.orderId,f.userId)).status,"revoked");
+      const {rows:[refunds]}=await pool.query("SELECT count(*)::int AS n,sum(amount)::int AS amount FROM payment_refunds WHERE transaction_id=$1",[f.payment.id]);
+      assert.equal(refunds.n,1);assert.equal(refunds.amount,699);
+      const {rows:[reversedEvidence]}=await pool.query("SELECT amount_paid,refunded_amount FROM billing_payments WHERE transaction_id=$1",[f.payment.id]);
+      assert.equal(reversedEvidence.amount_paid,699);assert.equal(reversedEvidence.refunded_amount,699);
     } finally {f.restore();}
   });
   await t.test("mismatched transaction amount and environment never grant credits",async()=>{

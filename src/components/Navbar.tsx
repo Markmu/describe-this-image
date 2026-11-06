@@ -7,6 +7,7 @@ import { UserAuthButton } from "./UserAuthButton";
 const links=[["/","Describer"],["/image-description-generator","Batch"],["/how-to-use","Guide"],["/pricing","Pricing"]];
 export function Navbar(){
   const pathname=usePathname();const [openPath,setOpenPath]=useState<string|null>(null);const open=openPath===pathname;const trigger=useRef<HTMLButtonElement>(null);
+  if(pathname==="/admin"||pathname.startsWith("/admin/"))return null;
   return <header className="site-masthead" onKeyDown={event=>{if(event.key==="Escape"){setOpenPath(null);trigger.current?.focus();}}}>
     <Link href="/" className="site-wordmark" aria-label="DescribeThisImage home" onClick={()=>setOpenPath(null)}><Aperture aria-hidden="true" size={25}/><span>Describe<br/>this image.</span></Link>
     <nav aria-label="Main navigation" className="site-navigation">{links.map(([href,label])=><Link href={href} key={href} aria-current={pathname===href?"page":undefined}>{label}</Link>)}</nav>

@@ -10,7 +10,9 @@
     "test": "node --import tsx --test src/lib/__tests__/*.test.ts",
     "test:billing": "node --env-file-if-exists=.env.local --import tsx --test src/lib/billing/__tests__/*.test.ts",
     "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/migrate.ts",
-    "usage:recover": "node --env-file-if-exists=.env.local --import tsx scripts/recover-usage.ts"
+    "usage:recover": "node --env-file-if-exists=.env.local --import tsx scripts/recover-usage.ts",
+    "operations:prune": "node --env-file-if-exists=.env.local --import tsx scripts/prune-operations.ts",
+    "test:admin": "node --env-file-if-exists=.env.local --import tsx --test src/lib/admin/__tests__/*.test.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

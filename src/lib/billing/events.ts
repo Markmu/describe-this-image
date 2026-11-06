@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { getBillingPool, lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
@@ -95,7 +95,7 @@ async function revokePayment(db: PoolClient, paymentId: string, order: BillingOr
   } else await db.query("UPDATE billing_orders SET status='revoked' WHERE id=$1",[order.id]);
 }
 
-async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number) {
+async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number, eventId: string) {
   const { order, checkout, subscription, payment } = evidence;
   const offer = getOrderOffer(order.offer_id);
   requireEvidence(offer);
@@ -137,6 +137,16 @@ async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number) {
     [paymentId,order.id,order.subscription_id,start,end]);
   const { rows: [stored] } = await db.query("SELECT * FROM billing_payments WHERE transaction_id=$1",[paymentId]);
   requireEvidence(stored && stored.order_id === order.id);
+  const paid = Number.isSafeInteger(payment.amount_paid) && Number(payment.amount_paid) >= 0 ? Number(payment.amount_paid) : null;
+  const refunded = Number.isSafeInteger(payment.refunded_amount) && Number(payment.refunded_amount) >= 0 ? Number(payment.refunded_amount) : null;
+  await db.query(`UPDATE billing_payments SET amount_paid=COALESCE(amount_paid,$2),currency=$3,
+    refunded_amount=CASE WHEN $4::int IS NULL THEN refunded_amount ELSE GREATEST(COALESCE(refunded_amount,0),$4) END,
+    paid_at=COALESCE(paid_at,$5),evidence_at=now(),provider_status=CASE WHEN revoked THEN provider_status ELSE $6 END WHERE transaction_id=$1`,
+  [paymentId, paid, payment.currency, refunded, reversing ? null : date(eventTime), String(payment.status)]);
+  if (refunded !== null && refunded > (stored.refunded_amount ?? 0)) {
+    await db.query(`INSERT INTO payment_refunds(event_id,transaction_id,amount,currency,occurred_at)
+      VALUES($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING`, [eventId, paymentId, refunded - (stored.refunded_amount ?? 0), payment.currency, date(eventTime)]);
+  }
   if (reversing) { await revokePayment(db,paymentId,order); return; }
   if (!inserted.rowCount || stored.revoked) return;
   const months = offer.billingPeriod === "yearly" ? 12 : 1;
@@ -151,7 +161,7 @@ async function fulfill(db: PoolClient, evidence: Evidence, eventTime: number) {
   await db.query("UPDATE billing_orders SET status='confirmed',confirmed_at=COALESCE(confirmed_at,now()) WHERE id=$1",[order.id]);
 }
 
-export async function processCreemEvent(raw: string, signature: string | null, gateway = getPaymentGateway()) {
+async function processCreemEventCore(raw: string, signature: string | null, gateway: CreemGateway, onOrder: (id: string) => void) {
   if (!gateway.verifyWebhook(raw,signature)) throw new BillingError("INVALID_SIGNATURE","Invalid webhook signature.",401);
   let event: ProviderObject;
   try { event = object(JSON.parse(raw)); } catch { throw new BillingError("INVALID_EVENT","Invalid webhook payload.",400); }
@@ -162,6 +172,7 @@ export async function processCreemEvent(raw: string, signature: string | null, g
   const { rows: [seen] } = await getBillingPool().query("SELECT body_hash FROM billing_events WHERE id=$1",[id]);
   if (seen) { requireEvidence(seen.body_hash === hash); return { received:true,duplicate:true }; }
   const evidence = await collectEvidence(type,object(event.object),gateway);
+  if (evidence) onOrder(evidence.order.id);
   return transaction(async db => {
     // Serialize duplicate delivery before writing the ledger.
     await lockOwner(db,`event:${id}`);
@@ -171,9 +182,38 @@ export async function processCreemEvent(raw: string, signature: string | null, g
       await lockOwner(db,`user:${evidence.order.user_id}`);
       const { rows: [current] } = await db.query<BillingOrder>("SELECT * FROM billing_orders WHERE id=$1 FOR UPDATE",[evidence.order.id]);
       evidence.order = current;
-      await fulfill(db,evidence,Number(event.created_at));
+      await fulfill(db,evidence,Number(event.created_at),id);
     }
     await db.query("INSERT INTO billing_events(id,body_hash,type) VALUES ($1,$2,$3)",[id,hash,type]);
     return { received:true };
   });
+}
+
+export async function processCreemEvent(raw: string, signature: string | null, gateway?: CreemGateway) {
+  let eventId: string | null = null;
+  let eventType: string | null = null;
+  let orderId: string | null = null;
+  let result = "failed";
+  let code: string | null = null;
+  try {
+    const provider = gateway ?? getPaymentGateway();
+    if (provider.verifyWebhook(raw, signature)) {
+      try {
+        const event = object(JSON.parse(raw));
+        eventId = providerId(event.id);
+        eventType = typeof event.eventType === "string" ? event.eventType.slice(0,100) : null;
+      } catch { /* The core handler reports the invalid event. */ }
+    }
+    const response = await processCreemEventCore(raw, signature, provider, id => { orderId = id; });
+    result = "duplicate" in response && response.duplicate ? "duplicate" : "succeeded";
+    return response;
+  } catch (error) {
+    code = error instanceof BillingError ? error.code : "WEBHOOK_FAILED";
+    throw error;
+  } finally {
+    try {
+      await getBillingPool().query(`INSERT INTO webhook_attempts(id,event_id,event_type,order_id,result,error_code) VALUES($1,$2,$3,$4,$5,$6)`,
+        [randomUUID(), eventId, eventType, orderId, result, code]);
+    } catch { console.error("WEBHOOK_ATTEMPT_UNAVAILABLE", eventId); }
+  }
 }

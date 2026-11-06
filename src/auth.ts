@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import authConfig from "./auth.config";
 import { hasAuthConfiguration } from "./auth.configuration";
+import { recordLogin } from "./lib/admin/identity";
 
 const instance = NextAuth({
   ...authConfig,
@@ -9,8 +10,11 @@ const instance = NextAuth({
       return hasAuthConfiguration() && account?.provider === "google"
         && profile?.email_verified === true && typeof profile.sub === "string";
     },
-    jwt({ token, account, profile }) {
-      if (account?.provider === "google" && profile?.sub) token.id = `google:${profile.sub}`;
+    async jwt({ token, account, profile }) {
+      if (account?.provider === "google" && profile?.sub) {
+        token.id = `google:${profile.sub}`;
+        await recordLogin(token.id as string, typeof profile.email === "string" ? profile.email : null, token.name);
+      }
       return token;
     },
     session({ session, token }) {

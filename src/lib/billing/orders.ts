@@ -4,6 +4,7 @@ import { getPaymentGateway, getProductBinding, PLAN_OFFERS } from "./index";
 import { BillingError } from "./errors";
 import { appOrigin, signReturnState } from "./callback";
 import type { ActiveOfferId } from "./types";
+import { assertOperationalAccess } from "../admin/identity";
 
 export type BillingOrder = {
   id: string; user_id: string; offer_id: string; product_id: string; environment: string;
@@ -21,6 +22,7 @@ export async function getOwnedOrder(id: string, userId: string) {
 export async function createOrder(userId: string, email: string, offerId: string) {
   if (!Object.hasOwn(PLAN_OFFERS,offerId)) throw new BillingError("INVALID_OFFER", "Unknown offer.",400);
   const offer = PLAN_OFFERS[offerId as ActiveOfferId];
+  await transaction(db => assertOperationalAccess(db, userId, "checkout"));
   const gateway = getPaymentGateway();
   const productId = getProductBinding(offerId);
   const id = randomUUID();
@@ -30,6 +32,7 @@ export async function createOrder(userId: string, email: string, offerId: string
   await gateway.validateProduct(productId,offer);
   const resumed = await transaction(async db => {
     await lockOwner(db,`user:${userId}`);
+    await assertOperationalAccess(db, userId, "checkout");
     const { rows: [count] } = await db.query("SELECT count(*)::int AS n FROM billing_orders WHERE user_id=$1 AND created_at > now() - interval '1 hour'", [userId]);
     if (count.n >= 5) throw new BillingError("CHECKOUT_LIMIT", "Please wait before starting another checkout.",429);
     if (offer.billingType === "recurring") {

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { accountDate, accountNumber } from "@/lib/account/format";
+import { accountDate, accountNumber, accountMoney } from "@/lib/account/format";
 import { accountLoginUrl } from "@/lib/account/navigation";
 import type { AccountPage, AccountPayment, CreditActivity } from "@/lib/account/types";
 
@@ -45,7 +45,7 @@ export function AccountHistory({ kind, initial }: HistoryProps) {
         <td>{"label" in item ? <><span>{item.label}</span>{item.detail && <small>{item.detail}</small>}</> : <><span>{item.name}</span><small>{item.periodStart && item.periodEnd ? `${accountDate(item.periodStart)} – ${accountDate(item.periodEnd)}` : "One-time purchase"}</small></>}</td>
         <td className="account-date"><time dateTime={item.createdAt}>{accountDate(item.createdAt)}</time></td>
         <td className={kind === "credits" ? "account-numeric" : "account-payment-status"}>{"delta" in item ? <span>{item.delta === null ? "—" : `${item.delta > 0 ? "+" : ""}${accountNumber(item.delta)}`}</span> : <span className="account-status">{item.status === "reversed" ? "Reversed" : "Confirmed"}</span>}</td>
-        {kind === "payments" && <td className="account-numeric" title="View transaction amounts in Creem">—</td>}
+        {kind === "payments" && <td className="account-numeric" title={"amountCents" in item && item.amountCents !== null ? "Verified transaction amount" : "View transaction amounts in Creem"}>{"amountCents" in item && item.amountCents !== null ? accountMoney(item.amountCents) : "—"}</td>}
       </tr>)}</tbody>
     </table>}
     {!unavailable && items.length === 0 && <p className="account-empty">{kind === "credits" ? "No credit activity to show." : "No payments yet. Purchases will appear here after confirmation."}</p>}

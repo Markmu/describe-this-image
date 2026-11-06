@@ -3,6 +3,7 @@ import type { PoolClient } from "pg";
 import { lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
 import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS, CREDITS_PER_IMAGE } from "../plans";
+import { assertOperationalAccess } from "../admin/identity";
 
 export type UsageIdentity = { userId?: string; guestId?: string };
 export type UsageStatus = {
@@ -45,9 +46,9 @@ async function statusInTransaction(db: PoolClient, identity: UsageIdentity, owne
   await ensureFreeGrant(db,identity,ownerId);
   const { rows: [balance] } = await db.query(`SELECT
     COALESCE(sum(remaining) FILTER (WHERE kind IN ('welcome','guest')),0)::int AS free,
-    COALESCE(sum(remaining) FILTER (WHERE kind IN ('purchase','subscription')),0)::int AS paid
+    COALESCE(sum(remaining) FILTER (WHERE kind IN ('purchase','subscription','compensation')),0)::int AS paid
     FROM credit_grants WHERE owner_id=$1 AND NOT revoked AND starts_at <= now()
-    AND kind IN ('welcome','guest','purchase','subscription')
+    AND kind IN ('welcome','guest','purchase','subscription','compensation')
     AND (expires_at IS NULL OR expires_at > now())`, [ownerId]);
   const { rows: [pro] } = await db.query(`SELECT EXISTS(SELECT 1 FROM billing_subscriptions
     WHERE user_id=$1 AND paid_through > now() AND status IN ('active','canceled','scheduled_cancel')) AS active`, [identity.userId ?? ""]);
@@ -73,6 +74,7 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
   const credits = units * CREDITS_PER_IMAGE;
   return transaction(async db => {
     await lockOwner(db,ownerId);
+    await assertOperationalAccess(db, input.userId, "generation");
     const existing = await db.query("SELECT id FROM usage_reservations WHERE owner_id=$1 AND request_id=$2", [ownerId,input.requestId]);
     // The caller must never run the model twice against the same reservation.
     if (existing.rowCount) throw new BillingError("REQUEST_ALREADY_USED", "This request has already been submitted. Use a new request ID.", 409);
@@ -84,7 +86,7 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
       VALUES ($1,$2,$3,$4,$5,'reserved',$6)`, [reservationId,ownerId,input.requestId,units,input.batch,CREDITS_PER_IMAGE]);
     const { rows } = await db.query(`SELECT id,remaining FROM credit_grants
       WHERE owner_id=$1 AND NOT revoked AND starts_at <= now() AND remaining > 0
-      AND kind IN ('welcome','guest','purchase','subscription')
+      AND kind IN ('welcome','guest','purchase','subscription','compensation')
       AND (expires_at IS NULL OR expires_at > now())
       ORDER BY CASE WHEN kind IN ('welcome','guest') THEN 0 ELSE 1 END,
       expires_at ASC NULLS LAST, starts_at, id FOR UPDATE`, [ownerId]);
@@ -101,9 +103,8 @@ export async function reserveUsage(input: UsageIdentity & { requestId: string; b
   });
 }
 
-async function settleUsage(reservationId: string, refund: boolean) {
+export async function settleUsageInTransaction(db: PoolClient, reservationId: string, refund: boolean) {
   if (!/^[0-9a-f-]{36}$/i.test(reservationId)) throw new BillingError("INVALID_USAGE", "Invalid reservation.",400);
-  await transaction(async db => {
     const { rows: [lookup] } = await db.query("SELECT owner_id FROM usage_reservations WHERE id=$1", [reservationId]);
     if (!lookup) throw new BillingError("RESERVATION_NOT_FOUND", "Usage reservation was not found.",404);
     await lockOwner(db,lookup.owner_id);
@@ -121,8 +122,7 @@ async function settleUsage(reservationId: string, refund: boolean) {
       }
     }
     await db.query("UPDATE usage_reservations SET status=$2 WHERE id=$1", [reservationId,target]);
-  });
 }
 
-export const completeUsage = (reservationId: string) => settleUsage(reservationId,false);
-export const refundUsage = (reservationId: string) => settleUsage(reservationId,true);
+export const completeUsage = (reservationId: string) => transaction(db => settleUsageInTransaction(db, reservationId, false));
+export const refundUsage = (reservationId: string) => transaction(db => settleUsageInTransaction(db, reservationId, true));

@@ -1,0 +1,1467 @@
+{
+ "url": "http://localhost:3101/admin/operations",
+ "at": "2026-11-05T18:16:46.093Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.83,
+    0.87
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1422,
+     "screens": 1.6,
+     "words": 103,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 77,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "系统与任务",
+     "words": 1,
+     "lines": 1,
+     "size": 24,
+     "font": "Libre Franklin"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      24
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 24,
+      "vw": 1.7,
+      "font": "Libre Franklin",
+      "text": "系统与任务"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.05,
+     "smallText": 4
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f6f8",
+     "bodyBgHsl": {
+      "h": 210,
+      "s": 0.22,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4f6f8",
+       "top": 0,
+       "hsl": {
+        "h": 210,
+        "s": 0.22,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 48,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#20262d",
+       "share": 0.53
+      },
+      {
+       "color": "#626970",
+       "share": 0.43
+      },
+      {
+       "color": "#a52c24",
+       "share": 0.02
+      },
+      {
+       "color": "#4d555e",
+       "share": 0.01
+      },
+      {
+       "color": "#151a20",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#20262d"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 5,
+     "radius": 6,
+     "height": 36,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "系统与任务",
+      "退出登录",
+      "刷新",
+      "探测数据库",
+      "保存开关"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 4,
+     "hairlineSamples": [
+      "div.admin-tabs 1154px",
+      "section.admin-settings-row 1154px",
+      "section.admin-settings-row 1154px",
+      "section.admin-settings-row 1154px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 5,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1422,
+    "margins": {
+     "left": 28,
+     "right": 46
+    },
+    "sections": [
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 228,
+      "height": 381,
+      "words": 29,
+      "media": 0,
+      "middle": 307,
+      "heading": {
+       "text": "服务状态",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 137,
+      "textLeft": 253,
+      "textRight": 137,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 608,
+      "height": 254,
+      "words": 12,
+      "media": 0,
+      "middle": 216,
+      "heading": {
+       "text": "运营开关",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 531,
+      "textLeft": 253,
+      "textRight": 531,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 862,
+      "height": 299,
+      "words": 18,
+      "media": 0,
+      "middle": 426,
+      "heading": {
+       "text": "异常预占恢复",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 53,
+      "textLeft": 253,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 1161,
+      "height": 224,
+      "words": 11,
+      "media": 0,
+      "middle": 177,
+      "heading": {
+       "text": "管理员与数据范围",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 253,
+      "right": 158,
+      "textLeft": 253,
+      "textRight": 158,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "系统与任务",
+      "size": 24,
+      "top": 77,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 253,
+      "n": 5
+     },
+     {
+      "x": 742,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.11,
+    "voidBox": {
+     "x": 960,
+     "y": 600,
+     "w": 480,
+     "h": 300
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f4f6f8",
+    "sidebar": {
+     "w": 228,
+     "tag": "aside",
+     "links": 10,
+     "share": 0.16
+    },
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 25,
+     "right": 33
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 24,
+     "vw": 1.7,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 77,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 5,
+     "radii": [
+      [
+       8,
+       4
+      ],
+      [
+       16,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 5,
+     "median": 49
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.21,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      24
+     ]
+    },
+    "title": {
+     "text": "系统与任务",
+     "size": 24,
+     "top": 77
+    },
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.96,
+    1
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1445,
+     "screens": 1.4,
+     "words": 88,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 73,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "系统与任务",
+     "words": 1,
+     "lines": 1,
+     "size": 24,
+     "font": "Libre Franklin"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      24
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 24,
+      "vw": 3.1,
+      "font": "Libre Franklin",
+      "text": "系统与任务"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.05,
+     "smallText": 3
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f6f8",
+     "bodyBgHsl": {
+      "h": 210,
+      "s": 0.22,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4f6f8",
+       "top": 0,
+       "hsl": {
+        "h": 210,
+        "s": 0.22,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 48,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#626970",
+       "share": 0.48
+      },
+      {
+       "color": "#20262d",
+       "share": 0.48
+      },
+      {
+       "color": "#a52c24",
+       "share": 0.02
+      },
+      {
+       "color": "#4d555e",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#20262d"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": 6,
+     "height": 36,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "刷新",
+      "探测数据库",
+      "保存开关"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 5,
+     "hairlineSamples": [
+      "main#main-content.admin-sheet 768px",
+      "div.admin-tabs 720px",
+      "section.admin-settings-row 720px",
+      "section.admin-settings-row 720px",
+      "section.admin-settings-row 720px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 0,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1445,
+    "margins": {
+     "left": 24,
+     "right": 24
+    },
+    "sections": [
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 224,
+      "height": 381,
+      "words": 29,
+      "media": 0,
+      "middle": 136,
+      "heading": {
+       "text": "服务状态",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 76,
+      "textLeft": 24,
+      "textRight": 76,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 604,
+      "height": 254,
+      "words": 12,
+      "media": 0,
+      "middle": 45,
+      "heading": {
+       "text": "运营开关",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 259,
+      "textLeft": 24,
+      "textRight": 259,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 858,
+      "height": 299,
+      "words": 18,
+      "media": 0,
+      "middle": 163,
+      "heading": {
+       "text": "异常预占恢复",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 44,
+      "textLeft": 24,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 1157,
+      "height": 264,
+      "words": 11,
+      "media": 0,
+      "middle": 45,
+      "heading": {
+       "text": "管理员与数据范围",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 49,
+      "textLeft": 24,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "系统与任务",
+      "size": 24,
+      "top": 73,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 5
+     },
+     {
+      "x": 342,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f4f6f8",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 20,
+     "right": 24
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 24,
+     "vw": 3.1,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 73,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 4,
+     "firstScreen": 3,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 4,
+     "radii": [
+      [
+       8,
+       4
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 5,
+     "median": 49
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.21,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      24
+     ]
+    },
+    "title": {
+     "text": "系统与任务",
+     "size": 24,
+     "top": 73
+    },
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.97,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 1890,
+     "screens": 2.2,
+     "words": 85,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 71,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "系统与任务",
+     "words": 1,
+     "lines": 1,
+     "size": 22,
+     "font": "Libre Franklin"
+    },
+    "headings": [
+     {
+      "text": "系统与任务",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "weight": 650,
+      "tracking": -0.023,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.5,
+      "top": 71,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Libre Franklin",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      22
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 22,
+      "vw": 5.6,
+      "font": "Libre Franklin",
+      "text": "系统与任务"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.06,
+     "smallText": 2
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f6f8",
+     "bodyBgHsl": {
+      "h": 210,
+      "s": 0.22,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4f6f8",
+       "top": 0,
+       "hsl": {
+        "h": 210,
+        "s": 0.22,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 48,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#fafbfc",
+       "top": 332,
+       "hsl": {
+        "h": 210,
+        "s": 0.25,
+        "l": 0.98
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#20262d",
+       "share": 0.49
+      },
+      {
+       "color": "#626970",
+       "share": 0.46
+      },
+      {
+       "color": "#a52c24",
+       "share": 0.02
+      },
+      {
+       "color": "#4d555e",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#20262d"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 6,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "刷新",
+      "探测数据库"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 5,
+     "hairlineSamples": [
+      "main#main-content.admin-sheet 390px",
+      "div.admin-tabs 358px",
+      "section.admin-settings-row 358px",
+      "section.admin-settings-row 358px",
+      "section.admin-settings-row 358px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 0,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "libre franklin",
+     "libre franklin fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 1890,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 208,
+      "height": 505,
+      "words": 29,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "服务状态",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 56,
+      "textLeft": 16,
+      "textRight": 56,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 713,
+      "height": 378,
+      "words": 12,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "运营开关",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 101,
+      "textLeft": 16,
+      "textRight": 101,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 1091,
+      "height": 427,
+      "words": 18,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "异常预占恢复",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 32,
+      "textLeft": 16,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.admin-settings-row",
+      "tag": "section",
+      "top": 1518,
+      "height": 350,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "管理员与数据范围",
+       "size": 16,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 33,
+      "textLeft": 16,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "系统与任务",
+      "size": 22,
+      "top": 71,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 5
+     },
+     {
+      "x": 32,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f4f6f8",
+    "sidebar": null,
+    "topbar": {
+     "h": 48
+    },
+    "canvas": {
+     "left": 16,
+     "right": 0
+    },
+    "hero": {
+     "text": "系统与任务",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Libre Franklin",
+     "weight": 650,
+     "tracking": -0.02,
+     "leading": 1.35,
+     "top": 71,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 4,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 4,
+     "radii": [
+      [
+       8,
+       4
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": {
+     "count": 5,
+     "median": 49
+    },
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.18,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      12,
+      13,
+      14,
+      16,
+      17,
+      22
+     ]
+    },
+    "title": {
+     "text": "系统与任务",
+     "size": 22,
+     "top": 71
+    },
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/desktop-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/tablet-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/mobile-fold.jpg",
+   "pages": [
+    "/Users/muchao/code/describe-this-image/.taste-skill/admin-operations/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

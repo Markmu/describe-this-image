@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
       { source: "/account/:path*", headers: [
         { key: "X-Robots-Tag", value: "noindex, nofollow" },
         { key: "Cache-Control", value: "private, no-store" },
+      ] }, { source: "/admin/:path*", headers: [
+        { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        { key: "Cache-Control", value: "private, no-store" },
+        { key: "Referrer-Policy", value: "same-origin" },
       ] }];
   },
 

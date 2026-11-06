@@ -3,7 +3,7 @@ export class HttpError extends Error {
 }
 
 export function requireSameOrigin(request: Request) {
-  const expected = new URL(process.env.NEXT_PUBLIC_APP_URL || request.url).origin;
+  const expected = new URL(process.env.AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || request.url).origin;
   if (request.headers.get("origin") !== expected || request.headers.get("sec-fetch-site") === "cross-site") {
     throw new HttpError(403, "Please submit this request from the website.");
   }
