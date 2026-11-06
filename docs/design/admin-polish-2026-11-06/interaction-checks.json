@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-11-06T09:28:44.580Z",
+  "runtime": "isolated local production build",
+  "checks": {
+    "searchShortcut": "pass",
+    "queryFilters": "pass",
+    "removableFilterChips": "pass",
+    "emptyState": "pass",
+    "refreshPreservesRows": "pass",
+    "refreshBusyState": "pass",
+    "readErrorPreservesRows": "pass",
+    "retry": "pass",
+    "keyboardTabs": "pass",
+    "mobileNavigationFocus": "pass",
+    "navigationEscapeAndRestoreFocus": "pass",
+    "mobileFilterDisclosure": "pass",
+    "copyIdentifier": "pass",
+    "detailSidePanel": "pass",
+    "actionPreview": "pass",
+    "returnPreservesAmountReasonReference": "pass",
+    "customDateSubmission": "pass",
+    "datePresetClearsCustomRange": "pass",
+    "dateEscape": "pass",
+    "switchUnsavedAndReset": "pass",
+    "reducedMotion": "pass"
+  },
+  "responsive": {
+    "pages": 7,
+    "widths": [
+      1440,
+      1024,
+      768,
+      640,
+      390,
+      320
+    ],
+    "combinations": 42,
+    "result": "pass",
+    "longRangeWidths": [
+      1440,
+      768,
+      390,
+      320
+    ],
+    "longRangeResult": "pass after chart bucketing fix"
+  },
+  "chartAggregation": [
+    {
+      "days": 30,
+      "total": 75,
+      "buckets": 30
+    },
+    {
+      "days": 60,
+      "total": 195,
+      "buckets": 9
+    },
+    {
+      "days": 180,
+      "total": 684,
+      "buckets": 6
+    },
+    {
+      "days": 365,
+      "total": 1414,
+      "buckets": 12
+    }
+  ],
+  "commands": {
+    "lint": "pass",
+    "build": "pass",
+    "adminTests": {
+      "passed": 12,
+      "failed": 0
+    }
+  },
+  "scope": "No manual credit mutation or paid provider call; synthetic chart payloads used only in browser response overrides."
+}

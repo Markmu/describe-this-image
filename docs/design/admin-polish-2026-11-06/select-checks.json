@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-11-06T10:31:02.962Z",
+  "lint": "pass",
+  "build": "pass",
+  "viewportChecks": 20,
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "screens": [
+    "overview",
+    "users",
+    "billing",
+    "credits",
+    "requests"
+  ],
+  "keyboard": "pass",
+  "formData": "pass",
+  "urlFilters": "pass",
+  "disabledChoice": "pass",
+  "periodPreset": "pass",
+  "outsideDismiss": "pass",
+  "siblingDismiss": "pass",
+  "tabDismiss": "pass",
+  "escapeScope": "pass",
+  "actionPreview": "pass",
+  "returnedStatus": "pass",
+  "abovePlacement": "pass",
+  "shortViewportScroll": "pass"
+}

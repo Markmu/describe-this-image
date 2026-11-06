@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { Check, Copy, X } from "lucide-react";
+import { AdminTabs } from "./AdminTabs";
 import { useAdminData } from "./useAdminData";
 import { cell, fullDate, labels, recordLocation, text, word, type ListData, type Row } from "./model";
 import type { ActionDraft } from "./AdminActionDialog";
@@ -10,9 +12,9 @@ function UserRelated({ id, environment, revision }: { id:string;environment:stri
   const paths:Record<string,string>={grants:"credits",orders:"billing",subscriptions:"billing",requests:"requests",audit:"audit"};
   const params = new URLSearchParams(tab==="audit"?{q:id,environment}:{user:id,environment});
   const {data,error,loading}=useAdminData<ListData>(`/api/admin/${tab}?${params}`,revision);
-  return <section className="admin-related"><h3>关联记录</h3><div className="admin-tabs" role="tablist" aria-label="用户关联记录">{[["grants","积分批次"],["orders","订单"],["subscriptions","订阅"],["requests","生成"],["audit","操作记录"]].map(([key,label])=><button key={key} role="tab" aria-selected={tab===key} onClick={()=>setTab(key)}>{label}</button>)}</div>
+  return <section className="admin-related"><h3>关联记录</h3><AdminTabs tabs={[["grants","积分批次"],["orders","订单"],["subscriptions","订阅"],["requests","生成"],["audit","操作记录"]]} value={tab} label="用户关联记录" panelId="admin-related-results" onChange={setTab}/><div id="admin-related-results" role="tabpanel" aria-labelledby={`admin-related-results-${tab}`}>
     {loading?<p role="status">加载关联记录…</p>:error?<p role="alert">{error}</p>:!data?.items.length?<p className="admin-empty">该用户没有此类记录。</p>:<ul>{data.items.slice(0,5).map(row=><li key={text(row.id)}><Link href={recordLocation(tab,text(row.id),environment)}>{text(row.id)}</Link><span>{word(row.status)}</span><span>{tab==="grants"?`${text(row.remaining)} / ${text(row.amount)} 积分`:fullDate(row.created_at)}</span></li>)}</ul>}
-    <Link className="admin-text-link" href={`/admin/${paths[tab]}?tab=${tab}&${params}`}>查看关联列表 →</Link>
+    <Link className="admin-text-link" href={`/admin/${paths[tab]}?tab=${tab}&${params}`}>查看关联列表 →</Link></div>
   </section>;
 }
 
@@ -24,6 +26,7 @@ function Summary({ value }: {value:unknown}) {
 export function AdminDetail({ resource,id,environment,revision,onClose,onAction }: {resource:string;id:string;environment:string;revision:number;onClose:()=>void;onAction:(draft:ActionDraft)=>void}) {
   const dialog=useRef<HTMLDialogElement>(null);
   const [copied,setCopied]=useState(false);
+  const [copyError,setCopyError]=useState(false);
   const {data:row,error,loading}=useAdminData<Row>(`/api/admin/${resource}?${new URLSearchParams({id,environment})}`,revision);
   useEffect(()=>{const node=dialog.current;node?.showModal();return()=>node?.close();},[]);
   const label=row?text(row.email??row.id):id;
@@ -31,9 +34,10 @@ export function AdminDetail({ resource,id,environment,revision,onClose,onAction 
   const sourceType = row?String(row.kind):"";
   const relatedUser=String(row?.user_id??"");
   const fields=Object.entries(row??{}).filter(([key])=>labels[key]&&!['stages','summary','cursor_at','user_id'].includes(key));
-  return <dialog ref={dialog} className="admin-dialog admin-detail-dialog" aria-labelledby="admin-detail-title" onCancel={onClose}>
-    <div className="admin-dialog-heading"><h2 id="admin-detail-title">{title}</h2><button onClick={onClose} aria-label="关闭详情">×</button></div>
-    <div className="admin-detail-identity"><p className="admin-id">{id}</p><button onClick={async()=>{try{await navigator.clipboard.writeText(id);setCopied(true);}catch{setCopied(false);}}}>{copied?"已复制":"复制编号"}</button></div>
+  return <dialog ref={dialog} className="admin-dialog admin-detail-dialog" aria-labelledby="admin-detail-title" onCancel={onClose} onClick={event=>{if(event.target===event.currentTarget&&event.clientX<event.currentTarget.getBoundingClientRect().left)onClose();}}>
+    <div className="admin-dialog-heading"><h2 id="admin-detail-title">{title}</h2><button onClick={onClose} aria-label="关闭详情"><X size={19}/></button></div>
+    <div className="admin-detail-identity"><p className="admin-id">{id}</p><button aria-label="复制编号" onClick={async()=>{try{await navigator.clipboard.writeText(id);setCopied(true);setCopyError(false);}catch{setCopied(false);setCopyError(true);}}}>{copied?<Check size={14} aria-hidden="true"/>:<Copy size={14} aria-hidden="true"/>}<span role="status">{copied?"复制完成":"复制编号"}</span></button></div>
+    {copyError&&<p role="status" className="admin-error-text">复制失败，请选中编号复制。</p>}
     {loading?<p role="status">加载记录…</p>:error?<p className="admin-error-text" role="alert">{error}</p>:row&&<>
       <div className="admin-detail-actions">
         {resource==="users"&&<><button onClick={()=>onAction({action:"compensate",target:id,label})}>补偿积分</button><button onClick={()=>onAction({action:row.status==="banned"?"unban":"ban",target:id,label})}>{row.status==="banned"?"解封用户":"封禁用户"}</button></>}
