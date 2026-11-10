@@ -1,7 +1,5 @@
-import { requireAdminPage } from "@/lib/admin/access";
-import { AdminWorkspace } from "@/components/admin/AdminWorkspace";
+import { AdminPage } from "@/components/admin/AdminPage";
 
-export default async function AdminPage() {
-  await requireAdminPage();
-  return <AdminWorkspace section="overview" />;
+export default function Page() {
+  return <AdminPage section="overview" />;
 }
