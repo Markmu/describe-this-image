@@ -1,0 +1,13 @@
+{
+  "offer_id": "pro-year",
+  "status": "confirmed",
+  "subscription_id": "sub_5wUkV6EXruKaZJzk4SqfUr",
+  "transaction_id": "tran_49tWqqOU6f8EVgbdYprMln",
+  "amount_paid": 7990,
+  "subscription_status": "active",
+  "paid_through": "2027-11-10T11:05:05.103Z",
+  "grant_windows": 12,
+  "total_credits": 36000,
+  "available_subscription_credits": 3000,
+  "future_subscription_credits": 33000
+}

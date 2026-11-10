@@ -1,0 +1,74 @@
+{
+  "environment": "test",
+  "payments": [
+    {
+      "offer_id": "pro-month",
+      "amount_paid": 990,
+      "refunded_amount": 990,
+      "revoked": true,
+      "windows": 1,
+      "remaining_credits": 0,
+      "all_windows_revoked": true
+    },
+    {
+      "offer_id": "pro-year",
+      "amount_paid": 7990,
+      "refunded_amount": 7990,
+      "revoked": true,
+      "windows": 12,
+      "remaining_credits": 0,
+      "all_windows_revoked": true
+    },
+    {
+      "offer_id": "starter",
+      "amount_paid": 699,
+      "refunded_amount": 699,
+      "revoked": true,
+      "windows": 1,
+      "remaining_credits": 0,
+      "all_windows_revoked": true
+    }
+  ],
+  "subscriptions": [
+    {
+      "status": "canceled",
+      "no_paid_access": true
+    },
+    {
+      "status": "canceled",
+      "no_paid_access": true
+    }
+  ],
+  "final_balance": 10,
+  "abandoned_checkout_marked_failed": 1,
+  "events": [
+    {
+      "event_type": "checkout.completed",
+      "result": "succeeded",
+      "attempts": 4
+    },
+    {
+      "event_type": "refund.created",
+      "result": "succeeded",
+      "attempts": 3
+    },
+    {
+      "event_type": "subscription.canceled",
+      "result": "succeeded",
+      "attempts": 2
+    },
+    {
+      "event_type": "subscription.paid",
+      "result": "succeeded",
+      "attempts": 2
+    }
+  ],
+  "invalid_signature_http_status": 401,
+  "checks": {
+    "unit_tests": 29,
+    "billing_tests": 35,
+    "admin_tests": 12,
+    "lint": "passed",
+    "build": "passed"
+  }
+}

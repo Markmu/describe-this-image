@@ -58,6 +58,28 @@ test("provider requests use documented methods, URLs and order bindings", async 
     await assert.rejects(live.validateProduct("prod_starter",PLAN_OFFERS.starter),{code:"PRODUCT_MISMATCH"});
   } finally {globalThis.fetch=original;}
 });
+test("checkout creation retrieves an omitted request ID and rejects a foreign order", async () => {
+  const original = globalThis.fetch;
+  const gateway = new CreemGateway("test", "fixture-key", secret);
+  const checkout = { id: "ch_sandbox", mode: "test", status: "pending", product: "prod_starter",
+    checkout_url: "https://creem.io/test/checkout/prod_starter/ch_sandbox" };
+  let requestId = "order-1";
+  const requests: string[] = [];
+  globalThis.fetch = async (url, init) => {
+    requests.push(String(url));
+    if (init?.method === "POST") return Response.json(checkout);
+    assert.equal(String(url), "https://test-api.creem.io/v1/checkouts?checkout_id=ch_sandbox");
+    return Response.json({ ...checkout, request_id: requestId });
+  };
+  const input = { orderId: "order-1", productId: "prod_starter", offerId: "starter",
+    customerEmail: "user@example.com", successUrl: "https://site.example/billing/success" };
+  try {
+    assert.deepEqual(await gateway.createCheckout(input), { id: checkout.id, url: checkout.checkout_url });
+    assert.equal(requests.length, 2);
+    requestId = "another-order";
+    await assert.rejects(gateway.createCheckout(input), { code: "CHECKOUT_MISMATCH" });
+  } finally { globalThis.fetch = original; }
+});
 test("only active offers can create checkouts; Starter costs $6.99 for 500 credits",async()=>{
   assert.deepEqual(Object.keys(PLAN_OFFERS).sort(),["pro-month","pro-year","starter"]);
   assert.equal(PLAN_OFFERS.starter.amountCents,699);

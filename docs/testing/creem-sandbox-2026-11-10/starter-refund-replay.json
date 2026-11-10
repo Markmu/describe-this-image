@@ -1,0 +1,28 @@
+{
+  "credits": {
+    "grants": 1,
+    "original_amount": 500,
+    "remaining": 0,
+    "revoked": true
+  },
+  "attempts": [
+    {
+      "event_id": "evt_748ZNywUmeSSWr3smOLAFZ",
+      "event_type": "checkout.completed",
+      "result": "succeeded",
+      "error_code": null
+    },
+    {
+      "event_id": "evt_GI4e2EVukfxJoo3O0Nw6v",
+      "event_type": "refund.created",
+      "result": "succeeded",
+      "error_code": null
+    },
+    {
+      "event_id": "evt_12JtxFeKIubxAE4UYfe3qu",
+      "event_type": "checkout.completed",
+      "result": "succeeded",
+      "error_code": null
+    }
+  ]
+}

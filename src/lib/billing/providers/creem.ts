@@ -66,10 +66,13 @@ export class CreemGateway {
       customer: { email: input.customerEmail }, metadata: { orderId: input.orderId, offerId: input.offerId },
     });
     this.assertMode(data);
-    if (data.request_id !== input.orderId || providerId(data.product ?? data.product_id) !== input.productId || data.status !== "pending") {
+    const id = providerId(data.id);
+    const checkout = data.request_id == null ? await this.getCheckout(id) : data;
+    if (checkout.request_id !== input.orderId || providerId(checkout.product ?? checkout.product_id) !== input.productId || checkout.status !== "pending" ||
+      providerId(data.product ?? data.product_id) !== input.productId || data.status !== "pending") {
       throw new BillingError("CHECKOUT_MISMATCH","The payment provider returned an inconsistent checkout.",502);
     }
-    return { id: providerId(data.id), url: validateCheckoutUrl(data.checkout_url) };
+    return { id, url: validateCheckoutUrl(data.checkout_url) };
   }
   async getCheckout(id: string) {
     const data = await this.request(`/v1/checkouts?checkout_id=${encodeURIComponent(id)}`);
