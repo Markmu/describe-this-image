@@ -29,7 +29,11 @@ function harness(overrides: Partial<Services> = {}) {
       assert.equal(language, "French");
       return outputs;
     },
-    completeUsage: async id => { calls.push("complete"); assert.equal(id, reservationId); },
+    completeUsage: async (id, description) => {
+      calls.push("complete"); assert.equal(id, reservationId);
+      assert.deepEqual(description, { language: "French", outputs });
+      assert.equal("image" in description!, false);
+    },
     refundUsage: async id => { calls.push("refund"); assert.equal(id, reservationId); },
     ...overrides,
   };

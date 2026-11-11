@@ -3,7 +3,7 @@ import { getUsageStatus } from "../billing/usage";
 import { BillingError } from "../billing/errors";
 import { getOrderOffer } from "../billing/types";
 import { CREDITS_PER_IMAGE } from "../plans";
-import type { AccountPage, AccountPayment, AccountSubscription, BillingSummary, CreditActivity, CreditSource, CreditSummary } from "./types";
+import type { AccountPage, AccountPayment, AccountSubscription, BillingSummary, CreditActivity, CreditSource, CreditSummary, DescriptionHistoryEntry } from "./types";
 
 const PAGE_SIZE = 20;
 type Cursor = { at: string; id: string };
@@ -32,6 +32,23 @@ function pageOf<T extends { id: string; createdAt: string }>(rows: T[]): Account
   const last = items.at(-1);
   return { items, nextCursor: rows.length > PAGE_SIZE && last
     ? Buffer.from(JSON.stringify({ at: last.createdAt, id: last.id })).toString("base64url") : null };
+}
+
+export async function getDescriptionHistory(userId: string, value?: string | null): Promise<AccountPage<DescriptionHistoryEntry>> {
+  const ownerId = accountOwner(userId);
+  const cursor = decodeAccountCursor(value);
+  const { rows } = await getBillingPool().query<DescriptionHistoryEntry>(`WITH access AS (
+    SELECT EXISTS(SELECT 1 FROM billing_subscriptions WHERE user_id=substring($1::text FROM 6)
+      AND paid_through>now() AND status IN ('active','canceled','scheduled_cancel')) AS active
+    ) SELECT id::text,
+    to_char(created_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS "createdAt",
+    language,batch,outputs,access.active AS "subscriptionActive",
+    CASE WHEN access.active THEN NULL ELSE to_char((created_at+interval '30 days') AT TIME ZONE 'UTC',
+      'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') END AS "expiresAt"
+    FROM description_history CROSS JOIN access WHERE owner_id=$1 AND (access.active OR created_at>now()-interval '30 days')
+    AND ($2::timestamptz IS NULL OR (created_at,id::text)<($2::timestamptz,$3::text))
+    ORDER BY created_at DESC,id DESC LIMIT $4`, [ownerId,cursor?.at ?? null,cursor?.id ?? null,PAGE_SIZE+1]);
+  return pageOf(rows);
 }
 
 export function subscriptionView(row: { offer_id: string; status: string; paid_through: Date }, now = new Date()): AccountSubscription {

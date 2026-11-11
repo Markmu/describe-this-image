@@ -3,11 +3,30 @@
 .account-page h2{font-size:16px;font-weight:600;line-height:1.4;}
 .account-page-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px;}
 .account-page-heading p{color:var(--reading-muted);margin-top:8px;}
-.account-page-tabs{display:flex;gap:8px;margin-bottom:28px;}
+.account-page-tabs{display:flex;gap:8px;margin-bottom:28px;overflow-x:auto;}
+.account-page-tabs a{white-space:nowrap;}
 .account-page-tabs a{display:flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:6px;color:var(--reading-muted);}
 .account-page-tabs a:hover,.account-page-tabs a[aria-current=page]{background:var(--paper-deep);color:var(--reading-ink);}
 .account-page-tabs a[aria-current=page]{font-weight:600;}
 .account-content{display:grid;gap:24px;}
+.description-retention{max-width:76ch;}
+.description-history-list{margin-top:24px;}
+.description-history-entry{border-top:1px solid var(--account-line);}
+.description-history-entry summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:20px 0;list-style:none;}
+.description-history-entry summary::-webkit-details-marker{display:none;}
+.description-history-caption{font-weight:500;overflow-wrap:anywhere;}
+.description-history-meta{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--reading-muted);font-size:13px;grid-column:1;}
+.description-history-open{grid-column:2;grid-row:1 / 3;align-self:center;text-decoration:underline;text-underline-offset:4px;}
+.description-history-entry[open] .description-history-open{color:var(--reading-muted);}
+.description-history-outputs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;padding:4px 0 24px;}
+.description-history-outputs h3{font-weight:600;}
+.description-history-outputs .account-section-top{margin-bottom:8px;gap:8px;}
+.description-history-outputs p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;}
+@media(max-width:640px){
+ .description-history-entry summary{grid-template-columns:minmax(0,1fr);gap:8px;}
+ .description-history-open{grid-column:1;grid-row:auto;min-height:28px;}
+ .description-history-outputs{grid-template-columns:minmax(0,1fr);}
+}
 /* 1120px canvas = 548px + 24px gutter + 548px. Each column shares the outer frame. */
 .account-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch;}
 .account-ledger-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;border-radius:8px;background:var(--paper-soft);}

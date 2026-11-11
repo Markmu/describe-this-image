@@ -4,10 +4,11 @@ import { RefreshAccount } from "./AccountActions";
 import { accountDate } from "@/lib/account/format";
 import type { BillingSummary } from "@/lib/account/types";
 
-export function AccountHeader({ title, page, action }: { title: string; page: "plans" | "billing"; action?: React.ReactNode }) {
+export function AccountHeader({ title, page, action }: { title: string; page: "plans" | "billing" | "history"; action?: React.ReactNode }) {
   return <>
-    <div className="account-page-heading"><div><h1>{title}</h1><p>{page === "plans" ? "Your credits, their windows, and room for more images." : "Your subscription, payments, and billing controls."}</p></div>{action}</div>
+    <div className="account-page-heading"><div><h1>{title}</h1><p>{page === "history" ? "Find your past descriptions and copy the words you need." : page === "plans" ? "Your credits, their windows, and room for more images." : "Your subscription, payments, and billing controls."}</p></div>{action}</div>
     <nav className="account-page-tabs" aria-label="Account navigation">
+      <Link href="/account/history" prefetch={false} aria-current={page === "history" ? "page" : undefined}>Description history</Link>
       <Link href="/account/plans" prefetch={false} aria-current={page === "plans" ? "page" : undefined}>Plans and credits</Link>
       <Link href="/account/billing" prefetch={false} aria-current={page === "billing" ? "page" : undefined}>Manage billing</Link>
     </nav>

@@ -11,6 +11,7 @@ test("account return destinations use an allowlist", () => {
     assert.equal(accountReturnPath(value), "/pricing");
   }
   assert.equal(accountReturnPath("/account/plans"), "/account/plans");
+  assert.equal(accountReturnPath("/account/history"), "/account/history");
   assert.equal(accountLoginUrl("/account/billing"), "/billing/login?returnTo=%2Faccount%2Fbilling");
 });
 

@@ -4,6 +4,7 @@ import { lockOwner, transaction } from "./db";
 import { BillingError } from "./errors";
 import { ACCOUNT_WELCOME_CREDITS, GUEST_FREE_CREDITS, CREDITS_PER_IMAGE } from "../plans";
 import { assertOperationalAccess } from "../admin/identity";
+import type { ImageOutputs } from "../image-input";
 
 export type UsageIdentity = { userId?: string; guestId?: string; guestSource?: string };
 export type UsageStatus = {
@@ -138,5 +139,13 @@ export async function settleUsageInTransaction(db: PoolClient, reservationId: st
     await db.query("UPDATE usage_reservations SET status=$2 WHERE id=$1", [reservationId,target]);
 }
 
-export const completeUsage = (reservationId: string) => transaction(db => settleUsageInTransaction(db, reservationId, false));
+export const completeUsage = (reservationId: string, description?: { language: string; outputs: ImageOutputs }) => transaction(async db => {
+  await settleUsageInTransaction(db, reservationId, false);
+  if (description) {
+    // History and the charge commit together. A storage failure leaves the reservation refundable.
+    await db.query(`INSERT INTO description_history(id,owner_id,language,batch,outputs,created_at)
+      SELECT id,owner_id,$2,batch,$3::jsonb,created_at FROM usage_reservations WHERE id=$1
+      ON CONFLICT(id) DO NOTHING`, [reservationId,description.language,JSON.stringify(description.outputs)]);
+  }
+});
 export const refundUsage = (reservationId: string) => transaction(db => settleUsageInTransaction(db, reservationId, true));

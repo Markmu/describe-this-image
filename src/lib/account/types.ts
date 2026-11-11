@@ -1,4 +1,16 @@
+import type { ImageOutputs } from "../image-input";
+
 export type AccountPage<T> = { items: T[]; nextCursor: string | null };
+
+export type DescriptionHistoryEntry = {
+  id: string;
+  createdAt: string;
+  language: string;
+  batch: boolean;
+  outputs: ImageOutputs;
+  subscriptionActive: boolean;
+  expiresAt: string | null;
+};
 
 export type CreditSource = {
   id: string;

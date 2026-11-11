@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ChevronDown, CreditCard, LogOut, Wallet } from "lucide-react";
+import { ArrowUpRight, ChevronDown, CreditCard, History, LogOut, Wallet } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -68,7 +68,7 @@ export function UserAuthButton({ returnTo }: { returnTo?: string } = {}) {
     <button ref={trigger} type="button" aria-expanded={open} aria-controls={open ? id : undefined} onClick={() => setOpen(value => !value)}
       className="account-trigger">
       <AccountAvatar name={name} image={session.user.image} />
-      <span>Account</span><ChevronDown size={14} aria-hidden="true" className="account-chevron" />
+      <span className="max-w-40 truncate" title={name}>{name}</span><ChevronDown size={14} aria-hidden="true" className="account-chevron" />
     </button>
     {open && <div id={id} className="account-popover" role="region" aria-label="Account options">
       <div className="account-identity">
@@ -77,6 +77,9 @@ export function UserAuthButton({ returnTo }: { returnTo?: string } = {}) {
           {session.user.email && <p className="account-email" title={session.user.email}>{session.user.email}</p>}</div>
       </div>
       <div className="account-actions" role="group" aria-label="Plans and billing">
+        <Link href="/account/history" prefetch={false} className="account-action" onClick={() => setOpen(false)}>
+          <History size={18} aria-hidden="true" /><span>Description history</span><ArrowUpRight size={15} aria-hidden="true" className="account-action-trailing" />
+        </Link>
         <Link href="/account/plans" prefetch={false} className="account-action" onClick={() => setOpen(false)}>
           <Wallet size={18} aria-hidden="true" /><span>Plans and credits</span><ArrowUpRight size={15} aria-hidden="true" className="account-action-trailing" />
         </Link>

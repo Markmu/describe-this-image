@@ -25,7 +25,7 @@ export async function generateImageDescription(input: DescriptionRequest, depend
     await input.onStage?.("generation");
     const outputs = await dependencies.describeImage(input.image, input.language);
     await input.onStage?.("settlement");
-    await dependencies.completeUsage(usage.reservationId);
+    await dependencies.completeUsage(usage.reservationId, { language: input.language, outputs });
     return { outputs, language: input.language, remaining: usage.remaining };
   } catch (error) {
     try { await dependencies.refundUsage(usage.reservationId); await input.onStage?.("refunded"); }

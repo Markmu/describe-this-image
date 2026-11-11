@@ -26,7 +26,14 @@ export async function recoverStaleUsage() {
 export async function pruneOperationalMetadata() {
   return transaction(async db => {
     await lockOwner(db, "telemetry-prune");
-    const requests = await db.query(`DELETE FROM generation_requests r WHERE r.created_at < now()-interval '30 days' AND r.result <> 'processing'
+    const descriptions = await db.query(`DELETE FROM description_history h WHERE h.created_at <= now()-interval '30 days'
+      AND NOT EXISTS(SELECT 1 FROM billing_subscriptions s WHERE h.owner_id LIKE 'user:%'
+        AND s.user_id=substring(h.owner_id FROM 6) AND s.paid_through>now()
+        AND s.status IN ('active','canceled','scheduled_cancel'))`);
+    const requests = await db.query(`DELETE FROM generation_requests r WHERE r.created_at <= now()-interval '30 days' AND r.result <> 'processing'
+      AND NOT EXISTS(SELECT 1 FROM billing_subscriptions s WHERE r.owner_id LIKE 'user:%'
+        AND s.user_id=substring(r.owner_id FROM 6) AND s.paid_through>now()
+        AND s.status IN ('active','canceled','scheduled_cancel'))
       AND (r.result IN ('succeeded','blocked','invalid','quota_exceeded','rate_limited','suspended','paused') OR EXISTS(
         SELECT 1 FROM operation_cases c WHERE c.source_type='request' AND c.source_id=r.id::text AND c.status='resolved'))`);
     const attempts = await db.query(`DELETE FROM webhook_attempts w WHERE w.created_at < now()-interval '90 days' AND (w.result <> 'failed' OR EXISTS(
@@ -34,6 +41,6 @@ export async function pruneOperationalMetadata() {
       SELECT 1 FROM webhook_attempts a WHERE a.event_id=w.event_id AND a.result IN ('succeeded','duplicate') AND a.created_at>w.created_at))`);
     const tasks = await db.query(`DELETE FROM operation_tasks t WHERE t.started_at < now()-interval '90 days' AND (t.status='succeeded' OR EXISTS(
       SELECT 1 FROM operation_cases c WHERE c.source_type='task' AND c.source_id=t.id::text AND c.status='resolved'))`);
-    return { requests: requests.rowCount, attempts: attempts.rowCount, tasks: tasks.rowCount };
+    return { descriptions: descriptions.rowCount, requests: requests.rowCount, attempts: attempts.rowCount, tasks: tasks.rowCount };
   });
 }
